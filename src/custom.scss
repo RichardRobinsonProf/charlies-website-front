@@ -1,0 +1,33 @@
+/* make the customizations */
+$theme-colors: (
+        "primary":#2E31D2,
+        "secundary":#2E31D2,
+        "light": #D3D3D3
+);
+
+//#CD2527
+
+
+
+/* import bootstrap to set changes */
+@import "../~bootstrap/scss/bootstrap";
+
+.btn-secundary {
+    color: #ffffff;
+    
+}
+.btn-secundary:hover {
+    color: #ffffff
+}
+
+.btn {
+    border-radius: 20px;
+}
+
+.strong {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
