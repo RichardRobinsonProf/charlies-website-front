@@ -6,7 +6,7 @@ function Groups () {
         <div className="text-center">
         <h1 className="display-6 text-center ">Groups</h1>
         <Link to= '/form'>
-        <Button className="btn btn-lg btn-secundary lead text-white" >
+        <Button className="btn btn-lg btn-primary text-white" >
         Search Groups
     </Button>
     </Link>

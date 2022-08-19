@@ -49,7 +49,7 @@ function Contact () {
 						</div>
 					</div>
 				</div>
-				<button type="submit" className="btn btn-lg btn-secundary lead text-white"><span className="lead text-white">Send Message</span></button>
+				<button type="submit" className="btn btn-lg btn-primary text-white">Send Message</button>
 			</form>
     </div>
 	</div>

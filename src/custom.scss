@@ -28,6 +28,30 @@ $theme-colors: (
     font-weight: bold;
     font-size: 20px;
 }
+.accordion {
+
+    padding: 18px;
+    width: 100%;
+}
+
+.accordion-button {
+      background-color: #D3D3D3 !important;
+        color: black !important;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left !important;
+     
+
+ }
+
+
+
+.accordion-button:not(.collapsed) {
+  color: #212529;
+}
+
 
 
 
