@@ -11,12 +11,9 @@ const isEmail = (value) => value.includes("@");
 //control shift f to format code
 //https://www.youtube.com/watch?v=NgWGllOjkbs
 function FormPage() {
-  const [dates, setdates] = useState([]);
+  const [dates, setDates] = useState([]);
   
-const addDate = (date) => {
-  setdates([...dates, date]);
-  console.log(dates);
-}
+
   const {
     value: firstNameValue,
     isValid: firstNameIsValid,
@@ -91,9 +88,32 @@ const addDate = (date) => {
     reset: resetTime
   } = useInput(isNotEmpty);
 
-  
+
 
   let formIsValid = false;
+
+  const examisValidWhenObjectiveIsExam = function () {
+    if (objectiveValue === "Exam") {
+      return examIsValid;
+    } else {
+      return true;
+    }
+  }
+
+  const addDate = () => {
+    if (dayIsValid && timeIsValid){
+      setDates([...dates, 
+        {
+          day : dayValue,
+          time : timeValue
+        }])
+      ;
+      console.log(dates);
+    }
+    
+  }
+
+  
 
   if (firstNameIsValid 
     && lastNameIsValid 
@@ -101,7 +121,7 @@ const addDate = (date) => {
     && languageIsValid 
     && levelIsValid 
     && objectiveIsValid
-    && examIsValid
+    && examisValidWhenObjectiveIsExam()
     && dayIsValid
     && timeIsValid) {
     formIsValid = true;
@@ -115,15 +135,32 @@ const addDate = (date) => {
     }
 
     console.log('Submitted!');
-    console.log(firstNameValue,
-      lastNameValue, 
-      emailValue, 
-      languageValue ,
-      levelValue ,
-      objectiveValue, 
-      examValue, 
-      dayValue,
-      timeValue);
+
+
+
+    const examWhenObjectiveIsExam = function () {
+      if (objectiveValue === "Exam") {
+        return examValue;
+      } else {
+        return "";
+      }
+    }
+
+    let newStudent = {
+      firstName : firstNameValue,
+      lastName : lastNameValue, 
+      email : emailValue, 
+      language : languageValue ,
+      level : levelValue,
+      objective : objectiveValue, 
+      exam : examWhenObjectiveIsExam(), 
+      day : dayValue,
+      time : timeValue
+
+    }
+    console.log(
+      newStudent
+      );
 
     resetFirstName();
     resetLastName();
@@ -254,6 +291,7 @@ const addDate = (date) => {
         </div>
 
                                         {/* objective */}  
+                                    
         <div className={objectiveClasses}>
         <label></label>
          <select 
@@ -272,11 +310,13 @@ const addDate = (date) => {
         
 
                                         {/* exam */}  
+
         <div  className={examClasses}>
         <label></label>
          <select 
             type= "text"
             className="form-control mt-1"
+            hidden={objectiveValue !== 'Exam'}
             value={examValue}
             onChange={examChangeHandler}
             onBlur={examBlurHandler}>
@@ -285,12 +325,16 @@ const addDate = (date) => {
             <option value = "2" >option 2</option>
             <option value = "3">option 3</option>
         </select>
-        {examHasError && <p className="error-text">Please select the exam</p>}
+        {examHasError && objectiveValue ==='Exam' && <p className="error-text">Please select the exam</p>}
         </div>
  
 
  
                                         {/* time day */} 
+      
+          {dates.map((date)=>(
+            <div>{date.day} - {date.time}</div>
+           ))}
         
         <div className = "row">
         <div className = "col">
@@ -315,7 +359,8 @@ const addDate = (date) => {
         </div>
         </div>
 
-                                        {/* time time */}           
+                                        {/* time time */}      
+    
         <div className = "col">  
         <div  className={timeClasses}>
         <label></label> 

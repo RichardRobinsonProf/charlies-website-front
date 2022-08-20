@@ -40,11 +40,12 @@ function ContainerCards() {
         </Row>
         <br></br>
         <Button
+        className="btn btn-secundary text-black"
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
           aria-expanded={open}
         >
-          More info...
+          ...
         </Button>
         <Collapse in={open}>
           <div id="example-collapse-text">
