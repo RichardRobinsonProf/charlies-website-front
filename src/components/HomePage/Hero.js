@@ -1,4 +1,4 @@
-import Logo from '../images/Logo.png'
+import Logo from '../../images/Logo.png'
 import Image from 'react-bootstrap/Image'
 
 function Hero () {

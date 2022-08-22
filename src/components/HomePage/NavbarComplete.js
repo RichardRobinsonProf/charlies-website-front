@@ -33,14 +33,14 @@ function NavbarComplete () {
         <Container>
         <Navbar.Brand >
         <a href='#section-hero'>
-        <img src= {require('../images/Logo.png')}  alt="logo" width="50" height="" />
+        <img src= {require('../../images/Logo.png')}  alt="logo" width="50" height="" />
         </a>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="navbarScroll">
         <Nav className="me-auto ">
         <Nav.Link href="#aboutus"className="lead text-black strong">About us</Nav.Link>
-        <Nav.Link href="#clases"className="lead text-black strong">Classes</Nav.Link>
+        <Nav.Link href="#classes"className="lead text-black strong">Classes</Nav.Link>
         <Nav.Link href="#translations"className="lead text-black strong">Translations</Nav.Link>
         <Nav.Link href="#groups"className="lead text-black strong">Groups</Nav.Link>
         <Nav.Link href="#prices"className="lead text-black strong">Prices</Nav.Link>

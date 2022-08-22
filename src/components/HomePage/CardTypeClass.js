@@ -1,4 +1,4 @@
-import {Card} from 'react-bootstrap'
+import {Card, Image} from 'react-bootstrap'
 
 function CardTypeClass (props) {
  
@@ -8,10 +8,9 @@ function CardTypeClass (props) {
       bg="light"
       text='black'
       border = 'primary'
-    
       className="text-center justify-content-center">
       <Card.Body>
-        <Card.Title className="display-6 text-center"> {props.title} </Card.Title>
+        <Card.Title className=""> {props.title} </Card.Title>
         <Card.Text className="lead text-black">
          {props.body}
         </Card.Text>

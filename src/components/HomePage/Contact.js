@@ -17,10 +17,10 @@ function Contact () {
 		e.target.reset();
 	}
     return(
-	<section id="contact">
+	<section id="contactus">
 		<div className="text-center">
 		
-		<h1 className="display-6 text-center">Contact</h1>
+		<h1 className="display-6 text-center">Contact us</h1>
 	
 
     <div className="align-items-center text-center bg-light container">

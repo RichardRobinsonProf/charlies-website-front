@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 function Groups () {
     return (
+        <section id = "groups">
         <div className="text-center">
         <h1 className="display-6 text-center ">Groups</h1>
         <Link to= '/form'>
@@ -11,6 +12,7 @@ function Groups () {
     </Button>
     </Link>
     </div>
+    </section>
     )
 }
 
