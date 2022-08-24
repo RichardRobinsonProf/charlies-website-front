@@ -6,6 +6,8 @@ import Groups from '../components/HomePage/Groups'
 import Translations from '../components/HomePage/Translations';
 import AboutUs from '../components/HomePage/AboutUs';
 import Prices from '../components/HomePage/Prices';
+import Reviews from '../components/HomePage/Reviews';
+import Footer from '../components/HomePage/Footer';
 
 
 
@@ -19,7 +21,9 @@ function HomePage() {
     <Translations/>
     <Groups/>
     <Prices/>
+    <Reviews/>
     <Contact/>
+    <Footer/>
     </div>
   );
 }

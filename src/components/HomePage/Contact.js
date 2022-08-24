@@ -1,6 +1,6 @@
+
 import emailjs from 'emailjs-com';
-
-
+import {Container} from 'react-bootstrap';
 
 console.log(process.env)
 function Contact () {
@@ -26,6 +26,7 @@ function Contact () {
     <div className="align-items-center text-center bg-light container">
 
     <br></br>
+	<Container >
 			<form className="mb-4" onSubmit={sendEmail}>
 				<div className="row">
 					<div className="col-12 col-md-6">
@@ -49,8 +50,10 @@ function Contact () {
 						</div>
 					</div>
 				</div>
-				<button type="submit" className="btn btn-lg btn-primary text-white">Send Message</button>
+				<button  type="submit" className="btn btn-lg btn-primary text-white">Send Message</button>
 			</form>
+		</Container>
+
     </div>
 	</div>
 	</section>
