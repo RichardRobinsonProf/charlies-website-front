@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Image } from "react-bootstrap";
 import "./FormLayout.css";
 import useInput from "../hooks/use-input";
-import { listWorkingHours, calculateHourDifference } from "../utils/time";
+import { listWorkingHours, calculateHourDifference,listWorkingDays, listMatrix} from "../utils/time";
 import TimezoneSelect from "react-timezone-select";
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -12,20 +12,31 @@ const isEmail = (value) => value.includes("@");
 //https://www.youtube.com/watch?v=NgWGllOjkbs
 function FormPage() {
   const [dates, setDates] = useState([]);
+  const [difference, setDifference] = useState(0);
+  const [selectedTimezone, setSelectedTimezone] = useState({});
+ 
 
- 
- 
+
   const [timezone, setTimezone] = useState(
     Intl.DateTimeFormat().resolvedOptions().timeZone
   )
-
-  const [selectedTimezone, setSelectedTimezone] = useState({});
-
-  console.log(selectedTimezone);
+  function timezoneChangeHandler (timezone) {
+    let difference
+    difference = calculateHourDifference(timezone.offset)
+    setDifference(difference)
+  }
   
-  calculateHourDifference(5.5)
-  let workinghours = listWorkingHours(16)
+ // console.log(selectedTimezone);
+  
+  let workinghours = listWorkingHours(difference);
   console.log(workinghours)
+
+  let workingdays = listWorkingDays (workinghours.nextDay, workinghours.previousDay);
+  console.log(workingdays)
+
+  let matrix = listMatrix (workingdays, workinghours.workingHours,workinghours.nextDay, workinghours.previousDay);
+  console.log(matrix)
+
 
   const {
     value: firstNameValue,
@@ -378,7 +389,7 @@ function FormPage() {
           <div>
             <TimezoneSelect
               value={selectedTimezone}
-              onChange={setSelectedTimezone}
+              onChange={timezoneChangeHandler}
             />
           </div>
 
@@ -401,14 +412,14 @@ function FormPage() {
                   onChange={dayChangeHandler}
                   onBlur={dayBlurHandler}
                 >
-                  <option value="">Day</option>
-                  <option value="Monday">Monday</option>
-                  <option value="Tuesday">Tuesday</option>
-                  <option value="Wednesday">Wednesday</option>
-                  <option value="Thursday">Thursday</option>
-                  <option value="Friday">Friday</option>
-                  <option value="Saturday">Saturday</option>
-                  <option value="Sunday">Sunday</option>
+                  <option value="">Select the day</option>
+                  {
+                  
+                  workingdays.map((day) => (  
+                    <option value="">{day}</option>
+                  ))
+                  
+                  }
                 </select>
                 {dayHasError && (
                   <p className="error-text">Please select the day</p>
@@ -428,28 +439,17 @@ function FormPage() {
                   onChange={timeChangeHandler}
                   onBlur={timeBlurHandler}
                 >
+                  
                   <option value="">Time</option>
-                  <option value="08:00">08:00</option>
-                  <option value="08:30">08:30</option>
-                  <option value="09:00">09:00</option>
-                  <option value="09:30">09:30</option>
-                  <option value="10:00">10:00</option>
-                  <option value="10:30">10:30</option>
-                  <option value="11:00">11:00</option>
-                  <option value="11:30">11:30</option>
-                  <option value="12:00">12:00</option>
-                  <option value="12:30">12:30</option>
-                  <option value="13:00">13:00</option>
-                  <option value="13:30">13:30</option>
-                  <option value="14:00">14:00</option>
-                  <option value="14:30">14:30</option>
-                  <option value="15:00">15:00</option>
-                  <option value="15:30">15:30</option>
-                  <option value="16:00">16:00</option>
-                  <option value="16:30">16:30</option>
-                  <option value="17:00">17:00</option>
-                  <option value="17:30">17:30</option>
-                  <option value="18:00">18:00</option>
+                  {
+                  
+                  workinghours.workingHours.map((time) => (  
+                    <option value="">{time.hour}:{time.minute}</option>
+                  ))
+                  
+                  }
+
+
                 </select>
                 {timeHasError && (
                   <p className="error-text">Please select the time</p>
