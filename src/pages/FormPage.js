@@ -3,7 +3,14 @@ import React, { useState } from "react";
 import { Image } from "react-bootstrap";
 import "./FormLayout.css";
 import useInput from "../hooks/use-input";
-import { listWorkingHours, calculateHourDifference,listWorkingDays, listMatrix} from "../utils/time";
+import {
+  listWorkingHours,
+  calculateHourDifference,
+  listWorkingDays,
+  listMatrix,
+  listWorkingHoursMatrix,
+  convertToArgentineTime,
+} from "../utils/time";
 import TimezoneSelect from "react-timezone-select";
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -13,30 +20,52 @@ const isEmail = (value) => value.includes("@");
 function FormPage() {
   const [dates, setDates] = useState([]);
   const [difference, setDifference] = useState(0);
-  const [selectedTimezone, setSelectedTimezone] = useState({});
- 
+  const [selectedTimezone, setSelectedTimezone] = useState("");
 
 
-  const [timezone, setTimezone] = useState(
-    Intl.DateTimeFormat().resolvedOptions().timeZone
-  )
-  function timezoneChangeHandler (timezone) {
-    let difference
-    difference = calculateHourDifference(timezone.offset)
-    setDifference(difference)
+  console.log (dates)
+
+  function resetDates() {
+    setDates([]);
   }
-  
- // console.log(selectedTimezone);
-  
+
+  function timezoneChangeHandler(timezone) {
+    setSelectedTimezone(timezone);
+    resetTime();
+    resetDay();
+    resetDates();
+    let difference = calculateHourDifference(timezone.offset);
+    setDifference(difference);
+  }
+
+  // console.log(selectedTimezone);
+
   let workinghours = listWorkingHours(difference);
-  console.log(workinghours)
 
-  let workingdays = listWorkingDays (workinghours.nextDay, workinghours.previousDay);
-  console.log(workingdays)
+  let workingdays = listWorkingDays(
+    workinghours.nextDay,
+    workinghours.previousDay
+  );
 
-  let matrix = listMatrix (workingdays, workinghours.workingHours,workinghours.nextDay, workinghours.previousDay);
-  console.log(matrix)
+  let matrix = listMatrix(
+    workingdays,
+    workinghours.workingHours,
+    workinghours.nextDay,
+    workinghours.previousDay
+  );
 
+  function validateFreeDate (day, hour, minute) {
+    let dateIsValid = true;
+      dates.forEach(function(item) { 
+        if ( item.day === day && item.hour === hour && item.minute === minute) {
+          dateIsValid = false;
+        } 
+      })
+      return dateIsValid;
+  }
+
+  //let argentineTime = convertToArgentineTime("dayValue", 18, 0, selectedTimezone.offset);
+  //console.log(argentineTime);
 
   const {
     value: firstNameValue,
@@ -124,16 +153,27 @@ function FormPage() {
 
   const addDate = () => {
     if (dayIsValid && timeIsValid) {
+     
       setDates([
         ...dates,
         {
           day: dayValue,
-          time: timeValue,
+          hour: timeValue,
+          minute: timeValue,
         },
       ]);
-      console.log(dates);
     }
   };
+
+  let lisWorkingHoursMatrix = workinghours.workingHours;
+
+  if (dayValue && dayIsValid) {
+    lisWorkingHoursMatrix = listWorkingHoursMatrix(
+      dayValue,
+      matrix,
+      workingdays
+    );
+  }
 
   if (
     firstNameIsValid &&
@@ -270,8 +310,6 @@ function FormPage() {
             </div>
           </div>
 
-         
-        
           {/* email */}
 
           <div className={emailClasses}>
@@ -364,6 +402,7 @@ function FormPage() {
 
           {/* exam */}
 
+          <div className = "row">
           <div className={examClasses}>
             <label></label>
             <select
@@ -383,6 +422,17 @@ function FormPage() {
               <p className="error-text">Please select the exam</p>
             )}
           </div>
+          </div>
+
+          <h3 className="Auth-form-title display-6 text-center">
+            Select free moments
+          </h3>
+          {dates.map((date) => (
+            <div>
+              {date.day} - {date.time}
+            </div>
+          ))}
+
 
           {/* timeZone */}
 
@@ -395,11 +445,7 @@ function FormPage() {
 
           {/* time day */}
 
-          {dates.map((date) => (
-            <div>
-              {date.day} - {date.time}
-            </div>
-          ))}
+          
 
           <div className="row">
             <div className="col">
@@ -408,18 +454,15 @@ function FormPage() {
                 <select
                   type="text"
                   className="form-control mt-1"
+                  hidden={selectedTimezone === ""}
                   value={dayValue}
                   onChange={dayChangeHandler}
                   onBlur={dayBlurHandler}
                 >
                   <option value="">Select the day</option>
-                  {
-                  
-                  workingdays.map((day) => (  
-                    <option value="">{day}</option>
-                  ))
-                  
-                  }
+                  {workingdays.map((day) => (
+                    <option value={day}>{day}</option>
+                  ))}
                 </select>
                 {dayHasError && (
                   <p className="error-text">Please select the day</p>
@@ -435,21 +478,17 @@ function FormPage() {
                 <select
                   type="text"
                   className="form-control mt-1"
+                  hidden={selectedTimezone === ""}
                   value={timeValue}
                   onChange={timeChangeHandler}
                   onBlur={timeBlurHandler}
                 >
-                  
                   <option value="">Time</option>
-                  {
-                  
-                  workinghours.workingHours.map((time) => (  
-                    <option value="">{time.hour}:{time.minute}</option>
-                  ))
-                  
-                  }
-
-
+                  {lisWorkingHoursMatrix.map((time) => (
+                        
+                    <option value="" >{time.hour}:{time.minute}</option>
+        
+                  ))}
                 </select>
                 {timeHasError && (
                   <p className="error-text">Please select the time</p>
