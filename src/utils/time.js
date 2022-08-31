@@ -1,5 +1,5 @@
 const TOP = 21;
-const BOTTOM = 5;
+const BOTTOM = 7;
 const OFFSETARGENTINA = 3;
 
 export function argentineWorkingHours() {
@@ -242,23 +242,25 @@ export function convertToArgentineTime(day, hour, minute, difference) {
   } else {
     hour = hour + 0;
   }
+  console.log(hour, difference)
 
-  if (hour + difference < 0) {
-    hour = difference + hour + 24;
+  if (hour - difference < 0) {
+    hour = hour - difference + 24;
     if (i == 0) {
       i = 6;
     } else {
       i = i - 1;
     }
-  } else if (hour + difference > 24) {
-    hour = hour + difference - 24;
+  } else if (hour - difference > 24) {
+    hour = hour - difference - 24;
     if (i == 6) {
       i = 0;
     } else {
       i = i + 1;
     }
+
   } else {
-    hour = hour + difference;
+    hour = hour - difference;
   }
 
   if (hour - Math.floor(hour) == 0.5) {

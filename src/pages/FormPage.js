@@ -1,6 +1,6 @@
 import Logo from "../images/Logo.png";
-import React, { useState } from "react";
-import { Image } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Image, Alert } from "react-bootstrap";
 import "./FormLayout.css";
 import useInput from "../hooks/use-input";
 import {
@@ -22,12 +22,17 @@ function FormPage() {
   const [difference, setDifference] = useState(0);
   const [selectedTimezone, setSelectedTimezone] = useState("");
   const [freeDate, setFreeDate] = useState(true);
+  const [argentineDates, setArgentineDates] = useState([]);
 
 
-  console.log (dates)
+
 
   function resetDates() {
     setDates([]);
+  }
+
+  function resetTimeZone () {
+    setSelectedTimezone("");
   }
 
   function timezoneChangeHandler(timezone) {
@@ -77,8 +82,7 @@ function FormPage() {
       return retorno
   }
 
-  //let argentineTime = convertToArgentineTime("dayValue", 18, 0, selectedTimezone.offset);
-  //console.log(argentineTime);
+  
 
   const {
     value: firstNameValue,
@@ -153,6 +157,14 @@ function FormPage() {
     inputBlurHandler: timeBlurHandler,
     reset: resetTime,
   } = useInput(isNotEmpty);
+  const {
+    value: otherExamValue,
+    isValid: otherExamIsValid,
+    hasError: otherExamHasError,
+    valueChangeHandler: otherExamChangeHandler,
+    inputBlurHandler: otherExamBlurHandler,
+    reset: resetOtherExam,
+  } = useInput(isNotEmpty);
 
   let formIsValid = false;
 
@@ -164,7 +176,16 @@ function FormPage() {
     }
   };
 
-  const addDate = () => {
+  const examIsValidWhenObjectiveIsExamOther = function () {
+    if (objectiveValue === "Exam" && examValue === "Other") {
+      return otherExamIsValid;
+    } else {
+      return true;
+    }
+  }
+
+  const addDate = (event) => {
+    event.preventDefault()
     if (dayIsValid && timeIsValid) {
       let day = dayValue;
       let hour = timeValue.split(":")[0];
@@ -173,13 +194,52 @@ function FormPage() {
 
       if (valid) {
         setDates([...dates, { day, hour, minute }]);
-        resetDay();
-        resetTime();
+       
       }   
     }
   };
+  const examWhenObjectiveIsExam = function () {
+    if (objectiveValue === "Exam" && examValue !== "Other") {
+      return examValue;
+    } else if (objectiveValue === "Exam" && examValue === "Other") {
+      return otherExamValue;
+    } else {
+      return "";
+    }
+  };
+  console.log ("first name is valid: " + firstNameIsValid)
+  console.log ("last name is valid: " + lastNameIsValid)
+  console.log ("email is valid: " + emailIsValid)
+  console.log ("language is valid: " + languageIsValid)
+  console.log ("level is valid: " + levelIsValid)
+  console.log ("objective is valid: " + objectiveIsValid)
+  console.log ("exam is valid: " + examisValidWhenObjectiveIsExam())
+  console.log ("other exam is valid: " + examIsValidWhenObjectiveIsExamOther())
+  console.log ("day is valid: " + dayIsValid)
+  console.log ("time is valid: " + timeIsValid)
 
   let listWorkingHoursM = workinghours.workingHours;
+
+  useEffect(() => {
+    let retorno = []
+    if (dates){
+      dates.forEach(function(item) {
+        console.log(item)
+        let hour = parseInt(item.hour);
+        let minute = item.minute;
+        let day = item.day;
+        let argentineTime = convertToArgentineTime(day,hour,minute,difference);
+        retorno.push (argentineTime);
+      }
+      )
+      setArgentineDates(retorno);
+    }
+
+  }, [dates, selectedTimezone]);
+
+   
+
+
 
   if (dayValue && dayIsValid) {
     listWorkingHoursM = listWorkingHoursMatrix(
@@ -197,8 +257,9 @@ function FormPage() {
     levelIsValid &&
     objectiveIsValid &&
     examisValidWhenObjectiveIsExam() &&
+    examIsValidWhenObjectiveIsExamOther () &&
     dayIsValid &&
-    timeIsValid
+    timeIsValid 
   ) {
     formIsValid = true;
   }
@@ -212,13 +273,8 @@ function FormPage() {
 
     console.log("Submitted!");
 
-    const examWhenObjectiveIsExam = function () {
-      if (objectiveValue === "Exam") {
-        return examValue;
-      } else {
-        return "";
-      }
-    };
+    
+   
 
     let newStudent = {
       firstName: firstNameValue,
@@ -228,8 +284,9 @@ function FormPage() {
       level: levelValue,
       objective: objectiveValue,
       exam: examWhenObjectiveIsExam(),
-      day: dayValue,
-      time: timeValue,
+      localTime: dates,
+      argentineTime: argentineDates,
+      timeZone: selectedTimezone
     };
     console.log(newStudent);
 
@@ -242,6 +299,9 @@ function FormPage() {
     resetExam();
     resetDay();
     resetTime();
+    resetOtherExam();
+    resetDates();
+    resetTimeZone();
   };
 
   const firstNameClasses = firstNameHasError
@@ -269,6 +329,9 @@ function FormPage() {
     ? "form-group mt-1 invalid"
     : "form-group mt-1";
   const timeClasses = timeHasError
+    ? "form-group mt-1 invalid"
+    : "form-group mt-1";
+  const otherExamClasses = otherExamHasError
     ? "form-group mt-1 invalid"
     : "form-group mt-1";
 
@@ -443,19 +506,19 @@ function FormPage() {
           </div>
           </div>      
 
-          <div className={firstNameClasses}>
+          <div className = { otherExamClasses}>
                 <label className="lead text-black"></label>
                 <input
                   type="text"
                   className="form-control mt-1"
                   placeholder="What is the name of the exam?"
                   hidden={examValue !== "other"}
-                  value={firstNameValue}
-                  onChange={firstNameChangeHandler}
-                  onBlur={firstNameBlurHandler}
+                  value= {otherExamValue}
+                  onChange={otherExamChangeHandler}
+                  onBlur= {otherExamBlurHandler}
                 />
-                {firstNameHasError && (
-                  <p className="error-text">Please enter a name of an exam.</p>
+                {otherExamHasError && (
+                  <p className="error-text">Please enter the name of the exam.</p>
                 )}
               </div>
 
@@ -534,7 +597,7 @@ function FormPage() {
           </div>
           {!freeDate && (
                 <p className="error-text">Please select a valid time</p>)}
-          <button onClick={addDate}>Add another time</button>
+          <button type="button" onClick={addDate}>Add time</button>
 
           {/* submit */}
 
@@ -542,6 +605,10 @@ function FormPage() {
             <button type="submit" className="btn btn-primary btn-lg">
               <span className="text-white">Submit</span>
             </button>
+
+            <Alert variant = "danger">
+                
+            </Alert>
           </div>
         </div>
       </form>
