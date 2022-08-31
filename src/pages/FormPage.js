@@ -21,6 +21,7 @@ function FormPage() {
   const [dates, setDates] = useState([]);
   const [difference, setDifference] = useState(0);
   const [selectedTimezone, setSelectedTimezone] = useState("");
+  const [freeDate, setFreeDate] = useState(true);
 
 
   console.log (dates)
@@ -47,6 +48,16 @@ function FormPage() {
     workinghours.previousDay
   );
 
+  function convertToReadableTime (hour, minute) {
+    if (hour < 10) {
+      hour = "0" + hour;
+    }
+    if (minute < 10) {
+      minute = "0" + minute;
+    }
+    return hour + ":" + minute;
+  }
+
   let matrix = listMatrix(
     workingdays,
     workinghours.workingHours,
@@ -55,13 +66,15 @@ function FormPage() {
   );
 
   function validateFreeDate (day, hour, minute) {
-    let dateIsValid = true;
+    let retorno = true
+      setFreeDate(true)
       dates.forEach(function(item) { 
         if ( item.day === day && item.hour === hour && item.minute === minute) {
-          dateIsValid = false;
+          setFreeDate(false);
+          retorno = false
         } 
       })
-      return dateIsValid;
+      return retorno
   }
 
   //let argentineTime = convertToArgentineTime("dayValue", 18, 0, selectedTimezone.offset);
@@ -153,22 +166,23 @@ function FormPage() {
 
   const addDate = () => {
     if (dayIsValid && timeIsValid) {
-     
-      setDates([
-        ...dates,
-        {
-          day: dayValue,
-          hour: timeValue,
-          minute: timeValue,
-        },
-      ]);
+      let day = dayValue;
+      let hour = timeValue.split(":")[0];
+      let minute = timeValue.split(":")[1];
+      let valid = validateFreeDate(day, hour, minute); 
+
+      if (valid) {
+        setDates([...dates, { day, hour, minute }]);
+        resetDay();
+        resetTime();
+      }   
     }
   };
 
-  let lisWorkingHoursMatrix = workinghours.workingHours;
+  let listWorkingHoursM = workinghours.workingHours;
 
   if (dayValue && dayIsValid) {
-    lisWorkingHoursMatrix = listWorkingHoursMatrix(
+    listWorkingHoursM = listWorkingHoursMatrix(
       dayValue,
       matrix,
       workingdays
@@ -346,7 +360,7 @@ function FormPage() {
                   <option value="German">German</option>
                   <option value="Portuguese">Portuguese</option>
                   <option value="Italian">Italian</option>
-                  <option value="Chinese">Chinese</option>
+                  <option value="Rusian">Rusian</option>
                 </select>
                 {languageHasError && (
                   <p className="error-text">Please select a language</p>
@@ -414,22 +428,43 @@ function FormPage() {
               onBlur={examBlurHandler}
             >
               <option value="">Select the exam</option>
-              <option value="1">option 1</option>
-              <option value="2">option 2</option>
-              <option value="3">option 3</option>
+              <option value="KET">KET</option>
+              <option value="PET">PET</option>
+              <option value="FCE">FCE</option>
+              <option value="CAE">CAE</option>
+              <option value="CPE">CPE</option>
+              <option value="IELTS">IELTS</option>
+              <option value="TOEFL">TOEFL</option>
+              <option value="other">Other (please specify)</option>
             </select>
             {examHasError && objectiveValue === "Exam" && (
               <p className="error-text">Please select the exam</p>
             )}
           </div>
-          </div>
+          </div>      
+
+          <div className={firstNameClasses}>
+                <label className="lead text-black"></label>
+                <input
+                  type="text"
+                  className="form-control mt-1"
+                  placeholder="What is the name of the exam?"
+                  hidden={examValue !== "other"}
+                  value={firstNameValue}
+                  onChange={firstNameChangeHandler}
+                  onBlur={firstNameBlurHandler}
+                />
+                {firstNameHasError && (
+                  <p className="error-text">Please enter a name of an exam.</p>
+                )}
+              </div>
 
           <h3 className="Auth-form-title display-6 text-center">
             Select free moments
           </h3>
           {dates.map((date) => (
             <div>
-              {date.day} - {date.time}
+              {date.day} - {convertToReadableTime(date.hour,date.minute)}
             </div>
           ))}
 
@@ -484,9 +519,9 @@ function FormPage() {
                   onBlur={timeBlurHandler}
                 >
                   <option value="">Time</option>
-                  {lisWorkingHoursMatrix.map((time) => (
+                  {listWorkingHoursM.map((time) => (
                         
-                    <option value="" >{time.hour}:{time.minute}</option>
+                    <option value={time.timeConcatenated} >{convertToReadableTime(time.hour,time.minute)}</option>
         
                   ))}
                 </select>
@@ -494,9 +529,12 @@ function FormPage() {
                   <p className="error-text">Please select the time</p>
                 )}
               </div>
+              
             </div>
           </div>
-          <button onClick={addDate}>Add another moment</button>
+          {!freeDate && (
+                <p className="error-text">Please select a valid time</p>)}
+          <button onClick={addDate}>Add another time</button>
 
           {/* submit */}
 

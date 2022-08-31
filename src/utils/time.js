@@ -204,11 +204,20 @@ export function listWorkingHoursMatrix(dayValue, matrix, workingdays) {
     while (i < workingdays.length && workingdays[i] != dayValue) {
       i++;
     }
-  }
-  return matrix[i];
+  } 
+
+  let workinghoursAdjusted = [];
+  matrix[i].forEach((time) => {
+    workinghoursAdjusted.push(
+      {hour:time.hour,
+      minute:time.minute,
+      timeConcatenated: time.hour + ":" + time.minute});
+      
+  })
+  return workinghoursAdjusted;
 }
 
-export function calculateTimeValue(hour, minute, difference) {}
+
 
 export function convertToArgentineTime(day, hour, minute, difference) {
   let daysOftheWeek = [
