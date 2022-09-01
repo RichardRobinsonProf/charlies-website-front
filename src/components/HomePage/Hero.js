@@ -16,7 +16,7 @@ function Hero () {
             <p className="display-6 text-black">A professional, personalised and flexible language institute</p>
             <br></br>
             <p className="lead text-black">Would you like to learn a language? Take classes with us and not only will you learn by practising with a native teacher, but you can also create your own personalized course based on your needs.</p>
-            <p className="lead text-black">We offer classes in these languages: <p className='display'>English, French, German, Portuguese, Italian, Chinese, Spanish for foreigners</p></p>
+            <p className="lead text-black">We offer classes in these languages: <span className='display'>English, French, German, Portuguese, Italian, Chinese, Spanish for foreigners</span></p>
 
             <br></br>
             

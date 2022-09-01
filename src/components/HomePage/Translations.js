@@ -11,7 +11,6 @@ function Translations() {
     <section id="translations">
       <div className="text-center">
         <h1 className="display-6 text-center ">Translations</h1>
-       
       </div>
       <br></br>
       <Container>

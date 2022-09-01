@@ -34,16 +34,16 @@ export function listWorkingHours(difference) {
       hour = hour - 24;
     }
 
-    if (differenceAfterComma == 0.5) {
-      if (minute == 0) {
+    if (differenceAfterComma === 0.5) {
+      if (minute === 0) {
         minute = 30;
       } else {
         minute = 0;
         hour = hour + 1;
       }
     }
-    if (differenceAfterComma == 0.75) {
-      if (minute == 0) {
+    if (differenceAfterComma === 0.75) {
+      if (minute === 0) {
         minute = 45;
       } else {
         minute = 15;
@@ -51,11 +51,11 @@ export function listWorkingHours(difference) {
       }
     }
 
-    if (hour == 25) {
+    if (hour === 25) {
       hour = 1;
     }
 
-    if (hour == 24) {
+    if (hour === 24) {
       hour = 0;
     }
 
@@ -79,7 +79,12 @@ export function calculateHourDifference(offset) {
 }
 
 export function listWorkingDays(nextDay, previousDay) {
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  let days = [
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday"];
 
   let nextDays = [
     "Monday",
@@ -97,7 +102,6 @@ export function listWorkingDays(nextDay, previousDay) {
     "Thursday",
     "Friday",
   ];
-
   if (nextDay) {
     return nextDays;
   }
@@ -119,14 +123,14 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
     if (nextDay) {
       let j = 0;
       let hour = workinghours[j].hour;
-      if (day == "Monday") {
+      if (day === "Monday") {
         matrix = endday(workinghours, j, hour, matrix, i);
       }
       if (
-        day == "Tuesday" ||
-        day == "Wednesday" ||
-        day == "Thursday" ||
-        day == "Friday"
+        day === "Tuesday" ||
+        day === "Wednesday" ||
+        day === "Thursday" ||
+        day === "Friday"
       ) {
         let j = 0;
         let hour = workinghours[j].hour;
@@ -135,7 +139,7 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
         j = 0;
         matrix = endday(workinghours, j, hour, matrix, i);
       }
-      if (day == "Saturday") {
+      if (day === "Saturday") {
         let j = 0;
         let passedZero = false;
         matrix = beginday(workinghours, j, hour, matrix, i, passedZero);
@@ -143,14 +147,14 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
     } else if (previousDay) {
       let j = 0;
       let hour = workinghours[j].hour;
-      if (day == "Sunday") {
+      if (day === "Sunday") {
         matrix = endday(workinghours, j, hour, matrix, i);
       }
       if (
-        day == "Monday" ||
-        day == "Tuesday" ||
-        day == "Wednesday" ||
-        day == "Thursday"
+        day === "Monday" ||
+        day === "Tuesday" ||
+        day === "Wednesday" ||
+        day === "Thursday"
       ) {
         let j = 0;
         let hour = workinghours[j].hour;
@@ -160,7 +164,7 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
         matrix = endday(workinghours, j, hour, matrix, i);
       }
 
-      if (day == "Friday") {
+      if (day === "Friday") {
         let j = 0;
         let hour = workinghours[j].hour;
         let passedZero = false;
@@ -177,7 +181,7 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
 }
 
 function endday(workinghours, j, hour, matrix, i) {
-  while (hour != 0) {
+  while (hour !== 0) {
     matrix[i].push(workinghours[j]);
     j++;
     hour = workinghours[j].hour;
@@ -187,7 +191,7 @@ function endday(workinghours, j, hour, matrix, i) {
 
 function beginday(workinghours, j, hour, matrix, i, passedZero) {
   while (j < workinghours.length) {
-    if (workinghours[j].hour == 0) {
+    if (workinghours[j].hour === 0) {
       passedZero = true;
     }
     if (passedZero) {
@@ -201,18 +205,20 @@ function beginday(workinghours, j, hour, matrix, i, passedZero) {
 export function listWorkingHoursMatrix(dayValue, matrix, workingdays) {
   let i = 0;
   if (dayValue) {
-    while (i < workingdays.length && workingdays[i] != dayValue) {
+    while (i < workingdays.length && workingdays[i] !== dayValue) {
       i++;
     }
   } 
-
+  let j = 0
   let workinghoursAdjusted = [];
   matrix[i].forEach((time) => {
+
     workinghoursAdjusted.push(
       {hour:time.hour,
       minute:time.minute,
-      timeConcatenated: time.hour + ":" + time.minute});
-      
+      timeConcatenated: time.hour + ":" + time.minute,
+      index: j});
+    j++;   
   })
   return workinghoursAdjusted;
 }
@@ -230,14 +236,14 @@ export function convertToArgentineTime(day, hour, minute, difference) {
     "Sunday",
   ];
   let i = 0;
-  while (i < daysOftheWeek.length && daysOftheWeek[i] != day) {
+  while (i < daysOftheWeek.length && daysOftheWeek[i] !== day) {
     i++;
   }
-  if (minute == 15) {
+  if (minute === 15) {
     hour = hour + 0.25;
-  } else if (minute == 45) {
+  } else if (minute === 45) {
     hour = hour + 0.75;
-  } else if (minute == 30) {
+  } else if (minute === 30) {
     hour = hour + 0.5;
   } else {
     hour = hour + 0;
@@ -246,14 +252,14 @@ export function convertToArgentineTime(day, hour, minute, difference) {
 
   if (hour - difference < 0) {
     hour = hour - difference + 24;
-    if (i == 0) {
+    if (i === 0) {
       i = 6;
     } else {
       i = i - 1;
     }
   } else if (hour - difference > 24) {
     hour = hour - difference - 24;
-    if (i == 6) {
+    if (i === 6) {
       i = 0;
     } else {
       i = i + 1;
@@ -263,11 +269,11 @@ export function convertToArgentineTime(day, hour, minute, difference) {
     hour = hour - difference;
   }
 
-  if (hour - Math.floor(hour) == 0.5) {
+  if (hour - Math.floor(hour) === 0.5) {
     minute = 30;
-  } else if (hour - Math.floor(hour) == 0.75) {
+  } else if (hour - Math.floor(hour) === 0.75) {
     minute = 45;
-  } else if (hour - Math.floor(hour) == 0.25) {
+  } else if (hour - Math.floor(hour) === 0.25) {
     minute = 15;
   } else {
     minute = 0;

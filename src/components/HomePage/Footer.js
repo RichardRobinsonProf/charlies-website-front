@@ -5,7 +5,7 @@ import {Row, Col} from 'react-bootstrap';
 
 function Footer () {
     return (
-        <div class="container py-sm-5 text-center">
+        <div className="container py-sm-5 text-center">
             <p>© 2022 Robinson's Institute of Languages</p>
             <Row>
                 <Col >
@@ -14,7 +14,7 @@ function Footer () {
                 color = "#2E31D2"
                 size = "2em"
                 /></a>
-                <a>{"  "}</a>
+                <span> - </span>
                 <a href="https://www.facebook.com/RobinsonsInstituteofLanguages">
                 <GrFacebook 
                 color = "#2E31D2"

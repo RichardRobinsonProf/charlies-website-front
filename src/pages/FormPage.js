@@ -1,6 +1,6 @@
 import Logo from "../images/Logo.png";
 import React, { useEffect, useState } from "react";
-import { Image, Alert } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import "./FormLayout.css";
 import useInput from "../hooks/use-input";
 import {
@@ -23,17 +23,18 @@ function FormPage() {
   const [selectedTimezone, setSelectedTimezone] = useState("");
   const [freeDate, setFreeDate] = useState(true);
   const [argentineDates, setArgentineDates] = useState([]);
-
-
-
+  const [showAlert, setShowAlert] = useState(false);
 
   function resetDates() {
     setDates([]);
   }
 
-  function resetTimeZone () {
+  function resetTimeZone() {
     setSelectedTimezone("");
   }
+
+
+
 
   function timezoneChangeHandler(timezone) {
     setSelectedTimezone(timezone);
@@ -53,7 +54,7 @@ function FormPage() {
     workinghours.previousDay
   );
 
-  function convertToReadableTime (hour, minute) {
+  function convertToReadableTime(hour, minute) {
     if (hour < 10) {
       hour = "0" + hour;
     }
@@ -70,19 +71,17 @@ function FormPage() {
     workinghours.previousDay
   );
 
-  function validateFreeDate (day, hour, minute) {
-    let retorno = true
-      setFreeDate(true)
-      dates.forEach(function(item) { 
-        if ( item.day === day && item.hour === hour && item.minute === minute) {
-          setFreeDate(false);
-          retorno = false
-        } 
-      })
-      return retorno
+  function validateFreeDate(day, hour, minute) {
+    let retorno = true;
+    setFreeDate(true);
+    dates.forEach(function (item) {
+      if (item.day === day && item.hour === hour && item.minute === minute) {
+        setFreeDate(false);
+        retorno = false;
+      }
+    });
+    return retorno;
   }
-
-  
 
   const {
     value: firstNameValue,
@@ -182,20 +181,19 @@ function FormPage() {
     } else {
       return true;
     }
-  }
+  };
 
   const addDate = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (dayIsValid && timeIsValid) {
       let day = dayValue;
       let hour = timeValue.split(":")[0];
       let minute = timeValue.split(":")[1];
-      let valid = validateFreeDate(day, hour, minute); 
+      let valid = validateFreeDate(day, hour, minute);
 
       if (valid) {
         setDates([...dates, { day, hour, minute }]);
-       
-      }   
+      }
     }
   };
   const examWhenObjectiveIsExam = function () {
@@ -207,46 +205,41 @@ function FormPage() {
       return "";
     }
   };
-  console.log ("first name is valid: " + firstNameIsValid)
-  console.log ("last name is valid: " + lastNameIsValid)
-  console.log ("email is valid: " + emailIsValid)
-  console.log ("language is valid: " + languageIsValid)
-  console.log ("level is valid: " + levelIsValid)
-  console.log ("objective is valid: " + objectiveIsValid)
-  console.log ("exam is valid: " + examisValidWhenObjectiveIsExam())
-  console.log ("other exam is valid: " + examIsValidWhenObjectiveIsExamOther())
-  console.log ("day is valid: " + dayIsValid)
-  console.log ("time is valid: " + timeIsValid)
+ /*  console.log("first name is valid: " + firstNameIsValid);
+  console.log("last name is valid: " + lastNameIsValid);
+  console.log("email is valid: " + emailIsValid);
+  console.log("language is valid: " + languageIsValid);
+  console.log("level is valid: " + levelIsValid);
+  console.log("objective is valid: " + objectiveIsValid);
+  console.log("exam is valid: " + examisValidWhenObjectiveIsExam());
+  console.log("other exam is valid: " + examIsValidWhenObjectiveIsExamOther());
+  console.log("day is valid: " + dayIsValid);
+  console.log("time is valid: " + timeIsValid); */
 
   let listWorkingHoursM = workinghours.workingHours;
 
   useEffect(() => {
-    let retorno = []
-    if (dates){
-      dates.forEach(function(item) {
-        console.log(item)
+    let retorno = [];
+    if (dates) {
+      dates.forEach(function (item) {
+        console.log(item);
         let hour = parseInt(item.hour);
         let minute = item.minute;
         let day = item.day;
-        let argentineTime = convertToArgentineTime(day,hour,minute,difference);
-        retorno.push (argentineTime);
-      }
-      )
+        let argentineTime = convertToArgentineTime(
+          day,
+          hour,
+          minute,
+          difference
+        );
+        retorno.push(argentineTime);
+      });
       setArgentineDates(retorno);
     }
-
-  }, [dates, selectedTimezone]);
-
-   
-
-
+  }, [dates, difference]);
 
   if (dayValue && dayIsValid) {
-    listWorkingHoursM = listWorkingHoursMatrix(
-      dayValue,
-      matrix,
-      workingdays
-    );
+    listWorkingHoursM = listWorkingHoursMatrix(dayValue, matrix, workingdays);
   }
 
   if (
@@ -257,9 +250,9 @@ function FormPage() {
     levelIsValid &&
     objectiveIsValid &&
     examisValidWhenObjectiveIsExam() &&
-    examIsValidWhenObjectiveIsExamOther () &&
+    examIsValidWhenObjectiveIsExamOther() &&
     dayIsValid &&
-    timeIsValid 
+    timeIsValid
   ) {
     formIsValid = true;
   }
@@ -268,13 +261,11 @@ function FormPage() {
     event.preventDefault();
 
     if (!formIsValid) {
+      setShowAlert(true);
       return;
     }
-
+    setShowAlert(false)
     console.log("Submitted!");
-
-    
-   
 
     let newStudent = {
       firstName: firstNameValue,
@@ -286,7 +277,7 @@ function FormPage() {
       exam: examWhenObjectiveIsExam(),
       localTime: dates,
       argentineTime: argentineDates,
-      timeZone: selectedTimezone
+      timeZone: selectedTimezone,
     };
     console.log(newStudent);
 
@@ -416,7 +407,7 @@ function FormPage() {
                   onChange={languageChangeHandler}
                   onBlur={languageBlurHandler}
                 >
-                  <option value="">Select a language</option>
+                  <option key = "Select a language" value="">Select a language</option>
                   <option value="English">English</option>
                   <option value="Spanish">Spanish for foreigners</option>
                   <option value="French">French</option>
@@ -479,58 +470,57 @@ function FormPage() {
 
           {/* exam */}
 
-          <div className = "row">
-          <div className={examClasses}>
-            <label></label>
-            <select
+          <div className="row">
+            <div className={examClasses}>
+              <label></label>
+              <select
+                type="text"
+                className="form-control mt-1"
+                hidden={objectiveValue !== "Exam"}
+                value={examValue}
+                onChange={examChangeHandler}
+                onBlur={examBlurHandler}
+              >
+                <option value="">Select the exam</option>
+                <option value="KET">KET</option>
+                <option value="PET">PET</option>
+                <option value="FCE">FCE</option>
+                <option value="CAE">CAE</option>
+                <option value="CPE">CPE</option>
+                <option value="IELTS">IELTS</option>
+                <option value="TOEFL">TOEFL</option>
+                <option value="other">Other (please specify)</option>
+              </select>
+              {examHasError && objectiveValue === "Exam" && (
+                <p className="error-text">Please select the exam</p>
+              )}
+            </div>
+          </div>
+
+          <div className={otherExamClasses}>
+            <label className="lead text-black"></label>
+            <input
               type="text"
               className="form-control mt-1"
-              hidden={objectiveValue !== "Exam"}
-              value={examValue}
-              onChange={examChangeHandler}
-              onBlur={examBlurHandler}
-            >
-              <option value="">Select the exam</option>
-              <option value="KET">KET</option>
-              <option value="PET">PET</option>
-              <option value="FCE">FCE</option>
-              <option value="CAE">CAE</option>
-              <option value="CPE">CPE</option>
-              <option value="IELTS">IELTS</option>
-              <option value="TOEFL">TOEFL</option>
-              <option value="other">Other (please specify)</option>
-            </select>
-            {examHasError && objectiveValue === "Exam" && (
-              <p className="error-text">Please select the exam</p>
+              placeholder="What is the name of the exam?"
+              hidden={examValue !== "other"}
+              value={otherExamValue}
+              onChange={otherExamChangeHandler}
+              onBlur={otherExamBlurHandler}
+            />
+            {otherExamHasError && examValue === "other" &&  (
+              <p className="error-text">Please enter the name of the exam.</p>
             )}
           </div>
-          </div>      
-
-          <div className = { otherExamClasses}>
-                <label className="lead text-black"></label>
-                <input
-                  type="text"
-                  className="form-control mt-1"
-                  placeholder="What is the name of the exam?"
-                  hidden={examValue !== "other"}
-                  value= {otherExamValue}
-                  onChange={otherExamChangeHandler}
-                  onBlur= {otherExamBlurHandler}
-                />
-                {otherExamHasError && (
-                  <p className="error-text">Please enter the name of the exam.</p>
-                )}
-              </div>
 
           <h3 className="Auth-form-title display-6 text-center">
             Select free moments
           </h3>
           {dates.map((date) => (
             <div>
-              {date.day} - {convertToReadableTime(date.hour,date.minute)}
+              {date.day} - {convertToReadableTime(date.hour, date.minute)}
             </div>
           ))}
-
 
           {/* timeZone */}
 
@@ -542,8 +532,6 @@ function FormPage() {
           </div>
 
           {/* time day */}
-
-          
 
           <div className="row">
             <div className="col">
@@ -558,8 +546,8 @@ function FormPage() {
                   onBlur={dayBlurHandler}
                 >
                   <option value="">Select the day</option>
-                  {workingdays.map((day) => (
-                    <option value={day}>{day}</option>
+                  {workingdays.map((day,index) => (
+                    <option key= {index} value={day}>{day}</option>
                   ))}
                 </select>
                 {dayHasError && (
@@ -582,22 +570,24 @@ function FormPage() {
                   onBlur={timeBlurHandler}
                 >
                   <option value="">Time</option>
-                  {listWorkingHoursM.map((time) => (
-                        
-                    <option value={time.timeConcatenated} >{convertToReadableTime(time.hour,time.minute)}</option>
-        
+                  {listWorkingHoursM.map((time,index) => (
+                    <option key= {index} value={time.timeConcatenated}>
+                      {convertToReadableTime(time.hour, time.minute)}
+                    </option>
                   ))}
                 </select>
                 {timeHasError && (
                   <p className="error-text">Please select the time</p>
                 )}
               </div>
-              
             </div>
           </div>
           {!freeDate && (
-                <p className="error-text">Please select a valid time</p>)}
-          <button type="button" onClick={addDate}>Add time</button>
+            <p className="error-text">Please select a valid time</p>
+          )}
+          <button type="button" onClick={addDate}>
+            Add time
+          </button>
 
           {/* submit */}
 
@@ -605,10 +595,10 @@ function FormPage() {
             <button type="submit" className="btn btn-primary btn-lg">
               <span className="text-white">Submit</span>
             </button>
-
-            <Alert variant = "danger">
-                
-            </Alert>
+            {showAlert && (
+             
+              <p className="error-text">Please complete the entire form and make sure you add enough free moments</p>
+            )}
           </div>
         </div>
       </form>

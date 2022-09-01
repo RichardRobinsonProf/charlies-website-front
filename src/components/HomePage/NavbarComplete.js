@@ -1,7 +1,6 @@
 import {Container, Navbar,Nav, NavDropdown} from 'react-bootstrap';
 import  {useState} from 'react';
-import {GrInstagram,GrFacebook } from 'react-icons/gr';
-import {Row, Col} from 'react-bootstrap';
+
 
 
 
@@ -9,29 +8,29 @@ function NavbarComplete () {
     
     const [color, setColor] = useState(false);
 
-    const changeColor = () => {
-        if(document.getElementById("about").offsetTop < window.pageYOffset){ 
+/*     const changeColor = () => {
+        if(document.getElementById("aboutus").offsetTop < window.pageYOffset){ 
         setColor(true)
         }else{ 
         setColor(false)
         }
-    }
+    } */
 
-    function setColorNavbar () {
+/*     function setColorNavbar () {
         if(color){
         //
         return "fixed-top bg-white"
         }else{
         return "fixed-top bg-light"
         }
-    }
+    } */
 
 
-    window.addEventListener('scroll', changeColor);
+    //window.addEventListener('scroll', changeColor);
 
     return (
     <>
-    <Navbar className= {setColorNavbar()} expand="lg" variant="light">
+    <Navbar className=  "fixed-top bg-light" expand="lg" variant="light">
         <Container>
         <Navbar.Brand >
         <a href='#section-hero'>
@@ -56,8 +55,6 @@ function NavbarComplete () {
         </NavDropdown>
         <a>{"  "}</a>
         </Navbar.Collapse>
-       
-        
         </Container>
     </Navbar>
     </>
