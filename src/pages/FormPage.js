@@ -12,6 +12,7 @@ import {
   convertToArgentineTime,
 } from "../utils/time";
 import TimezoneSelect from "react-timezone-select";
+import apiConnection from '../api/apiConnection'
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -280,6 +281,14 @@ function FormPage() {
       timeZone: selectedTimezone,
     };
     console.log(newStudent);
+    apiConnection.post('/users', newStudent)
+    .then(function(response) {
+      alert("Welcome " + response.data.user);
+    })
+    .catch(function(error) {
+      const errorMessage = error.response.data;
+      alert(errorMessage)
+    });
 
     resetFirstName();
     resetLastName();
@@ -516,8 +525,8 @@ function FormPage() {
           <h3 className="Auth-form-title display-6 text-center">
             Select free moments
           </h3>
-          {dates.map((date) => (
-            <div>
+          {dates.map((date, index) => (
+            <div key = {index}>
               {date.day} - {convertToReadableTime(date.hour, date.minute)}
             </div>
           ))}

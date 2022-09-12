@@ -239,11 +239,11 @@ export function convertToArgentineTime(day, hour, minute, difference) {
   while (i < daysOftheWeek.length && daysOftheWeek[i] !== day) {
     i++;
   }
-  if (minute === 15) {
+  if (minute === '15') {
     hour = hour + 0.25;
-  } else if (minute === 45) {
+  } else if (minute === '45') {
     hour = hour + 0.75;
-  } else if (minute === 30) {
+  } else if (minute === '30') {
     hour = hour + 0.5;
   } else {
     hour = hour + 0;
