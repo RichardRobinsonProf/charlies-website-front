@@ -2,6 +2,9 @@ import { Image, Container } from "react-bootstrap";
 import Team from "../../images/Team.png";
 import ThreedotsCollapse from "./buttons/ThreedotsCollapse";
 
+
+
+
 function AboutUs() {
   return (
     <section id="aboutus">

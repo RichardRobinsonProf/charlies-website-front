@@ -1,8 +1,20 @@
 import {Container, Navbar,Nav, NavDropdown} from 'react-bootstrap';
+import {useContext} from 'react' 
+import ContextChosenLanguage from '../../Context'
+
 
 
 function NavbarComplete () {
-    
+    const ctx = useContext(ContextChosenLanguage)
+ 
+
+    function clickHandlerEnglish () {
+        ctx.setLanguage('English')
+    }
+    function clickHandlerSpanish () {
+        ctx.setLanguage('Spanish')
+    }
+
     return (
     <>
     <Navbar className=  "fixed-top bg-light" expand="lg" variant="light">
@@ -25,8 +37,8 @@ function NavbarComplete () {
          
         </Nav>
         <NavDropdown title={<span className='lead text-primary strong'>Language</span>} id="collasible-nav-dropdown">
-            <NavDropdown.Item className="lead text-black strong">English</NavDropdown.Item>
-            <NavDropdown.Item className="lead text-black strong">Español</NavDropdown.Item>
+            <NavDropdown.Item onClick={clickHandlerEnglish} className="lead text-black strong">English</NavDropdown.Item>
+            <NavDropdown.Item onClick={clickHandlerSpanish} className="lead text-black strong">Español</NavDropdown.Item>
         </NavDropdown>
  
         </Navbar.Collapse>
