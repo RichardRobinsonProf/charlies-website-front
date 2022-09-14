@@ -112,6 +112,7 @@ export const English = {
     errorLastName: "Please enter your last name",
     errorTimeZone: "Please select first your time zone than select your preferred schedule",
     errorDayorTime: "Please select your prefered day and time",
+    errorTelephoneLenght: "Please enter a valid telephone number",
     errorEmail: "Please enter a valid your email",
     errorTelephone: "Please enter your telephone",
     errorLanguage: "Please select a language",
@@ -123,7 +124,7 @@ export const English = {
     errorExam: "Please select an exam",
     errorSpecifyExam: "Please specify exam",
     errorInvalidTime: "Please select a valid time",
-    eerrorFormGeneral: "Please complete the entire form and make sure you add enough free moments",
+    errorFormGeneral: "Please complete the entire form and make sure you add enough free moments",
 
 
     //languages

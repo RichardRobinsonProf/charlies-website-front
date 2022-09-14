@@ -118,6 +118,7 @@ export const Spanish = {
     errorObjective: "Por favor seleccione un objetivo",
     errorSchedule: "Por favor seleccione un horario",
     errorDay: "Por favor seleccione un día",
+    errorTelephoneLenght: "Por favor ingrese un teléfono válido",
     errorTime: "Por favor seleccione un horario",
     errorExam: "Por favor seleccione un examen",
     errorSpecifyExam: "Por favor especifique el examen",

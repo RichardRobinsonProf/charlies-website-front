@@ -2,6 +2,7 @@ import Logo from "../images/Logo.png";
 import { Image } from "react-bootstrap";
 import "./FormLayout.css";
 import useInput from "../hooks/use-input";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   listWorkingHours,
   calculateHourDifference,
@@ -14,11 +15,10 @@ import {
 } from "../utils/time";
 import TimezoneSelect from "react-timezone-select";
 import apiConnection from '../api/apiConnection'
-import {useContext,useState, useEffect} from 'react'
+import {useContext,useState, useEffect, useRef} from 'react'
 import ContextChosenLanguage from '../Context'
 import {chosenLanguage} from '../utils/language'
 import {IoIosAdd} from 'react-icons/io'
-import {GrFormTrash} from 'react-icons/gr'
 import {BsTrash} from 'react-icons/bs'
 import {Row,Col} from 'react-bootstrap'
 
@@ -37,8 +37,11 @@ function FormPage() {
   const [showAlert, setShowAlert] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [ShowErrorDayorTime, setShowErrorDayorTime] = useState(false);
+  const [telephoneLengthValid, setTelephoneLengthValid] = useState(false);
   const ctx = useContext(ContextChosenLanguage)
   const [text, setText] = useState(chosenLanguage(ctx.language))
+  const [captchaValido, setCaptcha] = useState(false);
+  const recaptchaRef = useRef(null);
   
   useEffect (() => {
       console.log(ctx.language)
@@ -61,6 +64,23 @@ function FormPage() {
   function resetTimeZone() {
     setSelectedTimezone("");
   }
+
+  function validatePhoneNumber(value) {
+    if (value.length < 8 || value.length > 15) {
+      return false;
+    }
+    else {
+      return true;
+    }
+
+  }
+
+  const onChangeCaptcha = () => {
+    const recaptchaValue = recaptchaRef.current.getValue();
+    if (recaptchaValue) {
+      setCaptcha(true);
+    }
+  };
 
 
 
@@ -196,6 +216,14 @@ function FormPage() {
     inputBlurHandler: otherExamBlurHandler,
     reset: resetOtherExam,
   } = useInput(isNotEmpty);
+  const {
+    value: telephoneValue,
+    isValid: telephoneIsValid,
+    hasError: telephoneHasError,
+    valueChangeHandler: telephoneChangeHandler,
+    inputBlurHandler: telephoneBlurHandler,
+    reset: resetTelephone,
+  } = useInput(validatePhoneNumber);
 
   let formIsValid = false;
 
@@ -299,6 +327,8 @@ function FormPage() {
     examIsValidWhenObjectiveIsExamOther() &&
     dayIsValid &&
     timeIsValid &&
+    telephoneIsValid &&
+    captchaValido &&
     dates.length > 0
   ) {
     formIsValid = true;
@@ -324,6 +354,7 @@ function FormPage() {
       lastName: lastNameValue,
       email: emailValue,
       language: languageValue,
+      telephone: telephoneValue,
       level: levelValue,
       objective: objectiveValue,
       exam: examWhenObjectiveIsExam(),
@@ -353,6 +384,8 @@ function FormPage() {
     resetOtherExam();
     resetDates();
     resetTimeZone();
+    resetTelephone();
+    recaptchaRef.current.reset();
   };
 
   const firstNameClasses = firstNameHasError
@@ -383,6 +416,9 @@ function FormPage() {
     ? "form-group mt-1 invalid"
     : "form-group mt-1";
   const otherExamClasses = otherExamHasError
+    ? "form-group mt-1 invalid"
+    : "form-group mt-1";
+  const telephoneClasses = telephoneHasError
     ? "form-group mt-1 invalid"
     : "form-group mt-1";
 
@@ -455,6 +491,21 @@ function FormPage() {
             )}
           </div>
 
+          <div className= {telephoneClasses}>
+            <label className="lead text-black"></label>
+            <input
+              className="form-control mt-1"
+              placeholder={text.placeholderTelephone}
+              value={telephoneValue}
+              onChange={telephoneChangeHandler}
+              onBlur={telephoneBlurHandler}
+            />
+            </div>
+            <div>
+            {telephoneHasError && (<p className="error-text">{text.errorTelephoneLenght}</p>)}
+    
+         
+          </div>
           {/* language */}
           <div className="row">
             <div className="col">
@@ -664,15 +715,25 @@ function FormPage() {
           <button type="button" className="btn btn-primary btn-lg" onClick={addDate}>
             {text.buttonAdd + " "} <IoIosAdd className="addButton"/>
           </button>
-       
+        
+
 
           {/* submit */}
 
-          <div className="d-grid gap-2 mt-5">
+          <div >
+          <ReCAPTCHA
+			      className= "captchaform"
+				          ref={recaptchaRef}
+                  sitekey={process.env.REACT_APP_SITE_KEY}                
+                  theme="light"
+                  onChange={onChangeCaptcha}
+                />        
+          <div className="d-grid mt-1">
             <button type="submit" className="btn btn-primary btn-lg buttonSend">
               <span className="text-white">{text.buttonSubmit}
               </span>
             </button>
+            </div>
             {showAlert && (
              
               <p className="error-text">{text.errorFormGeneral}</p>
