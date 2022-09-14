@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ContextChosenLanguage = React.createContext({
-    language: 'English',
+    language: 'Spanish',
     setLanguage: (lan) => {this.language = lan}
 })
 

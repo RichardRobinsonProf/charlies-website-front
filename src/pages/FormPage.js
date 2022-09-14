@@ -1,5 +1,4 @@
 import Logo from "../images/Logo.png";
-import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import "./FormLayout.css";
 import useInput from "../hooks/use-input";
@@ -10,9 +9,19 @@ import {
   listMatrix,
   listWorkingHoursMatrix,
   convertToArgentineTime,
+  convertDayToEnglish,
+  convertDayToSpanish
 } from "../utils/time";
 import TimezoneSelect from "react-timezone-select";
 import apiConnection from '../api/apiConnection'
+import {useContext,useState, useEffect} from 'react'
+import ContextChosenLanguage from '../Context'
+import {chosenLanguage} from '../utils/language'
+import {IoIosAdd} from 'react-icons/io'
+import {GrFormTrash} from 'react-icons/gr'
+import {BsTrash} from 'react-icons/bs'
+import {Row,Col} from 'react-bootstrap'
+
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -24,10 +33,29 @@ function FormPage() {
   const [selectedTimezone, setSelectedTimezone] = useState("");
   const [freeDate, setFreeDate] = useState(true);
   const [argentineDates, setArgentineDates] = useState([]);
+  const [showErrorTimeZone, setShowErrorTimeZone] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
+  const [ShowErrorDayorTime, setShowErrorDayorTime] = useState(false);
+  const ctx = useContext(ContextChosenLanguage)
+  const [text, setText] = useState(chosenLanguage(ctx.language))
+  
+  useEffect (() => {
+      console.log(ctx.language)
+      if (ctx.language === 'English') {
+          setText(chosenLanguage('English'))
+      } else {
+          setText(chosenLanguage('Spanish'))
+      }
+  },[ctx.language])
 
   function resetDates() {
     setDates([]);
+  }
+
+  function deleteDate (index) {
+    const newDates = dates.filter((date, i) => i !== index);
+    setDates(newDates);
   }
 
   function resetTimeZone() {
@@ -38,6 +66,8 @@ function FormPage() {
 
 
   function timezoneChangeHandler(timezone) {
+    setShowErrorTimeZone(false);
+    setShowErrorDayorTime(false);
     setSelectedTimezone(timezone);
     resetTime();
     resetDay();
@@ -52,7 +82,8 @@ function FormPage() {
 
   let workingdays = listWorkingDays(
     workinghours.nextDay,
-    workinghours.previousDay
+    workinghours.previousDay,
+    ctx.language
   );
 
   function convertToReadableTime(hour, minute) {
@@ -185,16 +216,30 @@ function FormPage() {
   };
 
   const addDate = (event) => {
-    event.preventDefault();
+        event.preventDefault();
+
+    if (selectedTimezone === "") {
+      setShowErrorTimeZone(true)
+    }
+
+
+ 
     if (dayIsValid && timeIsValid) {
-      let day = dayValue;
+      setShowErrorDayorTime(false)
+      let day
+      if(ctx.language !== 'Spanish') {
+      day = dayValue}
+      else {
+      day = convertDayToEnglish(dayValue)
+      }
       let hour = timeValue.split(":")[0];
       let minute = timeValue.split(":")[1];
       let valid = validateFreeDate(day, hour, minute);
-
       if (valid) {
         setDates([...dates, { day, hour, minute }]);
       }
+    }else {
+      setShowErrorDayorTime(true)
     }
   };
   const examWhenObjectiveIsExam = function () {
@@ -242,7 +287,7 @@ function FormPage() {
   if (dayValue && dayIsValid) {
     listWorkingHoursM = listWorkingHoursMatrix(dayValue, matrix, workingdays);
   }
-
+  
   if (
     firstNameIsValid &&
     lastNameIsValid &&
@@ -253,10 +298,12 @@ function FormPage() {
     examisValidWhenObjectiveIsExam() &&
     examIsValidWhenObjectiveIsExamOther() &&
     dayIsValid &&
-    timeIsValid
+    timeIsValid &&
+    dates.length > 0
   ) {
     formIsValid = true;
   }
+  console.log(dates)
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -265,6 +312,10 @@ function FormPage() {
       setShowAlert(true);
       return;
     }
+    if (dates.length < 3) {
+      setShowWarning(true);
+    }
+
     setShowAlert(false)
     console.log("Submitted!");
 
@@ -346,7 +397,7 @@ function FormPage() {
             width="100"
           ></Image>
           <h3 className="Auth-form-title display-6 text-center">
-            Search Groups
+            {text.formtitle}
           </h3>
 
           {/* first name */}
@@ -357,13 +408,13 @@ function FormPage() {
                 <input
                   type="text"
                   className="form-control mt-1"
-                  placeholder="Enter first name"
+                  placeholder= {text.placeholderFirstName}
                   value={firstNameValue}
                   onChange={firstNameChangeHandler}
                   onBlur={firstNameBlurHandler}
                 />
                 {firstNameHasError && (
-                  <p className="error-text">Please enter a first name.</p>
+                  <p className="error-text">{text.errorFirstName}</p>
                 )}
               </div>
             </div>
@@ -375,13 +426,13 @@ function FormPage() {
                 <input
                   type="text"
                   className="form-control mt-1"
-                  placeholder="Enter last name"
+                  placeholder={text.placeholderLastName}
                   value={lastNameValue}
                   onChange={lastNameChangeHandler}
                   onBlur={lastNameBlurHandler}
                 />
                 {lastNameHasError && (
-                  <p className="error-text">Please enter a last name.</p>
+                  <p className="error-text">{text.errorLastName}</p>
                 )}
               </div>
             </div>
@@ -394,13 +445,13 @@ function FormPage() {
             <input
               type="email"
               className="form-control mt-1"
-              placeholder="Enter email"
+              placeholder={text.placeholderEmail}
               value={emailValue}
               onChange={emailChangeHandler}
               onBlur={emailBlurHandler}
             />
             {emailHasError && (
-              <p className="error-text">Please enter a valid email.</p>
+              <p className="error-text">{text.errorEmail}</p>
             )}
           </div>
 
@@ -416,17 +467,17 @@ function FormPage() {
                   onChange={languageChangeHandler}
                   onBlur={languageBlurHandler}
                 >
-                  <option key = "Select a language" value="">Select a language</option>
-                  <option value="English">English</option>
-                  <option value="Spanish">Spanish for foreigners</option>
-                  <option value="French">French</option>
-                  <option value="German">German</option>
-                  <option value="Portuguese">Portuguese</option>
-                  <option value="Italian">Italian</option>
-                  <option value="Rusian">Rusian</option>
+                  <option key = "Select a language" value="">{text.placeholderSelectLanguage}</option>
+                  <option value="English">{text.english}</option>
+                  <option value="Spanish">{text.spanish}</option>
+                  <option value="French">{text.french}</option>
+                  <option value="German">{text.german}</option>
+                  <option value="Portuguese">{text.portuguese}</option>
+                  <option value="Italian">{text.italian}</option>
+                  <option value="Rusian">{text.russian}</option>
                 </select>
                 {languageHasError && (
-                  <p className="error-text">Please select a language</p>
+                  <p className="error-text">{text.errorLanguage}</p>
                 )}
               </div>
             </div>
@@ -442,15 +493,15 @@ function FormPage() {
                   onChange={levelChangeHandler}
                   onBlur={levelBlurHandler}
                 >
-                  <option value="">Select your level</option>
-                  <option value="Beginner">Beginner</option>
-                  <option value="Pre-intermediate">Pre-intermediate</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Upper-Intermediate">Upper-intermediate</option>
-                  <option value="Advanced">Advanced</option>
+                  <option value="">{text.placeholderSelectLevel}</option>
+                  <option value="Beginner">{text.beginner}</option>
+                  <option value="Pre-intermediate">{text.preIntermediate}</option>
+                  <option value="Intermediate">{text.intermediate}</option>
+                  <option value="Upper-Intermediate">{text.upperIntermediate}</option>
+                  <option value="Advanced">{text.advanced}</option>
                 </select>
                 {levelHasError && (
-                  <p className="error-text">Please select your level</p>
+                  <p className="error-text">{text.errorLevel}</p>
                 )}
               </div>
             </div>
@@ -467,13 +518,13 @@ function FormPage() {
               onChange={objectiveChangeHandler}
               onBlur={objectiveBlurHandler}
             >
-              <option value="">What is your objective?</option>
-              <option value="Exam">Pass an exam</option>
-              <option value="Conversation">Conversation</option>
-              <option value="Business">Business</option>
+              <option value="">{text.placeholderSelectObjective}</option>
+              <option value="Exam">{text.exam}</option>
+              <option value="Conversation">{text.conversation}</option>
+              <option value="Business">{text.business}</option>
             </select>
             {objectiveHasError && (
-              <p className="error-text">Please select your objective</p>
+              <p className="error-text">{text.errorObjective}</p>
             )}
           </div>
 
@@ -490,7 +541,7 @@ function FormPage() {
                 onChange={examChangeHandler}
                 onBlur={examBlurHandler}
               >
-                <option value="">Select the exam</option>
+                <option value="">{text.placeholderExam}</option>
                 <option value="KET">KET</option>
                 <option value="PET">PET</option>
                 <option value="FCE">FCE</option>
@@ -498,10 +549,10 @@ function FormPage() {
                 <option value="CPE">CPE</option>
                 <option value="IELTS">IELTS</option>
                 <option value="TOEFL">TOEFL</option>
-                <option value="other">Other (please specify)</option>
+                <option value="other">{text.examOtherPleaseSpecify}</option>
               </select>
               {examHasError && objectiveValue === "Exam" && (
-                <p className="error-text">Please select the exam</p>
+                <p className="error-text">{text.errorExam}</p>
               )}
             </div>
           </div>
@@ -518,27 +569,42 @@ function FormPage() {
               onBlur={otherExamBlurHandler}
             />
             {otherExamHasError && examValue === "other" &&  (
-              <p className="error-text">Please enter the name of the exam.</p>
+              <p className="error-text">{text.errorSpecifyExam}</p>
             )}
           </div>
 
           <h3 className="Auth-form-title display-6 text-center">
-            Select free moments
+            {text.placeholderPreferedSchedule}
           </h3>
+          <div className= "divPreferredSchedule">
+          {dates.length > 0 ? "": <p className="placeholdertext">{text.placeholderListPreferedSchedule}</p>}
           {dates.map((date, index) => (
             <div key = {index}>
-              {date.day} - {convertToReadableTime(date.hour, date.minute)}
+              <Row>
+                <Col className="padding-left-class">
+              {ctx.language === "English" ? date.day : convertDayToSpanish(date.day)} - {convertToReadableTime(date.hour, date.minute)}
+             </Col>
+             <Col className="text-center">
+             <BsTrash 
+             
+             onClick={() => deleteDate(index)} />
+              </Col>
+             </Row>
             </div>
           ))}
+          </div>
 
           {/* timeZone */}
 
           <div>
             <TimezoneSelect
+              placeholder= {text.placeholderTimeZone}
               value={selectedTimezone}
               onChange={timezoneChangeHandler}
             />
           </div>
+          {showErrorTimeZone && ( <p className="error-text">{text.errorTimeZone}</p>)}
+
 
           {/* time day */}
 
@@ -554,13 +620,13 @@ function FormPage() {
                   onChange={dayChangeHandler}
                   onBlur={dayBlurHandler}
                 >
-                  <option value="">Select the day</option>
+                  <option value="">{text.placeholderSelectDay}</option>
                   {workingdays.map((day,index) => (
                     <option key= {index} value={day}>{day}</option>
                   ))}
                 </select>
                 {dayHasError && (
-                  <p className="error-text">Please select the day</p>
+                  <p className="error-text">{text.errorDay}</p>
                 )}
               </div>
             </div>
@@ -578,7 +644,7 @@ function FormPage() {
                   onChange={timeChangeHandler}
                   onBlur={timeBlurHandler}
                 >
-                  <option value="">Time</option>
+                  <option value="">{text.placeholderPreferedSchedule}</option>
                   {listWorkingHoursM.map((time,index) => (
                     <option key= {index} value={time.timeConcatenated}>
                       {convertToReadableTime(time.hour, time.minute)}
@@ -586,27 +652,30 @@ function FormPage() {
                   ))}
                 </select>
                 {timeHasError && (
-                  <p className="error-text">Please select the time</p>
+                  <p className="error-text">{text.errorTime}</p>
                 )}
               </div>
             </div>
           </div>
           {!freeDate && (
-            <p className="error-text">Please select a valid time</p>
+            <p className="error-text">{text.errorInvalidTime}</p>
           )}
-          <button type="button" onClick={addDate}>
-            Add time
+          {ShowErrorDayorTime && !showErrorTimeZone &&  ( <p className="error-text">{text.errorDayorTime}</p>)}
+          <button type="button" className="btn btn-primary btn-lg" onClick={addDate}>
+            {text.buttonAdd + " "} <IoIosAdd className="addButton"/>
           </button>
+       
 
           {/* submit */}
 
           <div className="d-grid gap-2 mt-5">
-            <button type="submit" className="btn btn-primary btn-lg">
-              <span className="text-white">Submit</span>
+            <button type="submit" className="btn btn-primary btn-lg buttonSend">
+              <span className="text-white">{text.buttonSubmit}
+              </span>
             </button>
             {showAlert && (
              
-              <p className="error-text">Please complete the entire form and make sure you add enough free moments</p>
+              <p className="error-text">{text.errorFormGeneral}</p>
             )}
           </div>
         </div>

@@ -34,12 +34,12 @@ function Hero () {
             <p className="display-6 text-black">{text.heroTitle}</p>
             <br></br>
             <p className="lead text-black">{text.heroSubtitle}</p>
-            <p className="lead text-black">We offer classes in these languages: <span className='display'>English, French, German, Portuguese, Italian, Chinese, Spanish for foreigners</span></p>
+            <p className="lead text-black">{text.heroSubtitletwo} <span className='display'></span></p>
 
             <br></br>
             
        
-            <a href="#classes" className="btn btn-lg btn-primary text-white"><i className="" aria-hidden="true"></i>More info </a>
+            <a href="#classes" className="btn btn-lg btn-primary text-white"><i className="" aria-hidden="true">{text.buttonMoreInfo}</i> </a>
         
         </div>
     </section>

@@ -1,9 +1,23 @@
 import {Collapse, Button} from 'react-bootstrap'
-import {useState} from 'react'
+import { useContext, useEffect, useState } from "react";
+import ContextChosenLanguage from '../../../Context'
+import {chosenLanguage} from '../../../utils/language'
+import {MdExpandMore} from 'react-icons/md'
 
 
 function ThreedotsCollapse (props) {
     const [open, setOpen] = useState(false);
+    const ctx = useContext(ContextChosenLanguage)
+    const [text, setText] = useState(chosenLanguage(ctx.language))
+    
+    useEffect (() => {
+        console.log(ctx.language)
+        if (ctx.language === 'English') {
+            setText(chosenLanguage('English'))
+        } else {
+            setText(chosenLanguage('Spanish'))
+        }
+    },[ctx.language])
     return (
         <div>
         <Button
@@ -12,7 +26,8 @@ function ThreedotsCollapse (props) {
           aria-controls="example-collapse-text"
           aria-expanded={open}
         >
-          . . .
+       
+       {text.buttonMoreInfo} <MdExpandMore/> 
         </Button>
         <Collapse in={open}>
           <div id="example-collapse-text">

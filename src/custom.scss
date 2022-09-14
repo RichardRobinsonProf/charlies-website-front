@@ -51,6 +51,49 @@ $theme-colors: (
     margin-bottom: 30px;
 }
 
+.divPreferredSchedule{
+    display: inline-block;
+    background-color: #D3D3D3;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 400px
+    
+}
+
+.placeholdertext{
+    color: #a9a9a9;
+    
+}
+
+.trashbin {
+    color: #D3D3D3;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.addButton {  
+    color: white;
+    font-size: 30px;
+    align-items: center;
+
+
+}
+
+.padding-left-class {
+    padding-left: 60px;
+}
+
+
+
+
+
+
 
 
 // https://www.youtube.com/watch?v=ZzedzTP2evg

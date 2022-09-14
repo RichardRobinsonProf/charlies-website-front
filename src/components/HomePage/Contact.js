@@ -1,12 +1,25 @@
 import { Container } from "react-bootstrap";
-import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import {useContext,useState, useEffect,useRef} from 'react'
+import ContextChosenLanguage from '../../Context'
+import {chosenLanguage} from '../../utils/language'
 
 function Contact() {
   //https://www.google.com/recaptcha/admin/create
 
   const [captchaValido, setCaptcha] = useState(false);
   const recaptchaRef = useRef(null);
+  const ctx = useContext(ContextChosenLanguage)
+  const [text, setText] = useState(chosenLanguage(ctx.language))
+  
+  useEffect (() => {
+      console.log(ctx.language)
+      if (ctx.language === 'English') {
+          setText(chosenLanguage('English'))
+      } else {
+          setText(chosenLanguage('Spanish'))
+      }
+  },[ctx.language])
 
   const onChange = () => {
     const recaptchaValue = recaptchaRef.current.getValue();
@@ -18,7 +31,7 @@ function Contact() {
   return (
     <section id="contactus">
       <div className="text-center">
-        <h1 className="display-6 text-center">Contact us</h1>
+        <h1 className="display-6 text-center">{text.contactTitle}</h1>
 
         <div className="align-items-center text-center bg-light container">
           <br></br>
@@ -28,37 +41,37 @@ function Contact() {
                 <div className="col-12 col-md-6">
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label">
-                      <p className="lead text-black">Name</p>
+                      <p className="lead text-black">{text.contactName}</p>
                     </label>
                     <input
                       id="name"
                       type="text"
                       className="form-control"
-                      placeholder="Enter your name"
+                      placeholder={text.placeholderName}
                       name="name"
                     />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
-                      <p className="lead text-black">Email</p>
+                      <p className="lead text-black">{text.contactEmail}</p>
                     </label>
                     <input
                       id="email"
                       type="email"
                       className="form-control"
-                      placeholder="Enter your email"
+                      placeholder={text.placeholderEmail}
                       name="email"
                     />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Telephone" className="form-label">
-                      <p className="lead text-black">Telephone</p>
+                      <p className="lead text-black">{text.contactTelephone}</p>
                     </label>
                     <input
                       id="email"
                       type="email"
                       className="form-control"
-                      placeholder="Enter your telephone"
+                      placeholder={text.placeholderTelephone}
                       name="email"
                     />
                   </div>
@@ -66,13 +79,13 @@ function Contact() {
                 <div className="col-12 col-md-6">
                   <div className="mb-3">
                     <label htmlFor="message" className="form-label">
-                      <p className="lead text-black">Message</p>
+                      <p className="lead text-black">{text.contactMessage}</p>
                     </label>
                     <textarea
                       id="message"
                       className="form-control"
                       rows="10"
-                      placeholder="Enter your message"
+                      placeholder={text.placeholderMessage}
                       name="message"
                     ></textarea>
                   </div>
@@ -92,7 +105,7 @@ function Contact() {
                   type="submit"
                   className="btn btn-lg btn-primary text-white button-form"
                 >
-                  Send Message
+                  {text.contactButton}
                 </button>
               </div>
             </form>

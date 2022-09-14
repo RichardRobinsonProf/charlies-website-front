@@ -1,3 +1,6 @@
+import {English} from '../text/text-english'
+import {Spanish} from '../text/text-spanish'
+
 const TOP = 21;
 const BOTTOM = 7;
 const OFFSETARGENTINA = 3;
@@ -78,29 +81,34 @@ export function calculateHourDifference(offset) {
   return difference;
 }
 
-export function listWorkingDays(nextDay, previousDay) {
-  let days = [
-    "Monday", 
-    "Tuesday", 
-    "Wednesday", 
-    "Thursday", 
-    "Friday"];
 
+export function listWorkingDays(nextDay, previousDay, ctxLanguage) {
+
+  let daysInRightLanguage  = ctxLanguage === 'English' ? English : Spanish;
+
+
+  let days = [
+    daysInRightLanguage.monday, 
+    daysInRightLanguage.tuesday,
+    daysInRightLanguage.wednesday,
+    daysInRightLanguage.thursday,
+    daysInRightLanguage.friday,
+  ]
   let nextDays = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    daysInRightLanguage.monday,
+    daysInRightLanguage.tuesday,
+    daysInRightLanguage.wednesday,
+    daysInRightLanguage.thursday,
+    daysInRightLanguage.friday,
+    daysInRightLanguage.saturday
   ];
   let previousDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
+    daysInRightLanguage.sunday,
+    daysInRightLanguage.monday,
+    daysInRightLanguage.tuesday,
+    daysInRightLanguage.wednesday,
+    daysInRightLanguage.thursday,
+    daysInRightLanguage.friday
   ];
   if (nextDay) {
     return nextDays;
@@ -285,4 +293,28 @@ export function convertToArgentineTime(day, hour, minute, difference) {
     minute: minute,
   };
   return retorno;
+}
+
+export function convertDayToEnglish(day){
+  switch (day) {
+    case 'Lunes': return 'Monday';
+    case 'Martes': return 'Tuesday';
+    case 'Miércoles': return 'Wednesday';
+    case 'Jueves': return 'Thursday';
+    case 'Viernes': return 'Friday';
+    case 'Sábado': return 'Saturday';
+    case 'Domingo': return 'Sunday';
+}
+}
+
+export function convertDayToSpanish(day){
+  switch (day) {
+    case 'Monday': return 'Lunes';
+    case 'Tuesday': return 'Martes';
+    case 'Wednesday': return 'Miércoles';
+    case 'Thursday': return 'Jueves';
+    case 'Friday': return 'Viernes';
+    case 'Saturday': return 'Sábado';
+    case 'Sunday': return 'Domingo';
+}
 }

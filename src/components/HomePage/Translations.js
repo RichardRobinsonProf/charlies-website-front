@@ -5,22 +5,35 @@ import Public from "../../images/Translating-public.png";
 import Private from "../../images/Translating-private.png";
 import Company from "../../images/Company.png";
 import CardTypeClass from "./CardTypeClass";
+import { useContext, useEffect, useState } from "react";
+import ContextChosenLanguage from '../../Context'
+import {chosenLanguage} from '../../utils/language'
+
 
 function Translations() {
+  const ctx = useContext(ContextChosenLanguage)
+  const [text, setText] = useState(chosenLanguage(ctx.language))
+  
+  useEffect (() => {
+      console.log(ctx.language)
+      if (ctx.language === 'English') {
+          setText(chosenLanguage('English'))
+      } else {
+          setText(chosenLanguage('Spanish'))
+      }
+  },[ctx.language])
+
   return (
     <section id="translations">
       <div className="text-center">
-        <h1 className="display-6 text-center ">Translations</h1>
+        <h1 className="display-6 text-center ">{text.translationsTitle}</h1>
       </div>
       <br></br>
       <Container>
       <Image src={Translation} rounded width={"100%"} />
         <p className="lead text-black text-center">
           <br></br>
-          We offer professional translation and interpretation services. We have
-          public translators from Argentina and native translators from the
-          United Kingdom and the United States. We work together to achieve a
-          better translation. We offer:
+          {text.translationsParagraphOne}
         </p>
         </Container>
         <Container>
@@ -31,7 +44,7 @@ function Translations() {
             title={
               <div>
                 <Image src={Public} width={100} />
-                <p>Public Translations</p>
+                <p>{ text.translationsPublic}</p>
               </div>
             }
             body={
@@ -39,16 +52,16 @@ function Translations() {
                 <ThreedotsCollapse 
                 text={
                   <div>
-                    <p className ="lead text-black strong">For documents such as:</p>
-                    <p>- Birth, death, marriage and divorce certificates</p>
-                    <p>- Passports and other personal documents</p>
-                    <p>- Wills</p>
-                    <p>- Study programs, analytical certificates, diplomas, CVs, and other documents related to education</p>
-                    <p>- Contracts</p>
-                    <p>- Corporate Documents (articles of incorporation, corporate bylaws, meeting and board minutes, commercial documents, and other corporate documents)</p>
-                    <p>- Technical and scientific documents</p>
-                    <p>- Invention patents, intellectual property, copyright</p>
-                    <p>- Financial statements</p>
+                    <p className ="lead text-black strong">{text.translationsPublicBold}</p>
+                    <p>{text.translationsPublicListOne}</p>
+                    <p>{text.translationsPublicListTwo}</p>
+                    <p>{text.translationsPublicListThree}</p>
+                    <p>{text.translationsPublicListFour}</p>
+                    <p>{text.translationsPublicListFive}</p>
+                    <p>{text.translationsPublicListSix}</p>
+                    <p>{text.translationsPublicListSeven}</p>
+                    <p>{text.translationsPublicListEight}</p>
+                    <p>{text.translationsPublicListNine}</p>
                     </div>     
                 }
                 />
@@ -63,7 +76,7 @@ function Translations() {
             title={
               <div>
                 <Image src={Private} width={100} />
-                <p>Private Translations</p>
+                <p>{text.translationsPrivate}</p>
               </div>
             }
             body={
@@ -71,14 +84,14 @@ function Translations() {
                 <ThreedotsCollapse 
                 text={
                   <div>
-                    <p className ="lead text-black strong">For documents in the areas of:</p>
-                    <p>- Economy and Finance</p>
-                    <p>- Commercial</p> 
-                    <p>- Technology</p> 
-                    <p>- Literature</p> 
-                    <p>- Newspaper articles</p> 
-                    <p>- Thesis</p>
-                    <p>- Presentations</p>
+                    <p className ="lead text-black strong">{text.translationsPrivateBold}</p>
+                    <p>{text.translationsPrivateListOne}</p>
+                    <p>{text.translationsPrivateListTwo}</p> 
+                    <p>{text.translationsPrivateListThree}</p> 
+                    <p>{text.translationsPrivateListFour}</p> 
+                    <p>{text.translationsPrivateListFive}</p> 
+                    <p>{text.translationsPrivateListSix}</p>
+                    <p>{text.translationsPrivateListSeven}</p>
                     </div>     
                 }/>
               </div>
@@ -91,7 +104,7 @@ function Translations() {
             title={
               <div>
                 <Image src={Company} width={100} height = {100} />
-                <p>Interpretations</p>
+                <p>{text.translationsInterpretation}</p>
               </div>
             }
             body={
@@ -99,10 +112,10 @@ function Translations() {
                 <ThreedotsCollapse 
                  text={
                   <div>
-                    <p className ="lead text-black strong">We provide language assistance:</p>
-                    <p>- At congresses and conferences</p>
-                    <p>- At business meetings</p> 
-                    <p>- For foreign visitors</p> 
+                    <p className ="lead text-black strong">{text.translationsInterpretationBold}</p>
+                    <p>{text.translationsInterpretationListOne}</p>
+                    <p>{text.translationsInterpretationListTwo}</p> 
+                    <p>{text.translationsInterpretationListThree}</p> 
                     </div>     
                 } />
               </div>

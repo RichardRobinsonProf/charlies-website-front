@@ -9,7 +9,7 @@ import ContextChosenLanguage from "./Context";
 
 
 function App() {
-  const [chosenLanguage, setChosenLanguage] = useState('English')
+  const [chosenLanguage, setChosenLanguage] = useState('Spanish')
   return (
    <ContextChosenLanguage.Provider value={{language : chosenLanguage, setLanguage : setChosenLanguage}}>
     <Switch>
