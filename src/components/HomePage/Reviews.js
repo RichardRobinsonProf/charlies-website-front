@@ -23,6 +23,7 @@ function Reviews() {
   },[ctx.language])
   return (
     <section id="reviews">
+      <br></br>
       <Container className="text-center">
         <h1 className="display-5 text-center ">{text.reviewsTitle}</h1>
         <div className="row text-center mx-auto">

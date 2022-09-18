@@ -20,6 +20,7 @@ function Prices () {
         <section id= "prices">
         <Container>
         <div className  = "text-center">
+			<br></br>
              <h1 className="display-5 text-center ">{text.pricesTitle}</h1>
              <div className="row mx-auto">
 					<div className="col-12 col-md-4 mb-4">

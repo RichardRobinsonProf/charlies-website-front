@@ -18,8 +18,11 @@
   }
 
   .container-contact{
-    background-image: linear-gradient(to bottom, #D3D3D3, #F5F5F5);
+    background-image: linear-gradient(to top, #D3D3D3, #F5F5F5);
+    padding-bottom: 10px
   }
+
+  
   
   .Auth-form-content {
     padding-left: 12%;

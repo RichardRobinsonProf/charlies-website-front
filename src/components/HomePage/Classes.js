@@ -1,10 +1,11 @@
 import CardTypeClass from "./CardTypeClass";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import ThreedotsCollapse from "./buttons/ThreedotsCollapse";
 import Virtual from "../../images/Virtual.png";
 import { useContext, useState, useEffect } from "react";
 import ContextChosenLanguage from "../../Context";
 import { chosenLanguage } from "../../utils/language";
+import {Link} from 'react-router-dom'
 
 function ContainerCards() {
   const ctx = useContext(ContextChosenLanguage)
@@ -20,7 +21,7 @@ function ContainerCards() {
   },[ctx.language])
   return (
     <section id="classes">
-    
+    <br></br>
       <Container className="text-center">
       <h1 className="display-5 text-center ">{text.classesTitle}</h1>
         <Row className="text-center mx-auto">
@@ -37,9 +38,23 @@ function ContainerCards() {
                     width="100"
                   />
                   <p>{text.classesVirtual}</p>
+                  
                 </div>
+                
               }
-              body={text.classesVirtualParagraph}
+              body={<div>
+                {text.classesVirtualParagraph}
+                <div>
+                <Link to= '/form'>
+                <div>
+                <Button className="btn btn-lg btn-primary text-white" >
+                {text.groupsButton}
+            </Button>
+         
+            </div>
+            </Link>
+            </div>
+            </div>}
             />
           </Col>
         </Row>
@@ -59,8 +74,15 @@ function ContainerCards() {
               </p>
             </div>
           }
+
           
         />
+             
+     
+       
+
+  
+    <br></br>
        
       </Container>   
       <br></br>

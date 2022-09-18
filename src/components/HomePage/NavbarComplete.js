@@ -40,7 +40,6 @@ function NavbarComplete () {
          <Nav.Link href="#aboutus "className="lead text-black strong">{text.navAboutus}</Nav.Link>
         <Nav.Link href="#classes "className="lead text-black strong">{text.navClasses}</Nav.Link>
         <Nav.Link href="#translations "className="lead text-black strong">{text.navTranslations}</Nav.Link>
-        <Nav.Link href="#groups "className="lead text-black strong">{text.navGroups}</Nav.Link>
         <Nav.Link href="#prices "className="lead text-black strong">{text.navPrices}</Nav.Link>
         <Nav.Link href="#reviews "className="lead text-black strong">{text.navReviews}</Nav.Link>
         <Nav.Link href="#contactus "className="lead text-black strong">{text.navContact}</Nav.Link>

@@ -5,6 +5,7 @@ import {Row, Col} from 'react-bootstrap';
 
 function Footer () {
     return (
+        <section id="footer" >
         <div className="container py-sm-5 text-center">
             <p>© 2022 Robinson's Institute of Languages</p>
             <Row>
@@ -24,6 +25,7 @@ function Footer () {
             </Row>
             
     </div>
+    </section>
 
     )
 }

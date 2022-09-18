@@ -242,9 +242,6 @@ function Contact() {
           </Container>
         </div>
       </div>
-	  <div className="right-align">
-                
-              </div>
     </section>
 	
   );

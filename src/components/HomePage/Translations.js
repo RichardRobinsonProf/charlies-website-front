@@ -25,6 +25,7 @@ function Translations() {
 
   return (
     <section id="translations">
+      <br></br>
       <div className="text-center">
         <h1 className="display-5 text-center ">{text.translationsTitle}</h1>
       </div>
@@ -32,7 +33,10 @@ function Translations() {
       <Image src={Translation} rounded width={"100%"} />
         <p className="lead text-black text-center">
           <br></br>
-          {text.translationsParagraphOne}
+          <CardTypeClass
+            body= {<div className="strong lead">{text.translationsParagraphOne}</div>}
+          />
+       
         </p>
         </Container>
         <Container>
