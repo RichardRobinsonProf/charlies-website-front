@@ -24,6 +24,10 @@ $theme-colors: (
     border-radius: 20px;
 }
 
+.background-gradient {
+    background-image: linear-gradient(to bottom, #D3D3D3, white);
+}
+
 .strong {
     font-weight: bold;
     font-size: 20px;
@@ -42,7 +46,7 @@ $theme-colors: (
 }
 
 .captcha {
-    background-color: #D3D3D3;
+    background-color: transparent;
     display: inline-block;
     border-radius: 20px;
     padding: 20px;
@@ -60,7 +64,7 @@ $theme-colors: (
 
 .divPreferredSchedule{
     display: inline-block;
-    background-color: #D3D3D3;
+    background-color: lightgrey;
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
@@ -95,6 +99,14 @@ $theme-colors: (
 .padding-left-class {
     padding-left: 60px;
 }
+
+.bg-light {
+    background-color: #D3D3D3 !important;
+}
+
+
+
+
 
 
 

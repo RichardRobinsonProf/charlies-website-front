@@ -21,12 +21,10 @@ function AboutUs() {
     <section id="aboutus">
       <div className="text-center">
         <h1 className="display-6 text-center ">{text.aboutusTitle}</h1>
-        <Image 
-        fluid
-        src={Team}
-        width={'91%'}
-        rounded/>
+    
         <Container>
+        <Image src={Team} rounded width={"100%"} />
+            <br></br>
             <br></br>
           <ThreedotsCollapse
             text={

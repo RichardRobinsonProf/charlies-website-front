@@ -131,14 +131,14 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
     if (nextDay) {
       let j = 0;
       let hour = workinghours[j].hour;
-      if (day === "Monday") {
+      if (day === "Monday" || day === "Lunes") {
         matrix = endday(workinghours, j, hour, matrix, i);
       }
       if (
-        day === "Tuesday" ||
-        day === "Wednesday" ||
-        day === "Thursday" ||
-        day === "Friday"
+        day === "Tuesday" || day === "Martes" ||
+        day === "Wednesday" ||  day === "Miércoles" ||
+        day === "Thursday" || day === "Jueves" ||
+        day === "Friday" || day === "Viernes" 
       ) {
         let j = 0;
         let hour = workinghours[j].hour;
@@ -147,7 +147,7 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
         j = 0;
         matrix = endday(workinghours, j, hour, matrix, i);
       }
-      if (day === "Saturday") {
+      if (day === "Saturday" || day === "Sábado") {
         let j = 0;
         let passedZero = false;
         matrix = beginday(workinghours, j, hour, matrix, i, passedZero);
@@ -155,14 +155,14 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
     } else if (previousDay) {
       let j = 0;
       let hour = workinghours[j].hour;
-      if (day === "Sunday") {
+      if (day === "Sunday" || day === "Domingo") {
         matrix = endday(workinghours, j, hour, matrix, i);
       }
       if (
-        day === "Monday" ||
-        day === "Tuesday" ||
-        day === "Wednesday" ||
-        day === "Thursday"
+        day === "Monday" || day === "Lunes" ||
+        day === "Tuesday" || day === "Martes" ||
+        day === "Wednesday" || day === "Miércoles" ||
+        day === "Thursday" || day === "Jueves" 
       ) {
         let j = 0;
         let hour = workinghours[j].hour;
@@ -172,7 +172,7 @@ export function listMatrix(workingdays, workinghours, nextDay, previousDay) {
         matrix = endday(workinghours, j, hour, matrix, i);
       }
 
-      if (day === "Friday") {
+      if (day === "Friday" || day === "Viernes") {
         let j = 0;
         let hour = workinghours[j].hour;
         let passedZero = false;

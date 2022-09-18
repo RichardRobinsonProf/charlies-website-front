@@ -27,7 +27,7 @@ function NavbarComplete () {
 
     return (
     <>
-    <Navbar className=  "fixed-top bg-light" expand="lg" variant="light">
+    <Navbar className= "fixed-top bg-light" expand="lg" variant="light">
         <Container>
         <Navbar.Brand >
         <a href='#section-hero'>

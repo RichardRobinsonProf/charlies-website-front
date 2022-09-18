@@ -17,7 +17,7 @@ function App() {
       <HomePage />
     </Route>
     <Route path='/form'>
-      <FormPage />
+      <FormPage/>
     </Route>
   </Switch>
   </ContextChosenLanguage.Provider>

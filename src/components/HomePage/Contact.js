@@ -1,8 +1,11 @@
-import { Container } from "react-bootstrap";
+import { Container,Modal, Button } from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
 import {useContext,useState, useEffect,useRef} from 'react'
 import ContextChosenLanguage from '../../Context'
 import {chosenLanguage} from '../../utils/language'
+import useInput from "../../hooks/use-input";
+import "../../pages/FormLayout.css";
+import apiConnection from '../../api/apiConnection'
 
 function Contact() {
   //https://www.google.com/recaptcha/admin/create
@@ -11,9 +14,15 @@ function Contact() {
   const recaptchaRef = useRef(null);
   const ctx = useContext(ContextChosenLanguage)
   const [text, setText] = useState(chosenLanguage(ctx.language))
+  const [message, setMessage] = useState('')
+  const [show, setShow] = useState(false)
+  const [showErrorForm, setShowErrorForm] = useState(false)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   
   useEffect (() => {
-      console.log(ctx.language)
       if (ctx.language === 'English') {
           setText(chosenLanguage('English'))
       } else {
@@ -21,72 +30,191 @@ function Contact() {
       }
   },[ctx.language])
 
-  const onChange = () => {
+  const messageChangeHandler = (event) => {
+    setMessage(event.target.value);
+    console.log(message)
+  };
+
+
+
+  const onChangeCaptcha = () => {
     const recaptchaValue = recaptchaRef.current.getValue();
     if (recaptchaValue) {
       setCaptcha(true);
     }
   };
 
+
+  const isNotEmpty = (value) => value.trim() !== "";
+  const isEmail = (value) => value.includes("@");
+  function validatePhoneNumber(value) {
+    if (value.length < 8 || value.length > 15) {
+      return false;
+    }
+    else {
+      return true;
+    }
+
+  }
+  const {
+    value: nameValue,
+    isValid: nameIsValid,
+    hasError: nameHasError,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetname,
+  } = useInput(isNotEmpty);
+  const {
+    value: emailValue,
+    isValid: emailIsValid,
+    hasError: emailHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetemail,
+  } = useInput(isEmail);
+  const {
+    value: phoneValue,
+    isValid: phoneIsValid,
+    hasError: phoneHasError,
+    valueChangeHandler: phoneChangeHandler,
+    inputBlurHandler: phoneBlurHandler,
+    reset: resetphone,
+  } = useInput(validatePhoneNumber);
+
+ 
+
+  let formIsValid = false;
+  if (nameIsValid && emailIsValid && phoneIsValid && captchaValido && message != '') {
+    formIsValid = true;
+  } 
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (!formIsValid) {
+      setShowErrorForm(true)
+      return;
+    }
+
+    const data = {
+      email: emailValue,
+      telephone: phoneValue,
+      name: nameValue,
+      message: message};
+
+
+
+      apiConnection.post('/users/send-email', data)
+      .then(response => {
+        setShow(true)
+      })
+      .catch(error => {
+          console.log(error)
+      })
+
+    resetname();
+    resetemail();
+    resetphone();
+    setMessage('');
+      };
+
+ const nameClasses = nameHasError
+    ? "form-group invalid"
+    : "form-group";
+  const emailClasses = emailHasError
+    ? "form-group invalid"
+    : "form-group";
+  const phoneClasses = phoneHasError
+    ? "form-group invalid"
+    : "form-group ";
+
+
+  
   return (
     <section id="contactus">
       <div className="text-center">
         <h1 className="display-6 text-center">{text.contactTitle}</h1>
-
-        <div className="align-items-center text-center bg-light container">
+                <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>{text.alertMessageSent}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{text.alertyoullbecontacted}</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="primary" onClick={handleClose}>
+                    {text.buttonClose
+        }
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+          <div className="align-items-center text-center bg-light container container-contact">
           <br></br>
           <Container>
-            <form className="mb-4">
+            <form className="mb-4" onSubmit={submitHandler}>
               <div className="row">
                 <div className="col-12 col-md-6">
-                  <div className="mb-3">
+                  <div className= {nameClasses} >
                     <label htmlFor="name" className="form-label">
-                      <p className="lead text-black">{text.contactName}</p>
+                      <p className="lead text-black"></p>
                     </label>
                     <input
-                      id="name"
-                      type="text"
-                      className="form-control"
-                      placeholder={text.placeholderName}
-                      name="name"
+                        type="text"
+                        className="form-control mt-1"
+                        placeholder= {text.placeholderName}
+                        value={nameValue}
+                        onChange={nameChangeHandler}
+                        onBlur={nameBlurHandler}
                     />
                   </div>
-                  <div className="mb-3">
+                  {nameHasError && (
+                    <p className="error-text">{text.errorFirstName}</p>
+                  )}
+
+                  <div className={emailClasses}>
                     <label htmlFor="email" className="form-label">
-                      <p className="lead text-black">{text.contactEmail}</p>
+                      <p className="lead text-black"></p>
                     </label>
                     <input
-                      id="email"
-                      type="email"
-                      className="form-control"
-                      placeholder={text.placeholderEmail}
-                      name="email"
+                        type="email"
+                        className="form-control mt-1"
+                        placeholder= {text.placeholderEmail}
+                        value={emailValue}
+                        onChange={emailChangeHandler}
+                        onBlur={emailBlurHandler}
                     />
                   </div>
-                  <div className="mb-3">
+                  {emailHasError && (
+                    <p className="error-text">{text.errorEmail}</p>
+                  )}
+                  <div className={phoneClasses}>
                     <label htmlFor="Telephone" className="form-label">
-                      <p className="lead text-black">{text.contactTelephone}</p>
+                      <p className="lead text-black"></p>
                     </label>
                     <input
-                      id="email"
-                      type="email"
-                      className="form-control"
-                      placeholder={text.placeholderTelephone}
-                      name="email"
+                        type="tel"
+                        className="form-control mt-1"
+                        placeholder= {text.placeholderTelephone}
+                        value={phoneValue}
+                        onChange={phoneChangeHandler}
+                        onBlur={phoneBlurHandler}
+
                     />
                   </div>
+                  {phoneHasError && (
+                    <p className="error-text">{text.errorTelephone}</p>
+                  )}
                 </div>
                 <div className="col-12 col-md-6">
-                  <div className="mb-3">
+                  <div className= "mb-3">
                     <label htmlFor="message" className="form-label">
-                      <p className="lead text-black">{text.contactMessage}</p>
+                      <p className="lead text-black"></p>
                     </label>
                     <textarea
+                      onChange={messageChangeHandler}
                       id="message"
                       className="form-control"
                       rows="10"
                       placeholder={text.placeholderMessage}
                       name="message"
+                      value={message}
                     ></textarea>
                   </div>
                 </div>
@@ -96,7 +224,7 @@ function Contact() {
 				  ref={recaptchaRef}
                   sitekey={process.env.REACT_APP_SITE_KEY}
                   theme="light"
-                  onChange={onChange}
+                  onChange={onChangeCaptcha}
                 />
               <div className="mb-3">
                 <button
@@ -107,8 +235,12 @@ function Contact() {
                 >
                   {text.contactButton}
                 </button>
+                {showErrorForm && (
+              <p className="error-text">{text.errorFormMessage}</p>
+            )}
               </div>
             </form>
+        
           </Container>
         </div>
       </div>

@@ -5,10 +5,10 @@ function CardTypeClass (props) {
     return (
   
     <Card
-      bg="light"
+      bg="background-gradient"
       text='black'
       border = 'primary'
-      className="text-center justify-content-center">
+      className="text-center justify-content-center background-gradient">
       <Card.Body>
         <Card.Title className=""> {props.title} </Card.Title>
         <div className="lead text-black">

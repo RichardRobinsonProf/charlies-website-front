@@ -6,6 +6,7 @@ import ThreedotsCollapse from "./buttons/ThreedotsCollapse";
 import { useContext, useEffect, useState } from "react";
 import ContextChosenLanguage from '../../Context'
 import {chosenLanguage} from '../../utils/language'
+import Companies from "../../images/Companies.png";
 
 
 function Reviews() {
@@ -22,7 +23,7 @@ function Reviews() {
   },[ctx.language])
   return (
     <section id="reviews">
-      <Container>
+      <Container className="text-center">
         <h1 className="display-6 text-center ">{text.reviewsTitle}</h1>
         <div className="row text-center mx-auto">
         <div className="col-12 col-md-6 col-xl-6 ">
@@ -78,7 +79,15 @@ function Reviews() {
 						
 					</div>
           </div>
+          <br></br>
+          <p className="lead text-black strong">{text.companiesThatTrustUs} </p>
+          <Image src={Companies} fluid width={1200}/>
+          <br></br>
         </Container>
+        <br></br>
+
+     
+     
     </section>
   );
 }

@@ -25,7 +25,7 @@ export const English = {
     //classes
     classesTitle: "Classes",
     classesVirtual: "Virtual classes",
-    classesVirtualParagraph: "We also offer you the possibility of taking virtual classes via Skype, Zoom or other similar platform. Currently all classes are being given virtually.",
+    classesVirtualParagraph:"We offer classes to be taken virtually from the comfort of your own computer wherever you are! We use Google Meet and Zoom as our main digital platforms for the classes and can both share our material via screen share and by sending a link to the student to download the material to his or her own computer. Our teachers are predominantly based in the Americas, so we can offer to give classes between 07:00 and 19:00 EST. Please advise us of your time zone when booking classes." ,
     classesParagraphOne: "At Robinson's Institute of Languages we understand the importance of conversation when learning a new language. That is why our way of teaching is based on conversation. All of our teachers have international certifications and teaching experience, the majority are native but we also have some local teachers who have lived abroad for a period of time and can explain certain rules in Spanish should the student require it. We are all experts in assessing the level and needs of each student to plan a personalised course.",
     classesParagraphTwo: "We seek to create dynamic and interactive classes. We use different tools, such as the internet, to make classes more fun and dynamic. We have material to help study grammar, listening and reading activities and material for exam preparation.",
     classesParagraphThree: "We offer flexibility regarding the time and place where classes can be taken. You can choose to have individual or group classes.",
@@ -71,9 +71,13 @@ export const English = {
 
     //prices    
     pricesTitle: "Prices",
+    starterTitle: "Starter",
+    starterSubtitle: "1 hour per week",
+    
 
     //reviews
     reviewsTitle: "Reviews",
+    companiesThatTrustUs: "Companies that trust us",
 
      //contact
      contactTitle: "Contact us",
@@ -113,8 +117,8 @@ export const English = {
     errorTimeZone: "Please select first your time zone than select your preferred schedule",
     errorDayorTime: "Please select your prefered day and time",
     errorTelephoneLenght: "Please enter a valid telephone number",
-    errorEmail: "Please enter a valid your email",
-    errorTelephone: "Please enter your telephone",
+    errorEmail: "Please enter a valid email",
+    errorTelephone: "Please enter a valid telephone",
     errorLanguage: "Please select a language",
     errorLevel: "Please select a level",
     errorObjective: "Please select an objective",
@@ -124,7 +128,12 @@ export const English = {
     errorExam: "Please select an exam",
     errorSpecifyExam: "Please specify exam",
     errorInvalidTime: "Please select a valid time",
+    errorFormMessage: "Please complete the entire form",
     errorFormGeneral: "Please complete the entire form and make sure you add enough free moments",
+    placeholderExamSpecific: "What is the name of the exam",
+    alertyoullbecontacted: "Thank you for message, You will be contacted shortly",
+    buttonClose: "Close",
+    alertMessageSent: "Message sent",
 
 
     //languages

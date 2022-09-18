@@ -56,6 +56,26 @@ function FormPage() {
     setDates([]);
   }
 
+  function whenObjectiveIsExamExamValidation () {
+    if (objectiveValue === 'Exam' && examValue === '') {
+      return false
+    } else if (objectiveValue === 'Exam' && examValue !== '') {
+      return true
+    } else {
+      return true
+    }
+  }
+  function selectedObjectiveChangeHandler (event) {
+    objectiveChangeHandler(event)
+    resetExam()
+  }
+  function selectedLanguageChangeHandler (event) {
+    languageChangeHandler(event)
+    resetExam()
+  }
+
+
+
   function deleteDate (index) {
     const newDates = dates.filter((date, i) => i !== index);
     setDates(newDates);
@@ -208,14 +228,7 @@ function FormPage() {
     inputBlurHandler: timeBlurHandler,
     reset: resetTime,
   } = useInput(isNotEmpty);
-  const {
-    value: otherExamValue,
-    isValid: otherExamIsValid,
-    hasError: otherExamHasError,
-    valueChangeHandler: otherExamChangeHandler,
-    inputBlurHandler: otherExamBlurHandler,
-    reset: resetOtherExam,
-  } = useInput(isNotEmpty);
+
   const {
     value: telephoneValue,
     isValid: telephoneIsValid,
@@ -227,21 +240,8 @@ function FormPage() {
 
   let formIsValid = false;
 
-  const examisValidWhenObjectiveIsExam = function () {
-    if (objectiveValue === "Exam") {
-      return examIsValid;
-    } else {
-      return true;
-    }
-  };
-
-  const examIsValidWhenObjectiveIsExamOther = function () {
-    if (objectiveValue === "Exam" && examValue === "Other") {
-      return otherExamIsValid;
-    } else {
-      return true;
-    }
-  };
+  
+ 
 
   const addDate = (event) => {
         event.preventDefault();
@@ -270,15 +270,7 @@ function FormPage() {
       setShowErrorDayorTime(true)
     }
   };
-  const examWhenObjectiveIsExam = function () {
-    if (objectiveValue === "Exam" && examValue !== "Other") {
-      return examValue;
-    } else if (objectiveValue === "Exam" && examValue === "Other") {
-      return otherExamValue;
-    } else {
-      return "";
-    }
-  };
+
  /*  console.log("first name is valid: " + firstNameIsValid);
   console.log("last name is valid: " + lastNameIsValid);
   console.log("email is valid: " + emailIsValid);
@@ -323,8 +315,7 @@ function FormPage() {
     languageIsValid &&
     levelIsValid &&
     objectiveIsValid &&
-    examisValidWhenObjectiveIsExam() &&
-    examIsValidWhenObjectiveIsExamOther() &&
+    whenObjectiveIsExamExamValidation() &&
     dayIsValid &&
     timeIsValid &&
     telephoneIsValid &&
@@ -357,7 +348,7 @@ function FormPage() {
       telephone: telephoneValue,
       level: levelValue,
       objective: objectiveValue,
-      exam: examWhenObjectiveIsExam(),
+      exam: examValue,
       localTime: dates,
       argentineTime: argentineDates,
       timeZone: selectedTimezone,
@@ -381,7 +372,6 @@ function FormPage() {
     resetExam();
     resetDay();
     resetTime();
-    resetOtherExam();
     resetDates();
     resetTimeZone();
     resetTelephone();
@@ -415,15 +405,12 @@ function FormPage() {
   const timeClasses = timeHasError
     ? "form-group mt-1 invalid"
     : "form-group mt-1";
-  const otherExamClasses = otherExamHasError
-    ? "form-group mt-1 invalid"
-    : "form-group mt-1";
   const telephoneClasses = telephoneHasError
     ? "form-group mt-1 invalid"
     : "form-group mt-1";
 
   return (
-    <div className="Auth-form-container bg-light">
+    <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={submitHandler}>
         <div className="Auth-form-content text-center">
           <Image
@@ -515,7 +502,7 @@ function FormPage() {
                   type="text"
                   className="form-control mt-1"
                   value={languageValue}
-                  onChange={languageChangeHandler}
+                  onChange={selectedLanguageChangeHandler}
                   onBlur={languageBlurHandler}
                 >
                   <option key = "Select a language" value="">{text.placeholderSelectLanguage}</option>
@@ -546,7 +533,7 @@ function FormPage() {
                 >
                   <option value="">{text.placeholderSelectLevel}</option>
                   <option value="Beginner">{text.beginner}</option>
-                  <option value="Pre-intermediate">{text.preIntermediate}</option>
+                  <option value="Pre-Intermediate">{text.preIntermediate}</option>
                   <option value="Intermediate">{text.intermediate}</option>
                   <option value="Upper-Intermediate">{text.upperIntermediate}</option>
                   <option value="Advanced">{text.advanced}</option>
@@ -566,7 +553,7 @@ function FormPage() {
               type="text"
               className="form-control mt-1"
               value={objectiveValue}
-              onChange={objectiveChangeHandler}
+              onChange={selectedObjectiveChangeHandler}
               onBlur={objectiveBlurHandler}
             >
               <option value="">{text.placeholderSelectObjective}</option>
@@ -584,10 +571,11 @@ function FormPage() {
           <div className="row">
             <div className={examClasses}>
               <label></label>
-              <select
+              {objectiveValue === "Exam" && languageValue === "English" && (
+                <select
                 type="text"
                 className="form-control mt-1"
-                hidden={objectiveValue !== "Exam"}
+                //hidden={objectiveValue !== "Exam" || languageValue !== "English"}
                 value={examValue}
                 onChange={examChangeHandler}
                 onBlur={examBlurHandler}
@@ -600,28 +588,26 @@ function FormPage() {
                 <option value="CPE">CPE</option>
                 <option value="IELTS">IELTS</option>
                 <option value="TOEFL">TOEFL</option>
-                <option value="other">{text.examOtherPleaseSpecify}</option>
               </select>
-              {examHasError && objectiveValue === "Exam" && (
+              )}
+              {objectiveValue === "Exam" && languageValue !== "English" && (
+                <input
+                type="text"
+                className="form-control mt-1"
+                placeholder={text.placeholderExamSpecific}
+                //hidden={objectiveValue !== "Exam" || languageValue === "English"} 
+                value={examValue}
+                onChange={examChangeHandler}
+                onBlur={examBlurHandler}
+              />
+              )}
+              {examHasError && objectiveValue === "Exam" && languageValue !== "English" && (
+                <p className="error-text">{text.errorSpecifyExam}</p>  
+              )}
+              {examHasError && objectiveValue === "Exam" && languageValue === "English" && (
                 <p className="error-text">{text.errorExam}</p>
               )}
             </div>
-          </div>
-
-          <div className={otherExamClasses}>
-            <label className="lead text-black"></label>
-            <input
-              type="text"
-              className="form-control mt-1"
-              placeholder="What is the name of the exam?"
-              hidden={examValue !== "other"}
-              value={otherExamValue}
-              onChange={otherExamChangeHandler}
-              onBlur={otherExamBlurHandler}
-            />
-            {otherExamHasError && examValue === "other" &&  (
-              <p className="error-text">{text.errorSpecifyExam}</p>
-            )}
           </div>
 
           <h3 className="Auth-form-title display-6 text-center">
@@ -649,6 +635,7 @@ function FormPage() {
 
           <div>
             <TimezoneSelect
+              className="timeZone"
               placeholder= {text.placeholderTimeZone}
               value={selectedTimezone}
               onChange={timezoneChangeHandler}

@@ -2,8 +2,10 @@
     display: flex;
     justify-content: center;
     width: 100vw;
+    height: auto;
     padding-top: 30px;
     padding-bottom: 30px;
+    background-color: white;
   }
   
   .Auth-form {
@@ -12,12 +14,18 @@
     padding-top: 30px;
     padding-bottom: 20px;
     border-radius: 8px;
-    background-color: white;
+    background-image: linear-gradient(to bottom, #D3D3D3, #F5F5F5);
+  }
+
+  .container-contact{
+    background-image: linear-gradient(to bottom, #D3D3D3, #F5F5F5);
   }
   
   .Auth-form-content {
     padding-left: 12%;
     padding-right: 12%;
+    padding-bottom: 12%;
+    padding-top:12%;
   }
   
   .Auth-form-title {
@@ -46,10 +54,13 @@ html {
 
 .form-control {
   margin-bottom: 1rem;
+  padding: 0.75rem 0.75rem;
+
 }
 
 .form-control input,
-.form-control label {
+.form-control label,
+.form-control select {
   display: block;
 }
 
@@ -62,13 +73,28 @@ html {
 .form-control select {
   font: inherit;
   padding: 0.5rem;
-  border-radius: 4px;
+  border-radius: 20px;
   border: 1px solid #ccc;
   width: 20rem;
   max-width: 100%;
 }
+.css-1s2u09g-control {
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  max-width: 100%;
+  padding: 0.5rem;
 
-.form-control input:focus {
+}
+.css-1usy410-Sa {
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  max-width: 100%;
+  padding: 0.5rem;
+}
+
+
+.form-control input:focus,
+.form-control select:focus {
   outline: none;
   border-color: #240370;
   background-color: #e0d4fd;
@@ -112,18 +138,19 @@ button:disabled:active {
 
 .form-actions {
   text-align: right;
+
 }
 
 .form-actions button {
   margin-left: 1rem;
 }
 
-.invalid input {
+.invalid input, .invalid select {
   border: 1px solid #b40e0e;
   background-color: #fddddd;
 }
 
-.invalid input:focus {
+.invalid input:focus, .invalid select:focus {
   border-color: #ff8800;
   background-color: #fbe8d2;
 }
@@ -131,4 +158,6 @@ button:disabled:active {
 .error-text {
   color: #b40e0e;
 }
-  
+
+
+

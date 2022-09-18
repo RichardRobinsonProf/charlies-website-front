@@ -25,7 +25,7 @@ export const Spanish = {
   //  classes
   classesTitle: "Clases",
   classesVirtual: "Clases virtuales",
-  classesVirtualParagraph:"También te ofrecemos la posibilidad de tomar clases virtuales via Skype, Zoom u otra plataforma similar. Actualmente, todas las clases se están dictando de forma virtual.",
+  classesVirtualParagraph:"Ofrecemos dictar las clases virtualmente desde la comodidad de tu propia computadora  donde estés!Utilizamos Google Meet y Zoom como nuestras plataformas principales para las clases y podemos compartir el material vía compartir pantalla y por un vínculo que se mande al/a la estudiante para descargar el material a su propia computadora.Nuestros profesores se ubican principalmente en las Américas, entonces podemos ofrecer dictar las clases entre las 07:00 y las 19:00 EST.Por favor infórmanos sobre tu zona horaria cuando estás reservando clases.",
   classesParagraphOne:"En Robinson's Institute of Languages sabemos la importancia que tiene la conversación a la hora de aprender un idioma nuevo. Es por eso que nuestra forma de enseñar se basa en la conversación. Todos los profesores cuentan con certificaciones internacionales y experiencia en la enseñanza. La mayoría de los profesores son nativos, pero también hay profesores locales que vivieron en el exterior por un tiempo y que puedan explicar las reglas en castellano si es que el estudiante lo requiere. Somos expertos en evaluar el nivel y las necesidades de cada alumno para planificar un curso personalizado.",
   classesParagraphTwo: "Buscamos crear clases dinámicas e interactivas. Usamos diferentes herramientas, como el internet, para hacer de las clases más divertidas y completas. Contamos con material gramatical, actividades de escuchar y leer y para preparación de exámenes.",
   classesParagraphThree:"Ofrecemos flexibilidad en cuanto al horario y lugar donde se toman las clases. Se puede tomar clases individuales o en grupo.",
@@ -75,6 +75,7 @@ export const Spanish = {
 
     //reviews
     reviewsTitle: "Opiniones",
+    companiesThatTrustUs: "Empresas que confían en nosotros",
 
     //contact
     contactTitle: "Contacto",
@@ -111,8 +112,8 @@ export const Spanish = {
     errorLastName: "Por favor ingrese su apellido",
     errorTimeZone: "Por favor seleccione primero una zona horaria y luego un horario",
     errorDayorTime: "Por favor seleccione un dia y un horario preferido",
-    errorEmail: "Por favor ingrese su email",
-    errorTelephone: "Por favor ingrese su teléfono",
+    errorEmail: "Por favor ingrese un email valido",
+    errorTelephone: "Por favor ingrese un teléfono valido",
     errorLanguage: "Por favor seleccione un idioma",
     errorLevel: "Por favor seleccione un nivel",
     errorObjective: "Por favor seleccione un objetivo",
@@ -121,11 +122,14 @@ export const Spanish = {
     errorTelephoneLenght: "Por favor ingrese un teléfono válido",
     errorTime: "Por favor seleccione un horario",
     errorExam: "Por favor seleccione un examen",
+    errorFormMessage: "Por favor complete el formulario entero",
     errorSpecifyExam: "Por favor especifique el examen",
     errorInvalidTime: "Por favor seleccione un horario válido",
     errorFormGeneral: "Por favor complete el formulario, asegurándose de que todos los campos estén completos y seleccionados correctamente",
-
-
+    placeholderExamSpecific: "Cual examen?",
+    alertyoullbecontacted: "Gracias por contactarnos, nos pondremos en contacto con usted a la brevedad",
+    buttonClose: "Cerrar",
+    alertMessageSent: "Mensaje enviado",
 
     //languages
     english: "Inglés",
