@@ -20,11 +20,12 @@ function ContainerCards() {
   },[ctx.language])
   return (
     <section id="classes">
+    
       <Container className="text-center">
-        <h1 className="display-6 text-center ">{text.classesTitle}</h1>
+      <h1 className="display-5 text-center ">{text.classesTitle}</h1>
         <Row className="text-center mx-auto">
           <Col md={12} xm={12}>
-            <br></br>
+            
             <CardTypeClass
               image={Virtual}
               title={
@@ -58,9 +59,13 @@ function ContainerCards() {
               </p>
             </div>
           }
+          
         />
-      </Container>
+       
+      </Container>   
+      <br></br>
     </section>
+
   );
 }
 

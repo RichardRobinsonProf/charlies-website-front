@@ -19,13 +19,17 @@ function Groups () {
     return (
         <section id = "groups">
         <div className="text-center">
-        <h1 className="display-6 text-center ">{text.groupsTitle}</h1>
+        <h1 className="display-5 text-center ">{text.groupsTitle}</h1>
         <Link to= '/form'>
         <Button className="btn btn-lg btn-primary text-white" >
         {text.groupsButton}
+
     </Button>
+   
     </Link>
+
     </div>
+    <br></br>
     </section>
     )
 }

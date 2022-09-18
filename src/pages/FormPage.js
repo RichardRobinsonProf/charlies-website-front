@@ -1,5 +1,5 @@
 import Logo from "../images/Logo.png";
-import { Image } from "react-bootstrap";
+import { Image, Modal } from "react-bootstrap";
 import "./FormLayout.css";
 import useInput from "../hooks/use-input";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -21,6 +21,7 @@ import {chosenLanguage} from '../utils/language'
 import {IoIosAdd} from 'react-icons/io'
 import {BsTrash} from 'react-icons/bs'
 import {Row,Col} from 'react-bootstrap'
+import ModalForm from "../components/FormPage/ModalForm";
 
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -35,13 +36,20 @@ function FormPage() {
   const [argentineDates, setArgentineDates] = useState([]);
   const [showErrorTimeZone, setShowErrorTimeZone] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [showWarning, setShowWarning] = useState(false);
   const [ShowErrorDayorTime, setShowErrorDayorTime] = useState(false);
-  const [telephoneLengthValid, setTelephoneLengthValid] = useState(false);
   const ctx = useContext(ContextChosenLanguage)
   const [text, setText] = useState(chosenLanguage(ctx.language))
   const [captchaValido, setCaptcha] = useState(false);
   const recaptchaRef = useRef(null);
+  const [showModalWarning, setShowModalWarning] = useState(false);
+  const [showFormIsInvalid, setShowFormIsInvalid] = useState(false);
+
+  const handleClose = () => setShowModalWarning(false);
+  const handleShow = () => setShowModalWarning(true);
+
+  const handleCloseAlert = () => setShowAlert(false);
+  const handleShowAlert = () => setShowAlert(true);
+  
   
   useEffect (() => {
       console.log(ctx.language)
@@ -102,7 +110,46 @@ function FormPage() {
     }
   };
 
+  function createUserAndSend () {
+    setShowModalWarning(false)
+    let newStudent = {
+      firstName: firstNameValue,
+      lastName: lastNameValue,
+      email: emailValue,
+      language: languageValue,
+      telephone: telephoneValue,
+      level: levelValue,
+      objective: objectiveValue,
+      exam: examValue,
+      localTime: dates,
+      argentineTime: argentineDates,
+      timeZone: selectedTimezone,
+    };
+    console.log(newStudent);
+    apiConnection.post('/users', newStudent)
+    .then(function(response) {
+      setShowAlert(true)
+    })
+    .catch(function(error) {
+      const errorMessage = error.response.data;
+      alert(errorMessage);
+    });
 
+    resetFirstName();
+    resetLastName();
+    resetEmail();
+    resetLanguage();
+    resetLevel();
+    resetObjective();
+    resetExam();
+    resetDay();
+    resetTime();
+    resetDates();
+    resetTimeZone();
+    resetTelephone();
+    recaptchaRef.current.reset();
+    console.log("Submitted!");
+  }
 
 
   function timezoneChangeHandler(timezone) {
@@ -240,9 +287,6 @@ function FormPage() {
 
   let formIsValid = false;
 
-  
- 
-
   const addDate = (event) => {
         event.preventDefault();
 
@@ -250,8 +294,6 @@ function FormPage() {
       setShowErrorTimeZone(true)
     }
 
-
- 
     if (dayIsValid && timeIsValid) {
       setShowErrorDayorTime(false)
       let day
@@ -327,55 +369,19 @@ function FormPage() {
   console.log(dates)
 
   const submitHandler = (event) => {
-    event.preventDefault();
+        event.preventDefault();
 
     if (!formIsValid) {
-      setShowAlert(true);
+      setShowFormIsInvalid(true);
       return;
+    }else {
+      setShowFormIsInvalid(false)
     }
     if (dates.length < 3) {
-      setShowWarning(true);
-    }
-
-    setShowAlert(false)
-    console.log("Submitted!");
-
-    let newStudent = {
-      firstName: firstNameValue,
-      lastName: lastNameValue,
-      email: emailValue,
-      language: languageValue,
-      telephone: telephoneValue,
-      level: levelValue,
-      objective: objectiveValue,
-      exam: examValue,
-      localTime: dates,
-      argentineTime: argentineDates,
-      timeZone: selectedTimezone,
-    };
-    console.log(newStudent);
-    apiConnection.post('/users', newStudent)
-    .then(function(response) {
-      alert("Welcome " + response.data.user);
-    })
-    .catch(function(error) {
-      const errorMessage = error.response.data;
-      alert(errorMessage)
-    });
-
-    resetFirstName();
-    resetLastName();
-    resetEmail();
-    resetLanguage();
-    resetLevel();
-    resetObjective();
-    resetExam();
-    resetDay();
-    resetTime();
-    resetDates();
-    resetTimeZone();
-    resetTelephone();
-    recaptchaRef.current.reset();
+     setShowModalWarning(true)
+    }else{
+      createUserAndSend()                
+        }   
   };
 
   const firstNameClasses = firstNameHasError
@@ -422,6 +428,27 @@ function FormPage() {
           <h3 className="Auth-form-title display-6 text-center">
             {text.formtitle}
           </h3>
+          <ModalForm
+              show= {showAlert}
+              handleClose= {handleCloseAlert}
+              title= {text.modalSuccess}
+              body = {text.modalSuccessForm}
+              positive= {text.buttonClose}
+              negative= "none"
+              handlePositive= {handleCloseAlert}
+              />
+
+          <ModalForm
+            show={showModalWarning}
+            handleClose = {handleClose}
+            title = {text.modalWarningTitle}
+            body = {text.modalWarning}
+            negative= {text.modalWarningButton}
+            positive= {text.modalWarningButtonCancel}
+            handleNegative = {createUserAndSend}
+            handlePositive = {handleClose}
+            
+          />
 
           {/* first name */}
           <div className="row">
@@ -721,8 +748,7 @@ function FormPage() {
               </span>
             </button>
             </div>
-            {showAlert && (
-             
+            {showFormIsInvalid && (
               <p className="error-text">{text.errorFormGeneral}</p>
             )}
           </div>

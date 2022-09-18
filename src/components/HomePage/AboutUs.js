@@ -19,8 +19,9 @@ function AboutUs() {
   },[ctx.language])
   return (
     <section id="aboutus">
+      <br></br>
       <div className="text-center">
-        <h1 className="display-6 text-center ">{text.aboutusTitle}</h1>
+        <h1 className="display-5 text-center ">{text.aboutusTitle}</h1>
     
         <Container>
         <Image src={Team} rounded width={"100%"} />
@@ -46,6 +47,7 @@ function AboutUs() {
           />
         </Container>
       </div>
+      <br></br>
     </section>
   );
 }

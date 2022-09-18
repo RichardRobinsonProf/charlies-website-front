@@ -10,7 +10,7 @@ export const Spanish = {
   navClasses: "Clases",
   navTranslations: "Traducciones",
   navGroups: "Grupos",
-  navPrices: "Precios",
+  navPrices: "Paquetes",
   navReviews: "Opiniones",
   navContact: "Contacto",
   navLanguage: "Idioma",
@@ -49,7 +49,7 @@ export const Spanish = {
   translationsPublicListNine: "- Estados contables",
 
   //translationPrivate
-  translationsPrivate: "Traducciones Privadas y Comerciales",
+  translationsPrivate: "Traducciones Privadas",
   translationsPrivateBold: "Por documentos en las áreas de:",
   translationsPrivateListOne: "- Economía y Finanzas",
   translationsPrivateListTwo: "- Comerciales",
@@ -71,7 +71,16 @@ export const Spanish = {
   groupsButton: "Buscar un grupo",
 
     //prices
-    pricesTitle: "Precios",
+    pricesTitle: "Paquetes",
+    starterTitle: "Starter",
+    starterSubtitle: "1 hora por semana",
+    starterText: "Mantiene contacto con el idioma, evita perder tu nivel",
+    semiProTitle: "Semi-pro",
+    semiProSubtitle: "2 horas por semana",
+    semiProText: "Mejora tu nivel del idioma aprendiendo nuevo gramática y vocabulario",
+    proTitle: "Pro",
+    proSubtitle: "3 horas por semana",
+    proText: "Curso intensivo, usualmente por algo específico, cumple tus objetivos en un plazo más corto",
 
     //reviews
     reviewsTitle: "Opiniones",
@@ -92,7 +101,13 @@ export const Spanish = {
 
     //form
     formtitle: "Buscar un grupo",
-    
+    modalSuccessForm: "Gracias por llenar tu formulario para unirte a uno de nuestros grupos! Uno de nuestro equipo va a estar en contacto pronto cuando haya suficientes estudiantes para formar un grupo con los detalles del horario y fecha de inicio.",
+    modalWarning: "Ha seleccionado menos de tres horarios, cuantos más horarios seleccione más probabilidades tendrá de encontrar un grupo. ¿Estás seguro de que quieres continuar?",
+    modalWarningButton: "Sí, estoy seguro",
+    modalWarningButtonCancel: "No, quiero seleccionar más horarios",
+    modalWarningTitle: "¡Atención!",
+    modalSuccess: "Formulario enviado con éxito!",
+
     //general
     placeholderFirstName: "Ingrese su nombre",
     placeholderLastName: "Ingrese su apellido",

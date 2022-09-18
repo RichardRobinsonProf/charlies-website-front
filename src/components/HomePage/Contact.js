@@ -6,6 +6,7 @@ import {chosenLanguage} from '../../utils/language'
 import useInput from "../../hooks/use-input";
 import "../../pages/FormLayout.css";
 import apiConnection from '../../api/apiConnection'
+import ModalForm from "../FormPage/ModalForm";
 
 function Contact() {
   //https://www.google.com/recaptcha/admin/create
@@ -132,19 +133,16 @@ function Contact() {
   return (
     <section id="contactus">
       <div className="text-center">
-        <h1 className="display-6 text-center">{text.contactTitle}</h1>
-                <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                  <Modal.Title>{text.alertMessageSent}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{text.alertyoullbecontacted}</Modal.Body>
-                <Modal.Footer>
-                  <Button variant="primary" onClick={handleClose}>
-                    {text.buttonClose
-        }
-                  </Button>
-                </Modal.Footer>
-              </Modal>
+        <h1 className="display-5 text-center">{text.contactTitle}</h1>
+        <ModalForm
+        show= {show}
+        handleClose= {handleClose}
+        title= {text.alertMessageSent}
+        body= {text.alertyoullbecontacted}
+        negative="none"
+        positive= {text.buttonClose}
+        handlePositive= {handleClose}
+        />
           <div className="align-items-center text-center bg-light container container-contact">
           <br></br>
           <Container>

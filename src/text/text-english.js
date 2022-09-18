@@ -10,7 +10,7 @@ export const English = {
     navClasses: "Classes",
     navTranslations: "Translations",
     navGroups : "Groups",
-    navPrices: "Prices",
+    navPrices: "Packages",
     navReviews: "Reviews",
     navContact: "Contact us",
     navLanguage: "Language",
@@ -70,10 +70,17 @@ export const English = {
     groupsButton: "Search for a group",
 
     //prices    
-    pricesTitle: "Prices",
+    pricesTitle: "Packages",
     starterTitle: "Starter",
     starterSubtitle: "1 hour per week",
-    
+    starterText: "Keep in touch with the language, avoid losing your level",
+    semiProTitle: "Semi-pro",
+    semiProSubtitle: "2 hours per week",
+    semiProText: "Improve your level of the language by learning new grammar and vocabulary",
+    proTitle: "Pro",
+    proSubtitle: "3 hours per week",
+    proText: "Intensive course, usually for something specific, achieve your goals in a shorter time",
+
 
     //reviews
     reviewsTitle: "Reviews",
@@ -91,7 +98,12 @@ export const English = {
     //form
 
     formtitle: "Search for a group",
-    
+    modalSuccessForm: "Thank you for submitting your form to join one of our groups! One of our team will be in touch as soon as there are enough students to form a group with details of the schedule and start date.",
+    modalWarning: "You selected less than three moments, how more moments selected how more likely you are to find a group. Are you sure you want to continue?",
+    modalWarningButton: "Yes, I'm sure",
+    modalWarningButtonCancel: "No, I want to select more moments",
+    modalWarningTitle: "Warning!",
+    modalSuccess: "Form submitted successfully!",
     
 
     //general

@@ -26,9 +26,8 @@ function Translations() {
   return (
     <section id="translations">
       <div className="text-center">
-        <h1 className="display-6 text-center ">{text.translationsTitle}</h1>
+        <h1 className="display-5 text-center ">{text.translationsTitle}</h1>
       </div>
-      <br></br>
       <Container>
       <Image src={Translation} rounded width={"100%"} />
         <p className="lead text-black text-center">
@@ -123,6 +122,7 @@ function Translations() {
           ></CardTypeClass>
           </Col>
       </Row>
+      <br></br>
       </Container>
 
     </section>

@@ -31,15 +31,15 @@ function Hero () {
             <br></br>
             <br></br>
             <br></br>
-            <p className="display-6 text-black">{text.heroTitle}</p>
+            <p className="display-5 text-black">{text.heroTitle}</p>
             <br></br>
-            <p className="lead text-black">{text.heroSubtitle}</p>
-            <p className="lead text-black">{text.heroSubtitletwo} <span className='display'></span></p>
+            <p className="lead2 text-black">{text.heroSubtitle}</p>
+            <p className="lead2 text-black">{text.heroSubtitletwo} <span className='display'></span></p>
 
             <br></br>
             
        
-            <a href="#classes" className="btn btn-lg btn-primary text-white"><i className="" aria-hidden="true">{text.buttonMoreInfo}</i> </a>
+            <a href="#classes" className="btn btn-lg btn-primary text-white">{text.buttonMoreInfo}</a>
         
         </div>
     </section>
