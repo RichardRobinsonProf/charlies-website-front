@@ -26,9 +26,7 @@ $theme-colors: (
     border-radius: 20px;
 }
 
-.background-gradient {
-    background-image: linear-gradient(to bottom, #D3D3D3, white);
-}
+
 .background-gradient2 {
     background-image: linear-gradient(to top, #D3D3D3, white);
    
@@ -136,7 +134,6 @@ h1 {
 
 .center-items {
     display: inline-flexbox;
-  
     justify-content: center;
     align-items: center;
 }

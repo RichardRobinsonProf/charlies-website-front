@@ -26,7 +26,6 @@ function ThreedotsCollapse (props) {
           aria-controls="example-collapse-text"
           aria-expanded={open}
         >
-       
        {text.buttonMoreInfo} <MdExpandMore/> 
         </Button>
         <Collapse in={open}>

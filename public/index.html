@@ -29,45 +29,55 @@
     <title>React App</title>
      <style>
 			#section-hero {
-        background-image: linear-gradient(to bottom, #D3D3D3, white);
+        background-image: url("./images/RIL Assets-10.png");
 				background-size: cover;
 				background-position: center;
-				background-attachment: fixed;
 				min-height: 100vh;
 			}
       #aboutus {
-        background-image: url("./Team.png");
-        width: 100%;
+        background-image: url("./images/RIL Assets-11.png");
         background-size: cover;
-        background-position: center;
-				background-attachment: fixed;
-				min-height: 100vh;
+				background-position: center;
+				min-height: 75vh;
       }
       #classes {
-        background-image: linear-gradient(to bottom, #D3D3D3, white);
-   
-       
-      }
-      #translations {
-        background-image: linear-gradient(to top, #D3D3D3, white);
-        background-image: url("./Translation.png");
-        width: 100%;
+        background-image: url("./images/RIL Assets-12.png");
         background-size: cover;
-        background-position: center;
-				background-attachment: fixed;
-				min-height: 100vh;
-      
-       
+				background-position: center;
+				min-height: 75vh;  
       }
-      #groups {
-        background-image: linear-gradient(to bottom, #D3D3D3, white);
 
-       
+      .inner {
+        position: absolute;
       }
+
+      .blue-circle {
+        border-radius: 50%;
+        background-color: #E7F3FE;
+        width: 350px;
+        height: 350px;
+      }
+
+      .light-blue{
+        background-color: #E7F3FE;
+      }
+
+    
+ 
+  
+      .bg-blue {
+        background-color:#699DEE;
+        border: #699DEE;
+      }
+      
+      #translations {
+        background-image: linear-gradient(to bottom, #D3D3D3, white);            
+      }
+    
       #prices {
-        background-image: linear-gradient(to top, #D3D3D3, white);
-   
-       
+        background-size: cover;
+				background-position: center;
+				min-height: 50vh; 
       }
       #reviews {
         background-image: linear-gradient(to bottom, #D3D3D3, white);
@@ -82,14 +92,17 @@
         background-image: linear-gradient(to bottom, #D3D3D3, white); 
   
       }
+      .width-100{
+   
+      }
 		</style>
    
   </head>
-  <body>
+  <body">
     <noscript>You need to enable JavaScript to run this app.</noscript>
   
    
-    <div id="root"></div>
+    <div class="width-100" id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

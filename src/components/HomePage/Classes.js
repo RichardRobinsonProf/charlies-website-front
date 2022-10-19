@@ -6,7 +6,7 @@ import { useContext, useState, useEffect } from "react";
 import ContextChosenLanguage from "../../Context";
 import { chosenLanguage } from "../../utils/language";
 import {Link} from 'react-router-dom'
-
+import ImageClasses from "../../images/RIL Assets-03.png";
 function ContainerCards() {
   const ctx = useContext(ContextChosenLanguage)
   const [text, setText] = useState(chosenLanguage(ctx.language))
@@ -21,71 +21,21 @@ function ContainerCards() {
   },[ctx.language])
   return (
     <section id="classes">
-    <br></br>
-      <Container className="text-center">
-      <h1 className="display-5 text-center ">{text.classesTitle}</h1>
-        <Row className="text-center mx-auto">
-          <Col md={12} xm={12}>
-            
-            <CardTypeClass
-              image={Virtual}
-              title={
-                <div>
-                  <Image
-                    className="img-fluid"
-                    src={Virtual}
-                    height="200"
-                    width="100"
-                  />
-                  <p>{text.classesVirtual}</p>
-                  
-                </div>
-                
-              }
-              body={<div>
-                {text.classesVirtualParagraph}
-                <div>
-                <Link to= '/form'>
-                <div>
-                <Button className="btn btn-lg btn-primary text-white" >
-                {text.groupsButton}
-            </Button>
-         
-            </div>
-            </Link>
-            </div>
-            </div>}
-            />
-          </Col>
-        </Row>
-        <br></br>
-
-        <ThreedotsCollapse
-          text={
-            <div className="lead text-black text-center">
-              <p>
-                {text.classesParagraphOne}
-              </p>
-              <p>
-               {text.classesParagraphTwo}
-              </p>
-              <p>
-               {text.classesParagraphThree}
-              </p>
-            </div>
-          }
-
-          
-        />
-             
-     
-       
-
-  
-    <br></br>
-       
-      </Container>   
-      <br></br>
+ <div className="row pt-5 text-center">
+        <h1 className="display-5 text-black">Mira nuestros planes</h1>
+      </div>
+    <div className="row ms-3 me-3">
+        <div className= "col-md-5 offset-md-1">
+          <p>
+            {text.classesParagraphOne}
+          </p>
+        </div>
+        <div className= "col-md-5">
+          <p>
+          <Image className=" w-75" src={ImageClasses}/>
+          </p>
+        </div>
+    </div>
     </section>
 
   );

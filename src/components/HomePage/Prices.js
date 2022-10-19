@@ -1,8 +1,11 @@
-import {  Container } from 'react-bootstrap';
 import { useContext, useState, useEffect } from 'react';
 import ContextChosenLanguage from '../../Context';
 import { chosenLanguage } from '../../utils/language';
-import ThreedotsCollapse from "./buttons/ThreedotsCollapse";
+import {Image} from 'react-bootstrap'
+import Starter from "../../images/RIL Assets-04.png";
+import SemiPro from "../../images/RIL Assets-05.png";
+import Pro from "../../images/RIL Assets-06.png";
+
 
 function Prices () {
 	const ctx = useContext(ContextChosenLanguage)
@@ -17,57 +20,43 @@ function Prices () {
 		}
 	},[ctx.language])
     return (
-        <section id= "prices">
-        <Container>
-        <div className  = "text-center">
-			<br></br>
-             <h1 className="display-5 text-center ">{text.pricesTitle}</h1>
-             <div className="row mx-auto">
-					<div className="col-12 col-md-4 mb-4">
-						<div className="card card-outline-success border-primary">
-							<div className="card-header bg-success text-black text-center">
-								<h1 className="display-6 text-center ">{text.starterTitle}</h1>
-								<h4 className="text-center">{text.starterSubtitle}</h4>
-							</div>
-							<div className="card-body">
-								
-				
-									<ThreedotsCollapse
-									text= {<p className='lead'>{text.starterText}</p>}
-									/>
-								
-							</div>
-						</div>
+        <section id="prices">
+			<div className='row justify-content-center mb-5'>
+			<div className= 'col-12 col-md-3 mt-3'>
+					<div className='light-blue text-center pb-5'>
+					<Image className=" w-50" src={Starter}/>
+					<div>
+						<h1 className="display-5 text-black">Starter</h1>
+						<p>1 hora por semana</p>
 					</div>
-					<div className="col-12 col-md-4 mb-4">
-						<div className="card card-outline-warning border-primary">
-							<div className="card-header bg-warning text-black text-center">
-								<h2 className="display-6 text-center ">{text.semiProTitle}</h2>
-								<h4>{text.semiProSubtitle}</h4>
-							</div>
-							<div className="card-body">							
-								<ThreedotsCollapse
-									text= {<p className='lead'>{text.semiProText}</p>}
-									/>						
-							</div>
-						</div>
+						<button className="bg-blue">¡Empieza tu programa hoy!</button>
 					</div>
-					<div className="col-12 col-md-4 mb-4">
-						<div className="card card-outline-danger border-primary">
-							<div className="card-header bg-danger text-black text-center">
-								<h2 className="display-6 text-center">{text.proTitle}</h2>
-								<h4>{text.proSubtitle}</h4>
-							</div>
-							<div className="card-body">
-								<ThreedotsCollapse
-										text= {<p className='lead'>{text.proText}</p>}
-									/>				
-							</div>
-						</div>
+					
+				</div> 
+				<div className= 'col-12 col-md-3 mt-3'>
+					<div className='light-blue text-center pb-5'>
+					<Image className=" w-50" src={SemiPro}/>
+					<div>
+						<h1 className="display-5 text-black">Semi-pro</h1>
+						<p>1 hora por semana</p>
 					</div>
-				</div>
-        </div>
-        </Container>
+						<button className="bg-blue">¡Empieza tu programa hoy!</button>
+					</div>
+					
+				</div> 
+				<div className= 'col-12 col-md-3 mt-3'>
+					<div className='light-blue text-center pb-5'>
+					<Image className=" w-50" src={Pro}/>
+					<div>
+						<h1 className="display-5 text-black">Pro</h1>
+						<p>1 hora por semana</p>
+					</div>
+						<button className="bg-blue">¡Empieza tu programa hoy!</button>
+					</div>
+					
+				</div> 
+			</div>
+        
         </section>
     )
 }

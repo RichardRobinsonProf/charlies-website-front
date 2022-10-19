@@ -17,8 +17,8 @@ function HomePage() {
     <Hero/>
     <AboutUs/>
     <Classes/>
-    <Translations/>
     <Prices/>
+    <Translations/>
     <Reviews/>
     <Contact/>
     <Footer/>

@@ -1,10 +1,10 @@
-import { Image, Container } from "react-bootstrap";
-import Team from "../../images/Team.png";
-import ThreedotsCollapse from "./buttons/ThreedotsCollapse";
+import { Image} from "react-bootstrap";
 import { useContext, useState, useEffect } from "react";
 import ContextChosenLanguage from "../../Context";
 import { chosenLanguage } from "../../utils/language";
-import CardTypeClass from "./CardTypeClass";
+import ImageLograrMas from "../../images/RIL Assets-02.png";
+import {BsCheckLg} from 'react-icons/bs'
+
 
 function AboutUs() {
   const ctx = useContext(ContextChosenLanguage);
@@ -20,33 +20,35 @@ function AboutUs() {
   }, [ctx.language]);
   return (
     <section id="aboutus">
-      <br></br>
-      <div className="text-center center-items">
-        <h1 className="display-5 text-center text-white">
-        
-        </h1>
-        <Container>
-          <CardTypeClass
-              title = {<h1 className="display-5 text-center">{text.aboutusTitle}</h1>}
-              body= 
-          
-              {   <div> <p>{text.aboutusParagraphOne}</p> 
-              <ThreedotsCollapse
-                text={
-                  <div className="lead text-black text-center">
-                    
-                    <p>{text.aboutusParagraphTwo}</p>
-                    <p>{text.aboutusParagraphThree}</p>
-                    <p>{text.aboutusParagraphFour}</p>
-                  </div>
-                 
-                }
-                
-              /></div>}  
-          />
-        </Container>
+      <div className="row pt-5">
+        <div className="col-md-5 mx-auto text-center mt-2">
+        <h1 className="display-5 text-black">Logra más con RIL</h1>
+           <p className="text-black">Desbloquea el poder de tu camino personalizado de aprendizaje para lograr tus objetivo de idioma rapido. ¡Descubre cuán fácil y divertido puede ser aprender un nuevo idioma con Robinson Institute of Language!</p>
+          </div>
       </div>
-      <br></br>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="row justify-content-end">
+          <Image className=" w-75" src={ImageLograrMas}/>
+          </div>
+          </div>
+          <div className=" col-md-5 mt-md-5">
+          <ul className="mt-md-5">
+            <li><BsCheckLg
+            color="green"
+            size="1.5em"
+            className="me-1"
+            />Classes Virtuales</li>
+            <li className="mt-2">
+            <BsCheckLg
+            color="green"
+            size="1.5em"
+            className="me-1"
+            />Classes Individuales y Grupales</li>
+          </ul>
+          </div>
+        </div>
+      
     </section>
   );
 }
