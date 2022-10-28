@@ -7,6 +7,7 @@ import AboutUs from '../components/HomePage/AboutUs';
 import Prices from '../components/HomePage/Prices';
 import Reviews from '../components/HomePage/Reviews';
 import Footer from '../components/HomePage/Footer';
+import CompaniesThatTrustUs from '../components/HomePage/CompaniesThatTrustUs';
 
 
 
@@ -20,6 +21,7 @@ function HomePage() {
     <Prices/>
     <Translations/>
     <Reviews/>
+    <CompaniesThatTrustUs/>
     <Contact/>
     <Footer/>
     </div>

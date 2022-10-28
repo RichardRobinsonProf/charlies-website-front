@@ -1,12 +1,15 @@
-import { Container,Modal, Button } from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
 import {useContext,useState, useEffect,useRef} from 'react'
 import ContextChosenLanguage from '../../Context'
 import {chosenLanguage} from '../../utils/language'
 import useInput from "../../hooks/use-input";
-import "../../pages/FormLayout.css";
+import "../FormPage/FormLayout.css";
 import apiConnection from '../../api/apiConnection'
 import ModalForm from "../FormPage/ModalForm";
+import {AiOutlineMail} from 'react-icons/ai'
+import {GiSmartphone} from 'react-icons/gi'
+import {MdOutlineLocationOn} from 'react-icons/md'
+import Button from "../HomePage/buttons/BlueButton";
 
 function Contact() {
   //https://www.google.com/recaptcha/admin/create
@@ -133,7 +136,6 @@ function Contact() {
   return (
     <section id="contactus">
       <div className="text-center">
-        <h1 className="display-5 text-center">{text.contactTitle}</h1>
         <ModalForm
         show= {show}
         handleClose= {handleClose}
@@ -143,19 +145,42 @@ function Contact() {
         positive= {text.buttonClose}
         handlePositive= {handleClose}
         />
-          <div className="align-items-center text-center bg-light container container-contact">
-          <br></br>
-          <Container>
-            <form className="mb-4" onSubmit={submitHandler}>
+          <div className="align-items-center text-center bg-transparent mx-5">     
+            <form  onSubmit={submitHandler}>
+            <h1 className="display-5 text-white mb-md-5 mb-2 pt-5">{text.contactTitle}</h1>
               <div className="row">
-                <div className="col-12 col-md-6">
+              <div className="col-12 offset-md-1 col-md-5 text-start">
+             
+             <p className="mt-2">
+                <i> <AiOutlineMail
+                    color="white"
+                    size="1.5em"
+                    className="me-1"
+                    /><span className="text-white lead">contacto@robinsonsinstituteoflanguage.com</span></i>  
+                 </p> 
+                <p className="mt-2">
+                <i> <GiSmartphone
+                    color="white"
+                    size="1.5em"
+                    className="me-1"
+                    /><span className="text-white lead">+54 555 5555</span></i>  
+                 </p>   
+                 <p className="mt-2">   
+                <i> <MdOutlineLocationOn
+                    color="white"
+                    size="1.5em"
+                    className="me-1"
+                    /><span className="text-white lead">Carranza 55, Capital Federal</span></i>  
+                   </p>         
+                </div>
+                <div className="col-12 col-md-5">
                   <div className= {nameClasses} >
-                    <label htmlFor="name" className="form-label">
+                    <label htmlFor="name" className="form-label visually-hidden">
                       <p className="lead text-black"></p>
                     </label>
                     <input
                         type="text"
-                        className="form-control mt-1"
+                        className="form-control text-white bg-transparent border-top-0 border-end-0 border-start-0"
                         placeholder= {text.placeholderName}
                         value={nameValue}
                         onChange={nameChangeHandler}
@@ -167,12 +192,12 @@ function Contact() {
                   )}
 
                   <div className={emailClasses}>
-                    <label htmlFor="email" className="form-label">
+                    <label htmlFor="email" className="form-label visually-hidden">
                       <p className="lead text-black"></p>
                     </label>
                     <input
                         type="email"
-                        className="form-control mt-1"
+                        className="form-control text-white bg-transparent border-top-0 border-end-0 border-start-0"
                         placeholder= {text.placeholderEmail}
                         value={emailValue}
                         onChange={emailChangeHandler}
@@ -183,12 +208,12 @@ function Contact() {
                     <p className="error-text">{text.errorEmail}</p>
                   )}
                   <div className={phoneClasses}>
-                    <label htmlFor="Telephone" className="form-label">
+                    <label htmlFor="Telephone" className="form-label visually-hidden">
                       <p className="lead text-black"></p>
                     </label>
                     <input
                         type="tel"
-                        className="form-control mt-1"
+                        className="form-control text-white bg-transparent border-top-0 border-end-0 border-start-0"
                         placeholder= {text.placeholderTelephone}
                         value={phoneValue}
                         onChange={phoneChangeHandler}
@@ -199,47 +224,46 @@ function Contact() {
                   {phoneHasError && (
                     <p className="error-text">{text.errorTelephone}</p>
                   )}
-                </div>
-                <div className="col-12 col-md-6">
-                  <div className= "mb-3">
-                    <label htmlFor="message" className="form-label">
+                  <div >
+                    <label htmlFor="message" className="form-label visually-hidden">
                       <p className="lead text-black"></p>
                     </label>
                     <textarea
                       onChange={messageChangeHandler}
                       id="message"
-                      className="form-control"
-                      rows="10"
+                      className="form-control placeholder-bottom text-white bg-transparent border-top-0 border-end-0 border-start-0"
+                      rows="5"
                       placeholder={text.placeholderMessage}
                       name="message"
                       value={message}
                     ></textarea>
                   </div>
+                 
+                <div className="row me-0 ms-0">
+                
+                          <button
+                            name="action"
+                            id="action"
+                            type="submit"
+                            className="bg-blue mb-3">
+                            {text.contactButton}
+                          </button>
+                          {showErrorForm && (
+                        <p className="error-text">{text.errorFormMessage}</p>
+                      )}
+                <div className="row justify-content-end mb-3">
+                <ReCAPTCHA
+                      className= "captcha"
+                      ref={recaptchaRef}
+                      sitekey={process.env.REACT_APP_SITE_KEY}
+                      theme="dark"
+                      onChange={onChangeCaptcha}
+                    />
+                </div>
+                  </div>
                 </div>
               </div>
-			  <ReCAPTCHA
-			      className= "captcha"
-				  ref={recaptchaRef}
-                  sitekey={process.env.REACT_APP_SITE_KEY}
-                  theme="light"
-                  onChange={onChangeCaptcha}
-                />
-              <div className="mb-3">
-                <button
-                  name="action"
-                  id="action"
-                  type="submit"
-                  className="btn btn-lg btn-primary text-white button-form"
-                >
-                  {text.contactButton}
-                </button>
-                {showErrorForm && (
-              <p className="error-text">{text.errorFormMessage}</p>
-            )}
-              </div>
             </form>
-        
-          </Container>
         </div>
       </div>
     </section>

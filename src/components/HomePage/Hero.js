@@ -4,6 +4,8 @@ import Image from "react-bootstrap/Image";
 import { useContext, useState, useEffect } from "react";
 import ContextChosenLanguage from "../../Context";
 import { chosenLanguage } from "../../utils/language";
+import BlueButton from "./buttons/BlueButton";
+import {Link} from 'react-router-dom'
 
 function Hero() {
   const ctx = useContext(ContextChosenLanguage);
@@ -20,7 +22,7 @@ function Hero() {
 
   return (
     <section id="section-hero">
-      <div className="row ms-3 mb-5 mt-5">
+      <div className="row ms-3 mb-5 mt-5 me-3">
         <div height={100}>
           <br></br>
           <br></br>
@@ -35,19 +37,15 @@ function Hero() {
           </div>
         </div>
         <div className="row">
-          <div className="offset-md-1 col-md-3 col-12">
-            <input
-              type="email"
-              className="w-100"
-              placeholder="Correo electrónico"
-            ></input>
-          </div>
-          <div className="col-md-5 col-12 mb-3">
-            <button className="bg-blue">¡Empieza tu programa hoy!</button>
-          </div>
+        <div className="col-md-6 col-12">
+        <div class="input-group offset-md-2">
+            <input type="text" className="form-control border-top-0 border-end-0 border-start-0 me-3 rounded" placeholder="Correo electrónico" aria-label="Text input with button" aria-describedby="buttonAfter"/>
+            <button type="button" className="bg-blue button-fit-content rounded" id="buttonAfter">¡Empieza tu programa hoy!</button>
+            </div>
+        </div>
         </div>
       </div>
-      <div className="row mb-5 mt-5">
+      <div className="row mb-5 mt-5 me-2">
         <div className="col-md-6 col-12 mb-3">
           <div className="blue-circle align-items-center row mx-auto">
             <Image className="rounded" src={Team} width={"100%"}></Image>
@@ -60,7 +58,11 @@ function Hero() {
           <p className="text-black ms-4">{text.aboutusParagraphOne}</p>
           <p className="text-black ms-4">{text.aboutusParagraphThree}</p>
           <span>
-            <button className="bg-blue ms-4">¡Empieza tu programa hoy!</button>
+            <BlueButton
+            text= {"¡Empieza tu programa hoy!"}
+            extraClasses = {"ms-4"}
+            link = "/prices"
+            />
           </span>
         </div>
       </div>

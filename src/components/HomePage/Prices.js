@@ -5,6 +5,7 @@ import {Image} from 'react-bootstrap'
 import Starter from "../../images/RIL Assets-04.png";
 import SemiPro from "../../images/RIL Assets-05.png";
 import Pro from "../../images/RIL Assets-06.png";
+import BlueButton from "../HomePage/buttons/BlueButton";
 
 
 function Prices () {
@@ -22,36 +23,43 @@ function Prices () {
     return (
         <section id="prices">
 			<div className='row justify-content-center mb-5'>
-			<div className= 'col-12 col-md-3 mt-3'>
+			<div className= 'col-8 col-md-3 mt-3'>
 					<div className='light-blue text-center pb-5'>
 					<Image className=" w-50" src={Starter}/>
 					<div>
 						<h1 className="display-5 text-black">Starter</h1>
 						<p>1 hora por semana</p>
-					</div>
-						<button className="bg-blue">¡Empieza tu programa hoy!</button>
+					</div> 
+
+						<BlueButton
+							text= {"¡Empieza tu programa hoy!"}
+							link = "/prices"/>
 					</div>
 					
 				</div> 
-				<div className= 'col-12 col-md-3 mt-3'>
+				<div className= 'col-8 col-md-3 mt-3'>
 					<div className='light-blue text-center pb-5'>
 					<Image className=" w-50" src={SemiPro}/>
 					<div>
 						<h1 className="display-5 text-black">Semi-pro</h1>
 						<p>1 hora por semana</p>
 					</div>
-						<button className="bg-blue">¡Empieza tu programa hoy!</button>
+					<BlueButton
+							text= {"¡Empieza tu programa hoy!"}
+							link = "/prices"/>
 					</div>
 					
 				</div> 
-				<div className= 'col-12 col-md-3 mt-3'>
+				<div className= 'col-8 col-md-3 mt-3'>
 					<div className='light-blue text-center pb-5'>
 					<Image className=" w-50" src={Pro}/>
 					<div>
 						<h1 className="display-5 text-black">Pro</h1>
 						<p>1 hora por semana</p>
 					</div>
-						<button className="bg-blue">¡Empieza tu programa hoy!</button>
+					<BlueButton
+							text= {"¡Empieza tu programa hoy!"}
+							link = "/prices"/>
 					</div>
 					
 				</div> 
