@@ -18,7 +18,6 @@ import ContextChosenLanguage from '../../Context'
 import {chosenLanguage} from '../../utils/language'
 import {IoIosAdd} from 'react-icons/io'
 import {BsTrash} from 'react-icons/bs'
-import {Row,Col} from 'react-bootstrap'
 import ModalForm from "../../components/FormPage/ModalForm";
 
 
@@ -42,9 +41,8 @@ function Form() {
   const [showModalWarning, setShowModalWarning] = useState(false);
   const [showFormIsInvalid, setShowFormIsInvalid] = useState(false);
   const handleClose = () => setShowModalWarning(false);
-  const handleShow = () => setShowModalWarning(true);
   const handleCloseAlert = () => setShowAlert(false);
-  const handleShowAlert = () => setShowAlert(true);
+
   
   
   useEffect (() => {
@@ -54,7 +52,8 @@ function Form() {
       } else {
           setText(chosenLanguage('Spanish'))
       }
-  },[ctx.language])
+      console.log(ctx)
+  },[ctx])
 
   function resetDates() {
     setDates([]);
@@ -118,8 +117,12 @@ function Form() {
       localTime: dates,
       argentineTime: argentineDates,
       timeZone: selectedTimezone,
+      wantsGroup: ctx.wantsGroup,
+      pricePack: ctx.pricePack 
     };
     console.log(newStudent);
+
+    if(ctx.wantsGroup === true) {
     apiConnection.post('/users', newStudent)
     .then(function(response) {
       setShowAlert(true)
@@ -128,6 +131,16 @@ function Form() {
       const errorMessage = error.response.data;
       alert(errorMessage);
     });
+  } else {
+    apiConnection.post('/users/individual', newStudent)
+    .then(function(response) {
+      setShowAlert(true)
+    })
+    .catch(function(error) {
+      const errorMessage = error.response.data;
+      alert(errorMessage);
+    });
+  }
 
     resetFirstName();
     resetLastName();
@@ -247,7 +260,6 @@ function Form() {
 
   const {
     value: examValue,
-    isValid: examIsValid,
     hasError: examHasError,
     valueChangeHandler: examChangeHandler,
     inputBlurHandler: examBlurHandler,
@@ -371,7 +383,7 @@ function Form() {
     }else {
       setShowFormIsInvalid(false)
     }
-    if (dates.length < 3) {
+    if (dates.length < 3 && ctx.setWantsGroup === true) {
      setShowModalWarning(true)
     }else{
       createUserAndSend()                
@@ -414,7 +426,7 @@ function Form() {
       <form className="Auth-form mt-5 " onSubmit={submitHandler}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title text-white display-6  text-center ms-md-2">
-            {text.formtitle}
+            {ctx.wantsGroup === true ? text.formtitle : text.formtitleIndividual}
           </h3>
           <ModalForm
               show= {showAlert}
@@ -519,7 +531,7 @@ function Form() {
                 <label className="lead text-black"></label>
                 <select
                   type="text"
-                  className="form-control  bg-transparent text-white text-muted"
+                  className="form-control  bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
                   value={languageValue}
                   onChange={selectedLanguageChangeHandler}
                   onBlur={languageBlurHandler}
@@ -545,7 +557,7 @@ function Form() {
                 <label></label>
                 <select
                   type="text"
-                  className="form-control  bg-transparent text-white text-muted"
+                  className="form-control  bg-transparent text-white text-muted  border-top-0 border-end-0 border-start-0"
                   value={levelValue}
                   onChange={levelChangeHandler}
                   onBlur={levelBlurHandler}
@@ -569,7 +581,7 @@ function Form() {
             <label></label>
             <select
               type="text"
-              className="form-control  bg-transparent text-white text-muted"
+              className="form-control  bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
               value={objectiveValue}
               onChange={selectedObjectiveChangeHandler}
               onBlur={objectiveBlurHandler}
@@ -592,7 +604,7 @@ function Form() {
               {objectiveValue === "Exam" && languageValue === "English" && (
                 <select
                 type="text"
-                className="form-control  bg-transparent text-white text-muted"
+                className="form-control bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
                 //hidden={objectiveValue !== "Exam" || languageValue !== "English"}
                 value={examValue}
                 onChange={examChangeHandler}
@@ -611,7 +623,7 @@ function Form() {
               {objectiveValue === "Exam" && languageValue !== "English" && (
                 <input
                 type="text"
-                className="form-control  bg-transparent"
+                className="form-control  bg-transparent border-top-0 border-end-0 border-start-0"
                 placeholder={text.placeholderExamSpecific}
                 //hidden={objectiveValue !== "Exam" || languageValue === "English"} 
                 value={examValue}
@@ -663,7 +675,7 @@ function Form() {
             <div className="col-12 col-md-4">
           <div>
             <TimezoneSelect
-              className="text-start text-black text-muted mt-5 mt-md-4"
+              className="text-start text-black text-muted mt-5 mt-md-4 "
               placeholder= {text.placeholderTimeZone}
               value={selectedTimezone}
               onChange={timezoneChangeHandler}
@@ -680,7 +692,7 @@ function Form() {
                 <label></label>
                 <select
                   type="text"
-                  className="form-control mt-md-2  bg-transparent text-white text-muted"
+                  className="form-control mt-md-2  bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
                   hidden={selectedTimezone === ""}
                   value={dayValue}
                   onChange={dayChangeHandler}
@@ -704,7 +716,7 @@ function Form() {
                 <label></label>
                 <select
                   type="text"
-                  className="form-control bg-transparent text-white text-muted"
+                  className="form-control bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
                   hidden={selectedTimezone === ""}
                   value={timeValue}
                   onChange={timeChangeHandler}

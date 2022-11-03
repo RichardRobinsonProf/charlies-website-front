@@ -9,7 +9,7 @@ import ModalForm from "../FormPage/ModalForm";
 import {AiOutlineMail} from 'react-icons/ai'
 import {GiSmartphone} from 'react-icons/gi'
 import {MdOutlineLocationOn} from 'react-icons/md'
-import Button from "../HomePage/buttons/BlueButton";
+
 
 function Contact() {
   //https://www.google.com/recaptcha/admin/create
@@ -23,7 +23,6 @@ function Contact() {
   const [showErrorForm, setShowErrorForm] = useState(false)
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   
   useEffect (() => {
@@ -88,7 +87,7 @@ function Contact() {
  
 
   let formIsValid = false;
-  if (nameIsValid && emailIsValid && phoneIsValid && captchaValido && message != '') {
+  if (nameIsValid && emailIsValid && phoneIsValid && captchaValido && message !== '') {
     formIsValid = true;
   } 
 
@@ -145,9 +144,9 @@ function Contact() {
         positive= {text.buttonClose}
         handlePositive= {handleClose}
         />
-          <div className="align-items-center text-center bg-transparent mx-5">     
+          <div className="align-items-center text-md-center bg-transparent mx-5">     
             <form  onSubmit={submitHandler}>
-            <h1 className="display-5 text-white mb-md-5 mb-2 pt-5">{text.contactTitle}</h1>
+            <h1 className="display-5 text-start text-md-center text-white mb-md-5 mb-2 pt-5">{text.contactTitle}</h1>
               <div className="row">
               <div className="col-12 offset-md-1 col-md-5 text-start">
              

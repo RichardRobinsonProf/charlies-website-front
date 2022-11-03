@@ -10,7 +10,8 @@ import NavbarComplete from "../components/HomePage/NavbarComplete";
 const PricesPage = () => {
     const ctx = useContext(ContextChosenLanguage);
     const [text, setText] = useState(chosenLanguage(ctx.language));
-    
+
+
     useEffect(() => {
       console.log(ctx.language);
       if (ctx.language === "English") {
@@ -57,7 +58,7 @@ const PricesPage = () => {
     return (
         <div>
         <NavbarComplete/>
-        <Prices/>
+        <Prices countryName = {state.countryName}/>
         <Footer/>
       </div>
     );

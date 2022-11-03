@@ -1,15 +1,32 @@
 import {Image} from 'react-bootstrap'
 import ImageTranslation from '../../images/RIL Assets-07.png'
 import {GoPrimitiveDot} from 'react-icons/go'
+import { useContext, useState, useEffect } from 'react';
+import ContextChosenLanguage from '../../Context';
+import { chosenLanguage } from '../../utils/language';
+import { HashLink as Link } from 'react-router-hash-link';
+
+
 
 
 function Translations (props) {
+    const ctx = useContext(ContextChosenLanguage)
+	const [text, setText] = useState(chosenLanguage(ctx.language))
+	
+	useEffect (() => {
+		console.log(ctx.language)
+		if (ctx.language === 'English') {
+			setText(chosenLanguage('English'))
+		} else {
+			setText(chosenLanguage('Spanish'))
+		}
+    },[ctx.language])
     return (
         <div id="toptranslations">
             <div className="pt-5 ps-5 pe-5 " id="TranslationPage">
-            <div className="row mt-5  ">
+            <div className="row mt-5">
                 <div className="col-md-4 col-12 offset-md-1 align-self-center">
-                <h1 className="display-5 text-black ">Servicio de traducciones</h1>
+                <h1 className="display-5 text-black ">{text.translationsTitle}</h1>
                 <p>{props.translationsParagraphOne}</p>  
                     </div>
                     <div className="col-md-7 col-12">
@@ -66,15 +83,21 @@ function Translations (props) {
                 <div>        
             </div>  
      <div className = "bg-orange">
-        <div className="p-5 text-center">
+        <div className="p-5 text-md-center">
         
-        <h1 className="display-5 text-black mt-5">¿Tienes más preguntas? </h1>
-        <h1 className="display-5 text-black ">¡Contactanos!</h1>
-        <p className='pb-0 mb-0 w-50 mx-auto'>Nuestro equipo está preparado para encontrar una solución a</p>
-        <p>tus necesidades de traducción</p>
-        <button className = "bg-blue mb-5"> Contactanos</button>
+        <h1 className="display-5 text-black mt-5">{text.translationOrangeBgTitle}</h1>
+        <h1 className="display-5 text-black ">{text.translationOrangeBgSubtitle}!</h1>
+        <p className='pb-0 mb-0 w-md-50 mx-auto'>{text.translationOrangeBgParagraphOne}</p>
+        <p>{text.translationOrangeBgParagraphTwo}</p>
+
+        <Link to="/translations#contactus">
+        <button className="bg-blue mb-5">
+        {text.translationOrangeBgButton}
+        </button>
+        </Link>
         </div>
         </div>
+ 
     </div>
   
     )

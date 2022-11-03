@@ -7,7 +7,7 @@ function BlueButton (props) {
     to={props.link}
     hash={props.hash}
     >
-    <button  className={`bg-blue ms-4 ${props.extraClasses}`}>{props.text}</button>
+    <button  className={`bg-blue ${props.extraClasses}`}>{props.text}</button>
     </Link>
     )
 }

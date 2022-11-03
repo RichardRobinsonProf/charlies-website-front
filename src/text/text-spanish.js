@@ -16,24 +16,32 @@ export const Spanish = {
   navLanguage: "Idioma",
 
   //aboutus
-  aboutusTitle: "Acerca de nosotros",
+  aboutusTitle: "Aprende un nuevo idioma desde cualquier parte del mundo",
   aboutusParagraphOne:"Robinson's Institute of Languages se fundó en 2011 con la intención de ofrecer clases de idioma para personas que buscan aprender de una manera personalizada en la ciudad de Buenos Aires.",
   aboutusParagraphTwo:"Nos especializamos en clases para estudiantes que quieran dar exámenes, ir de viaje, hacer negocios o solo aprender un idioma en general.",
   aboutusParagraphThree:"Todos los profesores en el instituto son expertos en el idioma y cuentan con certificaciones de enseñanza tanto como experiencia dictando clases. Además contamos con una variedad de profesores nativos.",
   aboutusParagraphFour: "El departamento de traducciones se abrió en 2013 y consiste de ambos traductores públicos argentinos y traductores nativos del inglés para lograr mejores traducciones. Trabajamos en equipo para poder traducir largos textos en menos tiempo sin perder la calidad de la traducción.",
 
   //  classes
-  classesTitle: "Clases",
+  classesTitle: "Logra más con RIL",
   classesVirtual: "Clases virtuales",
-  classesVirtualParagraph:"Ofrecemos dictar las clases virtualmente desde la comodidad de tu propia computadora  donde estés!Utilizamos Google Meet y Zoom como nuestras plataformas principales para las clases y podemos compartir el material vía compartir pantalla y por un vínculo que se mande al/a la estudiante para descargar el material a su propia computadora.Nuestros profesores se ubican principalmente en las Américas, entonces podemos ofrecer dictar las clases entre las 07:00 y las 19:00 EST.Por favor infórmanos sobre tu zona horaria cuando estás reservando clases.",
   classesParagraphOne:"En Robinson's Institute of Languages sabemos la importancia que tiene la conversación a la hora de aprender un idioma nuevo. Es por eso que nuestra forma de enseñar se basa en la conversación. Todos los profesores cuentan con certificaciones internacionales y experiencia en la enseñanza. La mayoría de los profesores son nativos, pero también hay profesores locales que vivieron en el exterior por un tiempo y que puedan explicar las reglas en castellano si es que el estudiante lo requiere. Somos expertos en evaluar el nivel y las necesidades de cada alumno para planificar un curso personalizado.",
+
+  classesGroupAndIndividual: "Clases individuales y grupales",
+  classesParagraph:"Desbloquea el poder de tu camino personalizado de aprendizaje para lograr tus objetivo de idioma rapido. ¡Descubre cuán fácil y divertido puede ser aprender un nuevo idioma con Robinson Institute of Language!",
   classesParagraphTwo: "Buscamos crear clases dinámicas e interactivas. Usamos diferentes herramientas, como el internet, para hacer de las clases más divertidas y completas. Contamos con material gramatical, actividades de escuchar y leer y para preparación de exámenes.",
   classesParagraphThree:"Ofrecemos flexibilidad en cuanto al horario y lugar donde se toman las clases. Se puede tomar clases individuales o en grupo.",
 
   //translations
-  translationsTitle: "Traducciones",
+  translationsTitle: "Servicios de traducciones",
+  translationButton:"Ver más sobre nuestros servicios de traducciones",
+  translationOrangeBgTitle: "¿Tienes más preguntas?",
+  translationOrangeBgSubtitle: "¡Contactanos!",
+  translationOrangeBgParagraphOne: "Nuestro equipo está preparado para encontrar una solución a",
+  translationOrangeBgParagraphTwo: "tus necesidades de traducción",
+  translationOrangeBgButton: "Contactános",
   translationsParagraphOne:
-    "Nuestro servicio de traducción e interpretación son profesionales. Contamos con traductores públicos de Argentina y traductores nativos del Reino Unido y Estados Unidos. Trabajamos juntos para lograr una mejor traducción.  Ofrecemos:",
+    "Nuestro servicio de traducción e interpretación son profesionales. Contamos con traductores públicos de Argentina y traductores nativos del Reino Unido y Estados Unidos. Trabajamos juntos para lograr una mejor traducción.",
 
   //translationPublic
   translationsPublic: "Traducciones Públicas",
@@ -71,19 +79,39 @@ export const Spanish = {
   groupsButton: "Buscar un grupo",
 
     //prices
-    pricesTitle: "Paquetes",
+    pricesTitle: "Mira nuestros planes",
     starterTitle: "Starter",
     starterSubtitle: "1 hora por semana",
+    starterSubtitleTwo: "1 clase por semana",
     starterText: "Mantiene contacto con el idioma, evite perder su nivel",
+    starterPriceDollarsMonth: "USD 20/mes",
+    starterPricePesosMonth: "ARS 1.200/mes",
+    starterPriceDollarsYear: "USD 200/año",
+    starterPricePesosYear: "ARS 12.000/año",
     semiProTitle: "Semi-pro",
     semiProSubtitle: "2 horas por semana",
+    semiProSubtitleTwo: "2 clases por semana",
+    semiProPriceDollarsMonth: "USD 40/mes",
+    semiProPricePesosMonth: "ARS 2.400/mes",
+    semiProPriceDollarsYear: "USD 400/año",
+    semiProPricePesosYear: "ARS 24.000/año",
     semiProText: "Mejore su nivel del idioma aprendiendo nueva gramática y vocabulario",
     proTitle: "Pro",
     proSubtitle: "3 horas por semana",
+    proSubtitleTwo: "3 clases por semana",
+    proPriceDollarsMonth: "USD 60/mes",
+    proPricePesosMonth: "ARS 3.600/mes",
+    proPriceDollarsYear: "USD 600/año",
+    proPricePesosYear: "ARS 36.000/año",
     proText: "Curso intensivo, usualmente por algo específico, cumpla sus objetivos en un plazo más corto",
-
+    pricesButtonIndividual: "Clases individuales",
+    pricesButtonGroup: "Buscar Grupo",
+    pricesRenewMonth: "Se renueva todos los meses",
+    pricesRenewYear: "Se renueva todos los años",
+    pricesMonth: "Mes",
+    pricesYear: "Año",
     //reviews
-    reviewsTitle: "Opiniones",
+    reviewsTitle: "Algunos de nuestros clientes felices",
     companiesThatTrustUs: "Empresas que confían en nosotros",
 
     //contact
@@ -101,6 +129,7 @@ export const Spanish = {
 
     //form
     formtitle: "Buscar un grupo",
+    formtitleIndividual: "Clases individuales",
     modalSuccessForm: "Gracias por llenar tu formulario para unirte a uno de nuestros grupos! Uno de nuestro equipo va a estar en contacto pronto cuando haya suficientes estudiantes para formar un grupo con los detalles del horario y fecha de inicio.",
     modalWarning: "Ha seleccionado menos de tres horarios, cuantos más horarios seleccione más probabilidades tendrá de encontrar un grupo. ¿Estás seguro de que quieres continuar?",
     modalWarningButton: "Sí, estoy seguro",
@@ -109,6 +138,7 @@ export const Spanish = {
     modalSuccess: "Formulario enviado con éxito!",
 
     //general
+    generalBlueButton: "¡Empieza tu programa hoy!",
     placeholderFirstName: "Ingrese su nombre",
     placeholderLastName: "Ingrese su apellido",
     placeholderSelectLanguage: "Seleccione un idioma",
@@ -176,6 +206,16 @@ export const Spanish = {
     friday: "Viernes",
     saturday: "Sábado",
     sunday: "Domingo",
+
+     //footer:
+     footerAbout : "Sobre",
+     footerContact: "Contacto",
+     footerFollowUs: "Síguenos",
+     footerLanguageCourses: "Cursos de idiomas",
+     footerGroupClasses: "Clases en grupo",
+     footerTranslationService: "Servicio de traducción",
+     footerPackages: "Paquetes",
+     footerReviews: "Opiniones"
 
 
 };

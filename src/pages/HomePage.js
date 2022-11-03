@@ -8,12 +8,13 @@ import Prices from '../components/HomePage/Prices';
 import Reviews from '../components/HomePage/Reviews';
 import Footer from '../components/HomePage/Footer';
 import CompaniesThatTrustUs from '../components/HomePage/CompaniesThatTrustUs';
+import { Fragment } from 'react';
 
 
 
 function HomePage() {
   return (
-    <div>
+  <Fragment>
     <NavbarComplete/>
     <Hero/>
     <AboutUs/>
@@ -23,8 +24,8 @@ function HomePage() {
     <Reviews/>
     <CompaniesThatTrustUs/>
     <Contact/>
-    <Footer/>
-    </div>
+    <Footer/> 
+    </Fragment>
   );
 }
 

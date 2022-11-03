@@ -21,12 +21,13 @@ function Reviews() {
   },[ctx.language])
   return (
     <section id="reviews">
-        <div className="row pt-5 text-center ms-3">
-        <h1 className="display-5 text-black">Algunos de nuestros clientes felices</h1>
+      <div className="p-5">
+        <div className="row pt-3 text-center ms-md-0">
+        <h1 className="display-5 text-black">{text.reviewsTitle}</h1>
       </div>
       <div className='row justify-content-center mb-5'>
 			<div className= 'col-9 col-md-3 mt-3'>
-					<div className='light-blue text-center pb-5 pt-5'>
+					<div className='light-blue text-center pb-5 pt-5 px-2'>
 					<Image className=" w-50 rounded-circle" src={Woman}/>
 					<div>
 						<h1 className="display-5 text-black mt-3">Andrea</h1>
@@ -38,7 +39,7 @@ function Reviews() {
 					</div>
 				</div> 
         <div className= 'col-9 col-md-3 mt-3'>
-					<div className='light-blue text-center pb-5 pt-5'>
+					<div className='light-blue text-center pb-5 pt-5 px-2'>
 					<Image className=" w-50 rounded-circle" src={Man}/>
 					<div>
 						<h1 className="display-5 text-black mt-3">Lester</h1>
@@ -53,7 +54,7 @@ function Reviews() {
 
 			</div>
 
-     
+      </div>
      
     </section>
   );

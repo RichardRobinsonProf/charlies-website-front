@@ -4,15 +4,29 @@ import { useState } from "react";
 import './App.css'
 import FormPage from "./pages/FormPage";
 import PricesPage from "./pages/PricesPage";
-import ContextChosenLanguage from "./Context";
+import {Context} from "./Context";
 import TranslationsPage from "./pages/TranslationsPage";
 import ScrollToTop from "./utils/ScrollToTop";
 
 
 function App() {
   const [chosenLanguage, setChosenLanguage] = useState('Spanish')
+  const [chosenEmail, setChosenEmail] = useState('')
+  const [choseWantsGroup, setChoseWantsGroup] = useState(false)
+  const [chosenPricePack, setChosenPricePack] = useState('')
+  
   return (
-   <ContextChosenLanguage.Provider value={{language : chosenLanguage, setLanguage : setChosenLanguage}}>
+   <Context.Provider 
+   value={{
+    language : chosenLanguage, 
+    setLanguage : setChosenLanguage,
+    email : chosenEmail,
+    setEmail: setChosenEmail,
+    wantsGroup: choseWantsGroup,
+    setWantsGroup: setChoseWantsGroup,
+    pricePack: chosenPricePack,
+    setPricePack: setChosenPricePack
+    }}>
     <ScrollToTop />
     <Switch>
     <Route path='/' exact>
@@ -28,7 +42,7 @@ function App() {
       <FormPage/>
     </Route>
   </Switch>
-  </ContextChosenLanguage.Provider>
+  </Context.Provider>
 
   );
 }

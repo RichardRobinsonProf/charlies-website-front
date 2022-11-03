@@ -20,16 +20,18 @@ function Translations() {
   },[ctx.language])
 
   return (
-    <section id="translations">
+    <section id="translations" className="ps-5 pe-3 pt-2 pt-md-0">
        <div className="row ms-3 me-3 align-items-center">
-        <div className= "col-md-5 offset-md-1 mt-5">
-        <h1 className="display-5 text-black">Servicios de traducciones</h1>
+        <div className= "col-md-5 offset-md-1 mt-5 mt-md-0">
+        <h1 className="display-5 text-black">{text.translationsTitle}</h1>
           <p>
             {text.translationsParagraphOne}
           </p>
           <BlueButton
-							text= {"Ver más sobre nuestro servicio de traducciones"}
-							link = "/translations"/>
+							text= {text.translationButton}
+							link = "/translations"
+              extraClasses= "ms-0"
+              />
         </div>
         <div className= "col-md-5">
           <div className="row text-center">

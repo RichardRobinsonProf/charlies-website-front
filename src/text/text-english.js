@@ -5,6 +5,7 @@ export const English = {
     heroSubtitletwo : "We offer classes in these languages: English, French, German, Portuguese, Italian, Chinese, Spanish for foreigners",
     buttonMoreInfo : "More info",
 
+
     //navbar
     navAboutus: "About us",
     navClasses: "Classes",
@@ -16,24 +17,30 @@ export const English = {
     navLanguage: "Language",
 
     //aboutus
-    aboutusTitle: "About us",
+    aboutusTitle: "Learn a new language from anywhere in the world",
     aboutusParagraphOne: "Robinson's Institute of Languages was founded in 2011 with the intention of offering language courses for people seeking to learn in a personalised way in the city of Buenos Aires.",
     aboutusParagraphTwo: "We specialise in language courses for students who want to take an exam, go on a trip, do business or just learn a language in general.",
     aboutusParagraphThree: "All teachers at the institute are language experts and have teaching certifications as well as teaching experience, and a variety of us are native teachers.",
     aboutusParagraphFour: "The translations department opened in 2013 and consists of both Argentine public translators and native English translators to achieve better translations. We work as a team to be able to translate long texts in less time without losing the quality of the translation.",
 
     //classes
-    classesTitle: "Classes",
+    classesTitle: "Achieve more with RIL",
     classesVirtual: "Virtual classes",
-    classesVirtualParagraph:"We offer classes to be taken virtually from the comfort of your own computer wherever you are! We use Google Meet and Zoom as our main digital platforms for the classes and can both share our material via screen share and by sending a link to the student to download the material to his or her own computer. Our teachers are predominantly based in the Americas, so we can offer to give classes between 07:00 and 19:00 EST. Please advise us of your time zone when booking classes." ,
+    classesGroupAndIndividual: "Individual and group classes",
     classesParagraphOne: "At Robinson's Institute of Languages we understand the importance of conversation when learning a new language. That is why our way of teaching is based on conversation. All of our teachers have international certifications and teaching experience, the majority are native but we also have some local teachers who have lived abroad for a period of time and can explain certain rules in Spanish should the student require it. We are all experts in assessing the level and needs of each student to plan a personalised course.",
+    classesParagraph:"Unlock the power of your personalised learning path to achieve your language goals fast. Discover how easy and fun it can be to learn a new language with Robinson Institute of Language!" ,
     classesParagraphTwo: "We seek to create dynamic and interactive classes. We use different tools, such as the internet, to make classes more fun and dynamic. We have material to help study grammar, listening and reading activities and material for exam preparation.",
     classesParagraphThree: "We offer flexibility regarding the time and place where classes can be taken. You can choose to have individual or group classes.",
 
     //translations
-    translationsTitle: "Translations",
-    translationsParagraphOne: "We offer professional translation and interpretation services. We have public translators from Argentina and native translators from the United Kingdom and the United States. We work together to achieve a better translation. We offer:",
-    
+    translationsTitle: "Translation services",
+    translationButton : "Read more about our translation services",
+    translationsParagraphOne: "We offer professional translation and interpretation services. We have public translators from Argentina and native translators from the United Kingdom and the United States. We work together to achieve a better translation.",
+    translationOrangeBgTitle: "Do you have any further questions?",
+    translationOrangeBgSubtitle: "Contact us!",
+    translationOrangeBgParagraphOne: "Our team is ready to find a solution to",
+    translationOrangeBgParagraphTwo: "your translation needs",
+    translationOrangeBgButton: "Contact us",
     //translationPublic
     translationsPublic: "Public translations",
     translationsPublicBold: "For documents such as:",
@@ -70,20 +77,41 @@ export const English = {
     groupsButton: "Search for a group",
 
     //prices    
-    pricesTitle: "Packages",
+    pricesTitle: "See our plans",
     starterTitle: "Starter",
     starterSubtitle: "1 hour per week",
+    starterSubtitleTwo: "1 class per week",
+    starterPriceDollarsMonth: "USD 20/month",
+    starterPricePesosMonth: "ARS 1.200/month",
+    starterPriceDollarsYear: "USD 200/year",
+    starterPricePesosYear: "ARS 12.000/year",
     starterText: "Keep in touch with the language, avoid losing your level",
     semiProTitle: "Semi-pro",
     semiProSubtitle: "2 hours per week",
+    semiProSubtitleTwo: "2 classes per week",
+    semiProPriceDollarsMonth: "USD 40/month",
+    semiProPricePesosMonth: "ARS 2.400/month",
+    semiProPriceDollarsYear: "USD 400/year",
+    semiProPricePesosYear: "ARS 24.000/year",
     semiProText: "Improve your level of the language by learning new grammar and vocabulary",
     proTitle: "Pro",
     proSubtitle: "3 hours per week",
+    proSubtitleTwo: "3 classes per week",
+    proPriceDollarsMonth: "USD 60/month",
+    proPricePesosMonth: "ARS 3.600/month",
+    proPriceDollarsYear: "USD 600/year",
+    proPricePesosYear: "ARS 36.000/year",
     proText: "Intensive course, usually for something specific, achieve your goals in a shorter time",
+    pricesButtonIndividual: "Individual Classes",
+    pricesButtonGroup: "Search for a group",
+    pricesRenewMonth: "Prices renew every month",
+    pricesRenewYear: "Prices renew every year",
+    pricesMonth: "Month",
+    pricesYear: "Year",
 
 
     //reviews
-    reviewsTitle: "Reviews",
+    reviewsTitle: "Some of our happy customers",
     companiesThatTrustUs: "Companies that trust us",
 
      //contact
@@ -98,6 +126,7 @@ export const English = {
     //form
 
     formtitle: "Search for a group",
+    formtitleIndividual: "Individual classes",
     modalSuccessForm: "Thank you for submitting your form to join one of our groups! One of our team will be in touch as soon as there are enough students to form a group with details of the schedule and start date.",
     modalWarning: "You selected less than three moments, how more moments selected how more likely you are to find a group. Are you sure you want to continue?",
     modalWarningButton: "Yes, I'm sure",
@@ -107,6 +136,7 @@ export const English = {
     
 
     //general
+    generalBlueButton: "Start your programme today!",
     placeholderFirstName: "Enter first name",
     placeholderLastName: "Enter last name",
     placeholderSelectLanguage: "Select language",
@@ -178,6 +208,18 @@ export const English = {
     friday: "Friday",
     saturday: "Saturday",
     sunday: "Sunday",
+
+
+    //footer:
+    footerAbout : "About us",
+    footerContact: "Contact",
+    footerFollowUs: "Follow us",
+    footerLanguageCourses: "Language courses",
+    footerGroupClasses: "Group classes",
+    footerTranslationService: "Translation service",
+    footerPackages: "Packages",
+    footerReviews: "Reviews",
+
 
 
 

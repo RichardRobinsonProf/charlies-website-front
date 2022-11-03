@@ -3,9 +3,8 @@ import {  Image} from "react-bootstrap";
 import { useContext, useState, useEffect } from "react";
 import ContextChosenLanguage from "../../Context";
 import { chosenLanguage } from "../../utils/language";
-import {Link} from 'react-router-dom'
 import ImageClasses from "../../images/RIL Assets-03.png";
-import {BlueButton} from './buttons/BlueButton'
+
 function ContainerCards() {
   const ctx = useContext(ContextChosenLanguage)
   const [text, setText] = useState(chosenLanguage(ctx.language))
@@ -19,9 +18,9 @@ function ContainerCards() {
       }
   },[ctx.language])
   return (
-    <section id="classes">
-  <div className="row pt-5 text-md-center ms-3">
-        <h1 className="display-5 text-black">Mira nuestros planes</h1>
+    <section id="classes" className="pt-5 ps-5 pe-4">
+  <div className="row text-md-center ms-3 ms-md-0">
+        <h1 className="display-5 text-black">{text.pricesTitle}</h1>
       </div>
     <div className="row ms-3 me-3">
         <div className= "col-md-5 offset-md-1">
