@@ -24,7 +24,7 @@ function Translations (props) {
     return (
         <div id="toptranslations">
             <div className="pt-5 ps-5 pe-5 " id="TranslationPage">
-            <div className="row mt-5">
+            <div className="row mt-5 text-font">
                 <div className="col-md-4 col-12 offset-md-1 align-self-center">
                 <h1 className="display-5 text-black ">{text.translationsTitle}</h1>
                 <p>{props.translationsParagraphOne}</p>  
@@ -39,7 +39,7 @@ function Translations (props) {
                 <h1 className="display-5 text-black ">{props.translationsPublic}</h1>
                     </div>
                     <div className="col-md-6 col-12">
-                        <ul className="ps-0 ms-0">
+                        <ul className="ps-0 ms-0 text-font">
                             <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListOne}</li>
                             <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListTwo}</li>
                             <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListThree}</li>
@@ -54,7 +54,7 @@ function Translations (props) {
             </div>
             <div className="row mt-5">
                 <div className="col-md-5 col-12 offset-md-1">
-                    <ul  className="ps-0 ms-0 pe-5">
+                    <ul  className="ps-0 ms-0 pe-5 text-font">
                         <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListOne}</li>
                         <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListTwo}</li>
                         <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListThree}</li>
@@ -72,7 +72,7 @@ function Translations (props) {
                 <h1 className="display-5 text-black ">{props.translationsInterpretation}</h1>
                     </div>
                     <div className="col-md-6 col-12">
-                        <ul className="ps-0 ms-0">
+                        <ul className="ps-0 ms-0 text-font">
                             <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsInterpretationListOne}</li>
                             <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsInterpretationListTwo}</li>
                             <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsInterpretationListThree}</li>
@@ -83,7 +83,7 @@ function Translations (props) {
                 <div>        
             </div>  
      <div className = "bg-orange">
-        <div className="p-5 text-md-center">
+        <div className="p-5 text-md-center text-font">
         
         <h1 className="display-5 text-black mt-5">{text.translationOrangeBgTitle}</h1>
         <h1 className="display-5 text-black ">{text.translationOrangeBgSubtitle}!</h1>

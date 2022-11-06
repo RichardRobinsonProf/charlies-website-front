@@ -15,6 +15,7 @@ import { Fragment } from 'react';
 function HomePage() {
   return (
   <Fragment>
+    <div className="text-font">
     <NavbarComplete/>
     <Hero/>
     <AboutUs/>
@@ -25,6 +26,7 @@ function HomePage() {
     <CompaniesThatTrustUs/>
     <Contact/>
     <Footer/> 
+    </div>
     </Fragment>
   );
 }

@@ -20,7 +20,7 @@ function Reviews() {
       }
   },[ctx.language])
   return (
-    <section id="reviews">
+    <section id="reviews" className="text-font">
       <div className="p-5">
         <div className="row pt-3 text-center ms-md-0">
         <h1 className="display-5 text-black">{text.reviewsTitle}</h1>

@@ -128,11 +128,13 @@ export const English = {
     formtitle: "Search for a group",
     formtitleIndividual: "Individual classes",
     modalSuccessForm: "Thank you for submitting your form to join one of our groups! One of our team will be in touch as soon as there are enough students to form a group with details of the schedule and start date.",
-    modalWarning: "You selected less than three moments, how more moments selected how more likely you are to find a group. Are you sure you want to continue?",
+    modalWarningGroup: "You selected less than three moments, how more moments selected how more likely you are to find a group. Are you sure you want to continue?",
+    modalWarningIndividual: "You selected less than three moments. Are you sure you want to continue?",
     modalWarningButton: "Yes, I'm sure",
     modalWarningButtonCancel: "No, I want to select more moments",
     modalWarningTitle: "Warning!",
     modalSuccess: "Form submitted successfully!",
+    formAreSureYouWantToLeave : "Are you sure you want to leave this page? All your entered data will be lost",
     
 
     //general

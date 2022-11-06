@@ -18,7 +18,7 @@ function Footer () {
 		}
 	},[ctx.language])
     return (
-        <section id="footer" className= "p-5" >
+        <section id="footer" className= "p-5 text-font" >
             <div className='row text-white'>
             <div className="col-12 offset-md-1 col-md-4">
                 <h4 className='mb-3'>{text.footerAbout}</h4>

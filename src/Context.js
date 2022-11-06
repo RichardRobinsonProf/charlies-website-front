@@ -8,7 +8,9 @@ export const Context = React.createContext({
     wantsGroup: false,
     setWantsGroup: (wantsGroup) => {this.wantsGroup = wantsGroup},
     pricePack: '',
-    setPricePack: (pricePack) => {this.pricePack = pricePack}
+    setPricePack: (pricePack) => {this.pricePack = pricePack},
+    onPage: false,
+    setOnPage: (onpage) => {this.onpage = onpage}
 })
 
 export default Context

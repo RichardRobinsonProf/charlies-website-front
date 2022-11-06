@@ -20,7 +20,7 @@ function Prices (props) {
 
 
     return (
-       <div className="mt-md-5">
+       <div className="mt-md-5 text-font">
         <br/>
         <br/>
         <br/>

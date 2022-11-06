@@ -24,6 +24,7 @@ function Contact() {
 
   const handleClose = () => setShow(false);
 
+
   
   useEffect (() => {
       if (ctx.language === 'English') {
@@ -133,7 +134,7 @@ function Contact() {
 
   
   return (
-    <section id="contactus">
+    <section id="contactus" className="text-font">
       <div className="text-center">
         <ModalForm
         show= {show}

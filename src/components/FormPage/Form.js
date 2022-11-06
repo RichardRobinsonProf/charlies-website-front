@@ -13,12 +13,13 @@ import {
 } from "../../utils/time";
 import TimezoneSelect from "react-timezone-select";
 import apiConnection from '../../api/apiConnection'
-import {useContext,useState, useEffect, useRef} from 'react'
+import {useContext,useState, useEffect, useRef, Fragment} from 'react'
 import ContextChosenLanguage from '../../Context'
 import {chosenLanguage} from '../../utils/language'
 import {IoIosAdd} from 'react-icons/io'
 import {BsTrash} from 'react-icons/bs'
 import ModalForm from "../../components/FormPage/ModalForm";
+import { Prompt } from "react-router-dom";
 
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -42,17 +43,21 @@ function Form() {
   const [showFormIsInvalid, setShowFormIsInvalid] = useState(false);
   const handleClose = () => setShowModalWarning(false);
   const handleCloseAlert = () => setShowAlert(false);
+  const [isEntered, setIsEntered] = useState(false);
 
   
   
   useEffect (() => {
       console.log(ctx.language)
       if (ctx.language === 'English') {
-          setText(chosenLanguage('English'))
+        resetDates()
+          setText(chosenLanguage('English'))     
       } else {
+        resetDates()
           setText(chosenLanguage('Spanish'))
       }
       console.log(ctx)
+     
   },[ctx])
 
   function resetDates() {
@@ -200,12 +205,14 @@ function Form() {
   function validateFreeDate(day, hour, minute) {
     let retorno = true;
     setFreeDate(true);
+
     dates.forEach(function (item) {
       if (item.day === day && item.hour === hour && item.minute === minute) {
         setFreeDate(false);
         retorno = false;
       }
     });
+
     return retorno;
   }
 
@@ -352,6 +359,14 @@ function Form() {
     }
   }, [dates, difference]);
 
+  useEffect(() => {
+    ctx.setOnPage(true);
+    return () => {
+      ctx.setOnPage(false);
+    }
+  }, [])
+
+
   if (dayValue && dayIsValid) {
     listWorkingHoursM = listWorkingHoursMatrix(dayValue, matrix, workingdays);
   }
@@ -383,12 +398,17 @@ function Form() {
     }else {
       setShowFormIsInvalid(false)
     }
-    if (dates.length < 3 && ctx.setWantsGroup === true) {
+    if (dates.length < 3) {
      setShowModalWarning(true)
     }else{
       createUserAndSend()                
         }   
   };
+
+  function onFocusHandler () {
+    setIsEntered(true);
+  }
+
 
   const firstNameClasses = firstNameHasError
     ? "form-group invalid"
@@ -422,8 +442,10 @@ function Form() {
     : "form-group ";
 
   return (
-    <div id="FormPage">
-      <form className="Auth-form mt-5 " onSubmit={submitHandler}>
+    <Fragment>
+    <Prompt when={isEntered} message={text.formAreSureYouWantToLeave} />
+    <div id="FormPage" className="text-font">
+      <form onFocus={onFocusHandler} className="Auth-form mt-5 " onSubmit={submitHandler}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title text-white display-6  text-center ms-md-2">
             {ctx.wantsGroup === true ? text.formtitle : text.formtitleIndividual}
@@ -442,7 +464,7 @@ function Form() {
             show={showModalWarning}
             handleClose = {handleClose}
             title = {text.modalWarningTitle}
-            body = {text.modalWarning}
+            body = {`${ctx.wantsGroup ? text.modalWarningGroup : text.modalWarningIndividual}`}
             negative= {text.modalWarningButton}
             positive= {text.modalWarningButtonCancel}
             handleNegative = {createUserAndSend}
@@ -774,6 +796,7 @@ function Form() {
         </div>
       </form>
     </div>
+    </Fragment>
   );
 }
 

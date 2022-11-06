@@ -25,7 +25,7 @@ function Prices () {
 			<div className='p-5'> 
 			<div className='row justify-content-center mb-5'>
 			<div className= 'col-8 col-md-3 mt-3'>
-					<div className='light-blue text-center pb-4 pb-md-5'>
+					<div className='light-blue text-center pb-4 pb-md-5 text-font'>
 					<Image className=" w-50" src={Starter}/>
 					<div>
 						<h1 className="display-5 text-black">Starter</h1>
@@ -40,7 +40,7 @@ function Prices () {
 					</div>
 					
 				</div> 
-				<div className= 'col-8 col-md-3 mt-3'>
+				<div className= 'col-8 col-md-3 mt-3 text-font'>
 					<div className='light-blue text-center pb-3 pb-md-5'>
 					<Image className=" w-50" src={SemiPro}/>
 					<div>
@@ -55,7 +55,7 @@ function Prices () {
 					</div>
 					
 				</div> 
-				<div className= 'col-8 col-md-3 mt-3'>
+				<div className= 'col-8 col-md-3 mt-3 text-font'>
 					<div className='light-blue text-center pb-3 pb-md-5'>
 					<Image className=" w-50" src={Pro}/>
 					<div>

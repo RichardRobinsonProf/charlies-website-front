@@ -2,16 +2,16 @@ import Form from '../components/FormPage/Form';
 import Navbar from '../components/HomePage/NavbarComplete';
 import Footer from '../components/HomePage/Footer';
 
-function FormPage() {
+function NotFoundPage() {
   return (
     <div > 
       <Navbar/>
-      <div className= "pt-5 pb-5 bg-grey ps-3 pe-3">
-      <Form/>
+      <div className= "fullscreen d-flex justify-content-center align-items-center text-center">
+        <h1>404: Page not found</h1>
       </div>
       <Footer/>
   
     </div>
   );
 }
-export default FormPage;
+export default NotFoundPage;

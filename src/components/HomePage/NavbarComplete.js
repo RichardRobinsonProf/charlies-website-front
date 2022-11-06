@@ -44,10 +44,13 @@ function NavbarComplete () {
             <Link to="/#reviews"className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navReviews}</Link>
             <Link to="/#contactus"className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navContact}</Link>
         </Nav>
+        {!ctx.onPage ? 
         <NavDropdown className="" title={<span className='lead text-white'>{text.navLanguage}</span>} id="collasible-nav-dropdown">
-            <NavDropdown.Item onClick={clickHandlerEnglish} className="lead text-white">English</NavDropdown.Item>
-            <NavDropdown.Item onClick={clickHandlerSpanish} className="lead text-white">Español</NavDropdown.Item>
-        </NavDropdown>
+        <NavDropdown.Item onClick={clickHandlerEnglish} className="lead text-white">English</NavDropdown.Item>
+        <NavDropdown.Item onClick={clickHandlerSpanish} className="lead text-white">Español</NavDropdown.Item>
+    </NavDropdown> : null
+    }
+        
         </Navbar.Collapse>
         </Container>
     </Navbar>

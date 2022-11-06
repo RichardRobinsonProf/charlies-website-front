@@ -89,9 +89,9 @@ function Hero() {
         </div>
         <div className="col-md-4 offset-md-1 col-12 mt-5 align-self-center">
           <h1 className="display-5 text-black">{text.heroTitle}</h1>
-          <p className="text-black">{text.heroSubtitle}</p>
+          <p className="text-black text-font">{text.heroSubtitle}</p>
         </div>
-        <div className="col-md-7 col-12 align-self-end mb-3">
+        <div className="col-md-7 col-12 align-self-end mb-3 ">
             <div className="row justify-content-center">
           <Image className="d-none d-md-block w-75" src={ImageHero}/>
           </div>
@@ -133,8 +133,8 @@ function Hero() {
           <h1 className="display-5 text-black ms-4" >
             {text.aboutusTitle}
           </h1>
-          <p className="text-black ms-4">{text.aboutusParagraphOne}</p>
-          <p className="text-black ms-4">{text.aboutusParagraphThree}</p>
+          <p className="text-black ms-4 text-font">{text.aboutusParagraphOne}</p>
+          <p className="text-black ms-4 text-font">{text.aboutusParagraphThree}</p>
           <span>
             <BlueButton
             text= {text.generalBlueButton}

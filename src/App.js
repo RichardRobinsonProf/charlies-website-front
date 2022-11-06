@@ -7,6 +7,7 @@ import PricesPage from "./pages/PricesPage";
 import {Context} from "./Context";
 import TranslationsPage from "./pages/TranslationsPage";
 import ScrollToTop from "./utils/ScrollToTop";
+import NotFoundPage from "./pages/NotFoundPage";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [chosenEmail, setChosenEmail] = useState('')
   const [choseWantsGroup, setChoseWantsGroup] = useState(false)
   const [chosenPricePack, setChosenPricePack] = useState('')
+  const [chosenOnpage, setChosenOnpage] = useState(false)
   
   return (
    <Context.Provider 
@@ -25,7 +27,9 @@ function App() {
     wantsGroup: choseWantsGroup,
     setWantsGroup: setChoseWantsGroup,
     pricePack: chosenPricePack,
-    setPricePack: setChosenPricePack
+    setPricePack: setChosenPricePack,
+    onPage: chosenOnpage,
+    setOnPage: setChosenOnpage
     }}>
     <ScrollToTop />
     <Switch>
@@ -40,6 +44,9 @@ function App() {
     </Route>
     <Route path='/form'>
       <FormPage/>
+    </Route>
+    <Route path='*'>
+      <NotFoundPage/>
     </Route>
   </Switch>
   </Context.Provider>

@@ -18,7 +18,7 @@ function ContainerCards() {
       }
   },[ctx.language])
   return (
-    <section id="classes" className="pt-5 ps-5 pe-4">
+    <section id="classes" className="pt-5 ps-5 pe-4  text-font">
   <div className="row text-md-center ms-3 ms-md-0">
         <h1 className="display-5 text-black">{text.pricesTitle}</h1>
       </div>

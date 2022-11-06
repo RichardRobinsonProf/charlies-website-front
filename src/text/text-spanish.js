@@ -131,11 +131,13 @@ export const Spanish = {
     formtitle: "Buscar un grupo",
     formtitleIndividual: "Clases individuales",
     modalSuccessForm: "Gracias por llenar tu formulario para unirte a uno de nuestros grupos! Uno de nuestro equipo va a estar en contacto pronto cuando haya suficientes estudiantes para formar un grupo con los detalles del horario y fecha de inicio.",
-    modalWarning: "Ha seleccionado menos de tres horarios, cuantos más horarios seleccione más probabilidades tendrá de encontrar un grupo. ¿Estás seguro de que quieres continuar?",
+    modalWarningGroup: "Ha seleccionado menos de tres horarios, cuantos más horarios seleccione más probabilidades tendrá de encontrar un grupo. ¿Estás seguro de que quieres continuar?",
+    modalWarningIndividual: "Ha seleccionado menos de tres horarios. ¿Estás seguro de que quieres continuar?",
     modalWarningButton: "Sí, estoy seguro",
     modalWarningButtonCancel: "No, quiero seleccionar más horarios",
     modalWarningTitle: "¡Atención!",
     modalSuccess: "Formulario enviado con éxito!",
+    formAreSureYouWantToLeave: "¿Estás seguro que quieres salir? Perderás todos los datos que hayas ingresado.",
 
     //general
     generalBlueButton: "¡Empieza tu programa hoy!",
