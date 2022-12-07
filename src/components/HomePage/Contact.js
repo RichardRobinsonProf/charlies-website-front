@@ -170,7 +170,7 @@ function Contact() {
                     color="white"
                     size="1.5em"
                     className="me-1"
-                    /><span className="text-white lead">Carranza 55, Capital Federal</span></i>  
+                    /><span className="text-white lead">Palermo, Capital Federal</span></i>  
                    </p>         
                 </div>
                 <div className="col-12 col-md-5">

@@ -16,6 +16,8 @@ function App() {
   const [choseWantsGroup, setChoseWantsGroup] = useState(false)
   const [chosenPricePack, setChosenPricePack] = useState('')
   const [chosenOnpage, setChosenOnpage] = useState(false)
+  const [chosenDuration, setChosenDuration] = useState('')
+  const [chosenPrice, setChosenPrice] = useState('')
   
   return (
    <Context.Provider 
@@ -29,7 +31,11 @@ function App() {
     pricePack: chosenPricePack,
     setPricePack: setChosenPricePack,
     onPage: chosenOnpage,
-    setOnPage: setChosenOnpage
+    setOnPage: setChosenOnpage,
+    duration: chosenDuration,
+    setDuration: setChosenDuration,
+    price: chosenPrice,
+    setPrice: setChosenPrice
     }}>
     <ScrollToTop />
     <Switch>

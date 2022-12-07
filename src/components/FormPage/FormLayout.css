@@ -32,25 +32,14 @@
   color: white !important;
 }
 .css-qc6sy-singleValue {
-  color: white !important;
-  opacity: 0.3;
+  color: #6C757D!important;
 }
 
-.css-tj5bde-Svg {
-  display: inline-block;
-  fill: white;
-  stroke: white;
-  stroke-width: 0;
-  color: white !important;
-}
 
-.css-17adf03-Sa {
-  background-color: #333333 !important; 
-}
 
-.css-89lswr-Sa {
-  background-color: #333333 !important;
-}
+
+
+
 
 .form-control input:focus,
 .form-control select:focus {

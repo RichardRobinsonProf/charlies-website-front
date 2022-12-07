@@ -123,7 +123,9 @@ function Form() {
       argentineTime: argentineDates,
       timeZone: selectedTimezone,
       wantsGroup: ctx.wantsGroup,
-      pricePack: ctx.pricePack 
+      pricePack: ctx.pricePack,
+      price: ctx.price,
+      amountMonths: ctx.duration,
     };
     console.log(newStudent);
 
@@ -131,6 +133,7 @@ function Form() {
     apiConnection.post('/users', newStudent)
     .then(function(response) {
       setShowAlert(true)
+      setIsEntered(false)
     })
     .catch(function(error) {
       const errorMessage = error.response.data;
@@ -140,6 +143,7 @@ function Form() {
     apiConnection.post('/users/individual', newStudent)
     .then(function(response) {
       setShowAlert(true)
+      setIsEntered(false)
     })
     .catch(function(error) {
       const errorMessage = error.response.data;
@@ -447,7 +451,7 @@ function Form() {
     <div id="FormPage" className="text-font">
       <form onFocus={onFocusHandler} className="Auth-form mt-5 " onSubmit={submitHandler}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title text-white display-6  text-center ms-md-2">
+          <h3 className="Auth-form-title text-white display-6 text-center ms-md-2">
             {ctx.wantsGroup === true ? text.formtitle : text.formtitleIndividual}
           </h3>
           <ModalForm
@@ -481,7 +485,7 @@ function Form() {
                 <label className="lead text-black"></label>
                 <input
                   type="text"
-                  className="form-control  bg-transparent border-top-0 border-end-0 border-start-0  "
+                  className="form-control   bg-white border-top-0 border-end-0 border-start-0  "
                   placeholder= {text.placeholderFirstName}
                   value={firstNameValue}
                   onChange={firstNameChangeHandler}
@@ -499,7 +503,7 @@ function Form() {
                 <label className="lead text-black"></label>
                 <input
                   type="text"
-                  className="form-control  bg-transparent border-top-0 border-end-0 border-start-0 "
+                  className="form-control   bg-white border-top-0 border-end-0 border-start-0 "
                   placeholder={text.placeholderLastName}
                   value={lastNameValue}
                   onChange={lastNameChangeHandler}
@@ -519,7 +523,7 @@ function Form() {
             <label className="lead text-black"></label>
             <input
               type="email"
-              className="form-control  bg-transparent border-top-0 border-end-0 border-start-0  "
+              className="form-control   bg-white border-top-0 border-end-0 border-start-0  "
               placeholder={text.placeholderEmail}
               value={emailValue}
               onChange={emailChangeHandler}
@@ -533,7 +537,7 @@ function Form() {
           <div className= {telephoneClasses}>
             <label className="lead text-black"></label>
             <input
-              className="form-control  bg-transparent border-top-0 border-end-0 border-start-0 "
+              className="form-control   bg-white border-top-0 border-end-0 border-start-0 "
               placeholder={text.placeholderTelephone}
               value={telephoneValue}
               onChange={telephoneChangeHandler}
@@ -553,7 +557,7 @@ function Form() {
                 <label className="lead text-black"></label>
                 <select
                   type="text"
-                  className="form-control  bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
+                  className="form-control   bg-white  text-muted border-top-0 border-end-0 border-start-0"
                   value={languageValue}
                   onChange={selectedLanguageChangeHandler}
                   onBlur={languageBlurHandler}
@@ -579,7 +583,7 @@ function Form() {
                 <label></label>
                 <select
                   type="text"
-                  className="form-control  bg-transparent text-white text-muted  border-top-0 border-end-0 border-start-0"
+                  className="form-control   bg-white  text-muted  border-top-0 border-end-0 border-start-0"
                   value={levelValue}
                   onChange={levelChangeHandler}
                   onBlur={levelBlurHandler}
@@ -603,7 +607,7 @@ function Form() {
             <label></label>
             <select
               type="text"
-              className="form-control  bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
+              className="form-control   bg-white  text-muted border-top-0 border-end-0 border-start-0"
               value={objectiveValue}
               onChange={selectedObjectiveChangeHandler}
               onBlur={objectiveBlurHandler}
@@ -626,7 +630,7 @@ function Form() {
               {objectiveValue === "Exam" && languageValue === "English" && (
                 <select
                 type="text"
-                className="form-control bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
+                className="form-control  bg-white  text-muted border-top-0 border-end-0 border-start-0"
                 //hidden={objectiveValue !== "Exam" || languageValue !== "English"}
                 value={examValue}
                 onChange={examChangeHandler}
@@ -645,7 +649,7 @@ function Form() {
               {objectiveValue === "Exam" && languageValue !== "English" && (
                 <input
                 type="text"
-                className="form-control  bg-transparent border-top-0 border-end-0 border-start-0"
+                className="form-control   bg-white border-top-0 border-end-0 border-start-0"
                 placeholder={text.placeholderExamSpecific}
                 //hidden={objectiveValue !== "Exam" || languageValue === "English"} 
                 value={examValue}
@@ -665,7 +669,7 @@ function Form() {
 
            
 
-          <h3 className="Auth-form-title text-white display-6 text-center">
+          <h3 className="Auth-form-title text-white  display-6 text-center">
             {text.placeholderPreferedSchedule}
           </h3>
 
@@ -714,7 +718,7 @@ function Form() {
                 <label></label>
                 <select
                   type="text"
-                  className="form-control mt-md-2  bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
+                  className="form-control mt-md-2  bg-white text-white text-muted border-top-0 border-end-0 border-start-0"
                   hidden={selectedTimezone === ""}
                   value={dayValue}
                   onChange={dayChangeHandler}
@@ -738,7 +742,7 @@ function Form() {
                 <label></label>
                 <select
                   type="text"
-                  className="form-control bg-transparent text-white text-muted border-top-0 border-end-0 border-start-0"
+                  className="form-control bg-white text-white text-muted border-top-0 border-end-0 border-start-0"
                   hidden={selectedTimezone === ""}
                   value={timeValue}
                   onChange={timeChangeHandler}
