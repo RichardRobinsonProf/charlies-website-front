@@ -32,7 +32,7 @@ function Reviews() {
 					<div className="px-3">
 						<h1 className="display-5 text-black mt-3">Andrea</h1>
             <p className= "text-muted" >
-             Profesora de Inglés y traductora
+            English teacher and translator
             </p>
 						<p>"Richard helped me a lot to gain speed in speaking, now I can speak fluently in my work meetings as well as help me with my syntax writing proposals"</p>
 					</div>
@@ -44,9 +44,9 @@ function Reviews() {
 					<div className="px-3">
 						<h1 className="display-5 text-black mt-3">Lester</h1>
             <p className= "text-muted" >
-              Programador
+              Software developer
             </p>
-						<p>"Richard helped me a lot to gain speed in speaking, now I can speak fluently in my work meetings as well as help me with my syntax writing proposals"</p>
+						<p>"The Institute offered me the possibility to incorporate the classes in a flexible way, adapting them to the rhythm of my work and free time."</p>
 					</div>
 					</div>
 				</div> 

@@ -20,6 +20,7 @@ import {IoIosAdd} from 'react-icons/io'
 import {BsTrash} from 'react-icons/bs'
 import ModalForm from "../../components/FormPage/ModalForm";
 import { Prompt } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -41,9 +42,19 @@ function Form() {
   const recaptchaRef = useRef(null);
   const [showModalWarning, setShowModalWarning] = useState(false);
   const [showFormIsInvalid, setShowFormIsInvalid] = useState(false);
-  const handleClose = () => setShowModalWarning(false);
-  const handleCloseAlert = () => setShowAlert(false);
+
+  const history = useHistory();
+  const handleClose = () => {
+    setShowModalWarning(false);
+  }
+ 
   const [isEntered, setIsEntered] = useState(false);
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+    console.log(ctx.onPage)
+    history.push('/')
+  }
+
 
   
   
@@ -366,6 +377,7 @@ function Form() {
   useEffect(() => {
     ctx.setOnPage(true);
     return () => {
+     
       ctx.setOnPage(false);
     }
   }, [])
@@ -410,7 +422,10 @@ function Form() {
   };
 
   function onFocusHandler () {
-    setIsEntered(true);
+    if(ctx.onPage){
+      setIsEntered(true);
+    }
+  
   }
 
 
@@ -447,9 +462,9 @@ function Form() {
 
   return (
     <Fragment>
-    <Prompt when={isEntered} message={text.formAreSureYouWantToLeave} />
+   {/*  <Prompt when={isEntered} message={text.formAreSureYouWantToLeave} /> */}
     <div id="FormPage" className="text-font">
-      <form onFocus={onFocusHandler} className="Auth-form mt-5 " onSubmit={submitHandler}>
+      <form  onFocus={onFocusHandler}  className="Auth-form mt-5 " onSubmit={submitHandler}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title text-white display-6 text-center ms-md-2">
             {ctx.wantsGroup === true ? text.formtitle : text.formtitleIndividual}

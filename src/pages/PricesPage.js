@@ -26,7 +26,7 @@ const PricesPage = () => {
         countryName: "",
         countryCode: "",
         city: "",
-        timezone: ""
+        timezone: "",
       });
 
     
@@ -42,6 +42,7 @@ const PricesPage = () => {
               countryCode: data.country_calling_code,
               city: data.city,
               timezone: data.timezone
+
             });
           })
           .catch((error) => {
@@ -60,6 +61,7 @@ const PricesPage = () => {
         <NavbarComplete/>
         <Prices countryName = {state.countryName}/>
         <Footer/>
+         
       </div>
     );
     }

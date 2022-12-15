@@ -33,9 +33,9 @@ function Footer () {
                 </div>   <div className="col-12 col-md-4">
                 <h4 className='mb-3'>{text.footerContact}</h4>
                     <div className="opacity-50">
-                    <p className="text-decoration-none text-white">contacto@robinsonsinstituteoflanguage.com</p>
-                    <p  className="text-decoration-none text-white">+54 555 5555</p>
-                    <p  className="text-decoration-none text-white">Carranza 55, Capital Federal, Argentina</p>
+                    <p className="text-decoration-none text-white">info@robinsonsinstitute.com</p>
+                    <p  className="text-decoration-none text-white">+54 911 5062 9324</p>
+                    <p  className="text-decoration-none text-white">Palermo, Capital Federal, Argentina</p>
                     
                     </div>
                 </div>   <div className="col-12 col-md-3">

@@ -156,21 +156,21 @@ function Contact() {
                     color="white"
                     size="1.5em"
                     className="me-1"
-                    /><span className="text-white lead">contacto@robinsonsinstituteoflanguage.com</span></i>  
+                    /><span className="text-white lead">info@robinsonsinstitute.com</span></i>  
                  </p> 
                 <p className="mt-2">
                 <i> <GiSmartphone
                     color="white"
                     size="1.5em"
                     className="me-1"
-                    /><span className="text-white lead">+54 555 5555</span></i>  
+                    /><span className="text-white lead">+54 911 5062 9324</span></i>  
                  </p>   
                  <p className="mt-2">   
                 <i> <MdOutlineLocationOn
                     color="white"
                     size="1.5em"
                     className="me-1"
-                    /><span className="text-white lead">Palermo, Capital Federal</span></i>  
+                    /><span className="text-white lead">Palermo, Capital Federal, Argentina</span></i>  
                    </p>         
                 </div>
                 <div className="col-12 col-md-5">

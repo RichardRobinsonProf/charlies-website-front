@@ -2,7 +2,7 @@ import {English} from '../text/text-english'
 import {Spanish} from '../text/text-spanish'
 
 const TOP = 21;
-const BOTTOM = 7;
+const BOTTOM = 8;
 const OFFSETARGENTINA = 3;
 
 export function argentineWorkingHours() {

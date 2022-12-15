@@ -77,6 +77,7 @@ export const Spanish = {
   //groups
   groupsTitle: "Grupos",
   groupsButton: "Buscar un grupo",
+  
 
     //prices
     pricesError: "por favor, seleccione 1 mes o 3 meses",
@@ -88,7 +89,7 @@ export const Spanish = {
     starterPriceDollarsMonth: "USD $56",
     starterPricePesosMonth: "ARS $13.200",
     starterPriceDollarsMonthGroup: "USD $30",
-    starterPricePesosMonthGroup: "ARS $7000",
+    starterPricePesosMonthGroup: "ARS $7.000",
     starterPriceDollarsThreeMonths: "USD $152",
     starterPricePesosThreeMonths: "ARS $35.640",
     starterPriceDollarsThreeMonthsGroup: "USD $81",
@@ -143,8 +144,8 @@ export const Spanish = {
     //form
     formtitle: "Buscar un grupo",
     formtitleIndividual: "Clases individuales",
-    modalSuccessForm: "Gracias por llenar tu formulario para unirte a uno de nuestros grupos! Uno de nuestro equipo va a estar en contacto pronto cuando haya suficientes estudiantes para formar un grupo con los detalles del horario y fecha de inicio.",
-    modalWarningGroup: "Ha seleccionado menos de tres horarios, cuantos más horarios seleccione más probabilidades tendrá de encontrar un grupo. ¿Estás seguro de que quieres continuar?",
+    modalSuccessForm: "Gracias por llenar su formulario! Uno de nuestro equipo va a estar en contacto pronto con usted.",
+    modalWarningGroup: "Ha seleccionado menos de tres horarios. ¿Estás seguro de que quieres continuar?",
     modalWarningIndividual: "Ha seleccionado menos de tres horarios. ¿Estás seguro de que quieres continuar?",
     modalWarningButton: "Sí, estoy seguro",
     modalWarningButtonCancel: "No, quiero seleccionar más horarios",
@@ -223,7 +224,7 @@ export const Spanish = {
     sunday: "Domingo",
 
      //footer:
-     footerAbout : "Sobre",
+     footerAbout : "Acerca de nosotros",
      footerContact: "Contacto",
      footerFollowUs: "Síguenos",
      footerLanguageCourses: "Cursos de idiomas",
