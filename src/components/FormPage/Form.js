@@ -27,6 +27,7 @@ const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 //control shift f to format code
 //https://www.youtube.com/watch?v=NgWGllOjkbs
+//test
 function Form() {
   const [dates, setDates] = useState([]);
   const [difference, setDifference] = useState(0);
