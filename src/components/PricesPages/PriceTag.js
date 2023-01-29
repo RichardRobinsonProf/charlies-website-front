@@ -5,7 +5,6 @@ import ContextChosenLanguage from '../../Context'
 
 function PriceTag  (props) {
     const ctx = useContext(ContextChosenLanguage)
-    const [isSelected, setIsSelected] = useState(false)
     const [borderStyle, setBorderStyle] = useState('borderblue')
 
 
@@ -29,7 +28,7 @@ function PriceTag  (props) {
             setBorderStyle('borderblue')
         }
 
-    }, [ctx.duration, ctx.price])
+    }, [ctx.duration, ctx.price, props.time, props.price])
 
         
   

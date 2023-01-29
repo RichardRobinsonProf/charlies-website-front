@@ -1,25 +1,12 @@
 import axios from "axios";
-import { useContext, useState, useEffect } from "react";
-import ContextChosenLanguage from "../Context";
-import { chosenLanguage } from "../utils/language";
+import { useState, useEffect } from "react";
 import Prices from "../components/PricesPages/Prices";  
 import Footer from "../components/HomePage/Footer";
 import NavbarComplete from "../components/HomePage/NavbarComplete";
 
 
 const PricesPage = () => {
-    const ctx = useContext(ContextChosenLanguage);
-    const [text, setText] = useState(chosenLanguage(ctx.language));
 
-
-    useEffect(() => {
-
-      if (ctx.language === "English") {
-        setText(chosenLanguage("English"));
-      } else {
-        setText(chosenLanguage("Spanish"));
-      }
-    }, [ctx.language]);
 
     const [state, setState] = useState({
         ip: "",
@@ -52,7 +39,7 @@ const PricesPage = () => {
     
       useEffect(() => {
         getGeoInfo();
-      }, []);
+      },);
 
  
     

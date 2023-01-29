@@ -1,4 +1,3 @@
-import PriceItem from "./PriceItem";
 import ContextChosenLanguage from '../../Context'
 import { chosenLanguage } from '../../utils/language'
 import { useContext, useState, useEffect } from 'react'

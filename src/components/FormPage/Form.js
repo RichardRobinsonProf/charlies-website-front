@@ -19,7 +19,6 @@ import {chosenLanguage} from '../../utils/language'
 import {IoIosAdd} from 'react-icons/io'
 import {BsTrash} from 'react-icons/bs'
 import ModalForm from "../../components/FormPage/ModalForm";
-import { Prompt } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 
@@ -49,7 +48,7 @@ function Form() {
     setShowModalWarning(false);
   }
  
-  const [isEntered, setIsEntered] = useState(false);
+
   const handleCloseAlert = () => {
     setShowAlert(false);
     history.push('/')
@@ -141,7 +140,7 @@ function Form() {
     apiConnection.post('/users', newStudent)
     .then(function(response) {
       setShowAlert(true)
-      setIsEntered(false)
+
     })
     .catch(function(error) {
       const errorMessage = error.response.data;
@@ -151,7 +150,7 @@ function Form() {
     apiConnection.post('/users/individual', newStudent)
     .then(function(response) {
       setShowAlert(true)
-      setIsEntered(false)
+   
     })
     .catch(function(error) {
       const errorMessage = error.response.data;
@@ -365,7 +364,7 @@ function Form() {
      
       ctx.setOnPage(false);
     }
-  }, [])
+  }, [ctx])
 
 
   if (dayValue && dayIsValid) {
@@ -408,7 +407,7 @@ function Form() {
 
   function onFocusHandler () {
     if(ctx.onPage){
-      setIsEntered(true);
+
     }
   
   }
@@ -447,7 +446,6 @@ function Form() {
 
   return (
     <Fragment>
-   {/*  <Prompt when={isEntered} message={text.formAreSureYouWantToLeave} /> */}
     <div id="FormPage" className="text-font">
       <form  onFocus={onFocusHandler}  className="Auth-form mt-5 " onSubmit={submitHandler}>
         <div className="Auth-form-content">
