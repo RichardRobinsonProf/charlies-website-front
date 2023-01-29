@@ -1,4 +1,3 @@
-import Form from '../components/FormPage/Form';
 import Navbar from '../components/HomePage/NavbarComplete';
 import Footer from '../components/HomePage/Footer';
 

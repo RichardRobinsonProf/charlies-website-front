@@ -304,6 +304,7 @@ export function convertDayToEnglish(day){
     case 'Viernes': return 'Friday';
     case 'Sábado': return 'Saturday';
     case 'Domingo': return 'Sunday';
+    default : return day;
 }
 }
 
@@ -316,5 +317,6 @@ export function convertDayToSpanish(day){
     case 'Friday': return 'Viernes';
     case 'Saturday': return 'Sábado';
     case 'Sunday': return 'Domingo';
+    default : return day;
 }
 }
