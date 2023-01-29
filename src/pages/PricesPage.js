@@ -13,7 +13,7 @@ const PricesPage = () => {
 
 
     useEffect(() => {
-      console.log(ctx.language);
+
       if (ctx.language === "English") {
         setText(chosenLanguage("English"));
       } else {

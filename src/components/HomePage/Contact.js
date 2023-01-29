@@ -36,7 +36,7 @@ function Contact() {
 
   const messageChangeHandler = (event) => {
     setMessage(event.target.value);
-    console.log(message)
+
   };
 
 

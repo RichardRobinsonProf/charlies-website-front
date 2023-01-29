@@ -12,7 +12,7 @@ function AboutUs() {
   const [text, setText] = useState(chosenLanguage(ctx.language));
   
   useEffect(() => {
-    console.log(ctx.language);
+  
     if (ctx.language === "English") {
       setText(chosenLanguage("English"));
     } else {

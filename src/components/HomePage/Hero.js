@@ -24,7 +24,6 @@ function Hero() {
   const isEmail = (value) => value.includes("@");
 
   useEffect(() => {
-    console.log(ctx.language);
     if (ctx.language === "English") {
       setText(chosenLanguage("English"));
     } else {
@@ -46,7 +45,7 @@ function Hero() {
       }, 3000);
       return;
     }
-    console.log(emailValue)
+
     const data = {
       email: emailValue,
     };
@@ -59,7 +58,7 @@ function Hero() {
         console.log(error)
     })
  
-    console.log('Submitted')
+
     ctx.setEmail(emailValue)
     resetemail()
     history.push('/prices')

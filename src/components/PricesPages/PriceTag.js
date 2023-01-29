@@ -29,7 +29,6 @@ function PriceTag  (props) {
             setBorderStyle('borderblue')
         }
 
-        console.log(ctx.duration, ctx.price, ctx.pricePack, ctx.wantsGroup)
     }, [ctx.duration, ctx.price])
 
         

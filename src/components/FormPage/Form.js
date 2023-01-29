@@ -52,7 +52,6 @@ function Form() {
   const [isEntered, setIsEntered] = useState(false);
   const handleCloseAlert = () => {
     setShowAlert(false);
-    console.log(ctx.onPage)
     history.push('/')
   }
 
@@ -60,7 +59,6 @@ function Form() {
   
   
   useEffect (() => {
-      console.log(ctx.language)
       if (ctx.language === 'English') {
         resetDates()
           setText(chosenLanguage('English'))     
@@ -68,7 +66,6 @@ function Form() {
         resetDates()
           setText(chosenLanguage('Spanish'))
       }
-      console.log(ctx)
      
   },[ctx])
 
@@ -139,7 +136,6 @@ function Form() {
       price: ctx.price,
       amountMonths: ctx.duration,
     };
-    console.log(newStudent);
 
     if(ctx.wantsGroup === true) {
     apiConnection.post('/users', newStudent)
@@ -176,7 +172,6 @@ function Form() {
     resetTimeZone();
     resetTelephone();
     recaptchaRef.current.reset();
-    console.log("Submitted!");
   }
 
 
@@ -191,7 +186,6 @@ function Form() {
     setDifference(difference);
   }
 
-  // console.log(selectedTimezone);
 
   let workinghours = listWorkingHours(difference);
 
@@ -342,16 +336,7 @@ function Form() {
     }
   };
 
- /*  console.log("first name is valid: " + firstNameIsValid);
-  console.log("last name is valid: " + lastNameIsValid);
-  console.log("email is valid: " + emailIsValid);
-  console.log("language is valid: " + languageIsValid);
-  console.log("level is valid: " + levelIsValid);
-  console.log("objective is valid: " + objectiveIsValid);
-  console.log("exam is valid: " + examisValidWhenObjectiveIsExam());
-  console.log("other exam is valid: " + examIsValidWhenObjectiveIsExamOther());
-  console.log("day is valid: " + dayIsValid);
-  console.log("time is valid: " + timeIsValid); */
+
 
   let listWorkingHoursM = workinghours.workingHours;
 
@@ -359,7 +344,6 @@ function Form() {
     let retorno = [];
     if (dates) {
       dates.forEach(function (item) {
-        console.log(item);
         let hour = parseInt(item.hour);
         let minute = item.minute;
         let day = item.day;
@@ -404,7 +388,7 @@ function Form() {
   ) {
     formIsValid = true;
   }
-  console.log(dates)
+
 
   const submitHandler = (event) => {
         event.preventDefault();
