@@ -35,7 +35,7 @@ function AboutUs() {
           </div>
           </div>
           <div className=" col-md-5 mt-md-5 order-first order-md-last">
-          <ul className="mt-md-5 text-font">
+          <ul className="mt-md-5 text-font textDecoNone">
             <li><BsCheckLg
             color="green"
             size="1.5em"

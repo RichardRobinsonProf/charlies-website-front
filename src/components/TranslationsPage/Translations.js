@@ -1,12 +1,9 @@
 import {Image} from 'react-bootstrap'
 import ImageTranslation from '../../images/RIL Assets-07.png'
-import {GoPrimitiveDot} from 'react-icons/go'
 import { useContext, useState, useEffect } from 'react';
 import ContextChosenLanguage from '../../Context';
 import { chosenLanguage } from '../../utils/language';
 import { HashLink as Link } from 'react-router-hash-link';
-
-
 
 
 function Translations (props) {
@@ -30,7 +27,7 @@ function Translations (props) {
                 <p>{props.translationsParagraphOne}</p>  
                     </div>
                     <div className="col-md-7 col-12">
-                <Image src={ImageTranslation} className="img-fluid d-none d-md-block w-50 d-flex mx-auto"/>
+                <Image src={ImageTranslation} alt="ImageTranslation" className="img-fluid d-none d-md-block w-50 d-flex mx-auto"/>
                     </div>
             </div>
          
@@ -40,27 +37,27 @@ function Translations (props) {
                     </div>
                     <div className="col-md-6 col-12">
                         <ul className="ps-0 ms-0 text-font">
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListOne}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListTwo}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListThree}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListFour}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListFive}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListSix}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListSeven}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListEight}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPublicListNine}</li>
+                            <li>{props.translationsPublicListOne}</li>
+                            <li>{props.translationsPublicListTwo}</li>
+                            <li>{props.translationsPublicListThree}</li>
+                            <li>{props.translationsPublicListFour}</li>
+                            <li>{props.translationsPublicListFive}</li>
+                            <li>{props.translationsPublicListSix}</li>
+                            <li>{props.translationsPublicListSeven}</li>
+                            <li>{props.translationsPublicListEight}</li>
+                            <li>{props.translationsPublicListNine}</li>
                         </ul>
                     </div>
             </div>
             <div className="row mt-5">
                 <div className="col-md-5 col-12 offset-md-1">
                     <ul  className="ps-0 ms-0 pe-5 text-font">
-                        <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListOne}</li>
-                        <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListTwo}</li>
-                        <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListThree}</li>
-                        <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListFour}</li>
-                        <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListFive}</li>
-                        <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsPrivateListSix}</li>
+                        <li>{props.translationsPrivateListOne}</li>
+                        <li>{props.translationsPrivateListTwo}</li>
+                        <li>{props.translationsPrivateListThree}</li>
+                        <li>{props.translationsPrivateListFour}</li>
+                        <li>{props.translationsPrivateListFive}</li>
+                        <li>{props.translationsPrivateListSix}</li>
                      </ul>
                     </div>
                     <div className="col-md-6 col-12 order-first order-md-last">
@@ -73,9 +70,9 @@ function Translations (props) {
                     </div>
                     <div className="col-md-6 col-12">
                         <ul className="ps-0 ms-0 text-font">
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsInterpretationListOne}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsInterpretationListTwo}</li>
-                            <li><i>{<GoPrimitiveDot className="me-1"/>}</i>{props.translationsInterpretationListThree}</li>
+                            <li>{props.translationsInterpretationListOne}</li>
+                            <li>{props.translationsInterpretationListTwo}</li>
+                            <li>{props.translationsInterpretationListThree}</li>
                         </ul>
                             </div>
                          </div>

@@ -1,5 +1,5 @@
 import ImageHero from "../../images/RIL Assets-01.png";
-import Team from "../../images/Team.png";
+import Team from "../../images/Team.jpg";
 import Image from "react-bootstrap/Image";
 import { useContext, useState, useEffect } from "react";
 import ContextChosenLanguage from "../../Context";
