@@ -30,7 +30,7 @@ function ContainerCards() {
         </div>
         <div className= "col-md-5">
           <p>
-          <Image className=" w-100" src={ImageClasses}/>
+          <Image className=" w-100" src={ImageClasses} alt="imageClasses"/>
           </p>
         </div>
     </div>

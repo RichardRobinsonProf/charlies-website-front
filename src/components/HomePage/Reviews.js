@@ -28,7 +28,7 @@ function Reviews() {
       <div className='row justify-content-center mb-5'>
 			<div className= 'col-9 col-md-3 mt-3'>
 					<div className='light-blue text-center pb-5 pt-5'>
-					<Image className=" w-50 rounded-circle" src={Woman}/>
+					<Image className=" w-50 rounded-circle" src={Woman} alt="woman"/>
 					<div className="px-3">
 						<h1 className="display-5 text-black mt-3">Andrea</h1>
             <p className= "text-muted" >
@@ -40,7 +40,7 @@ function Reviews() {
 				</div> 
         <div className= 'col-9 col-md-3 mt-3'>
 					<div className='light-blue text-center pb-5 pt-5 px-2'>
-					<Image className=" w-50 rounded-circle" src={Man}/>
+					<Image className=" w-50 rounded-circle" src={Man} alt="man"/>
 					<div className="px-3">
 						<h1 className="display-5 text-black mt-3">Lester</h1>
             <p className= "text-muted" >

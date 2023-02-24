@@ -92,7 +92,7 @@ function Hero() {
         </div>
         <div className="col-md-7 col-12 align-self-end mb-3 ">
             <div className="row justify-content-center">
-          <Image className="d-none d-md-block w-75" src={ImageHero}/>
+          <Image className="d-none d-md-block w-75" src={ImageHero} alt="imageHero"/>
           </div>
         </div>
         <div className="row">
@@ -125,7 +125,7 @@ function Hero() {
       <div className="row mb-5 mt-5 ">
         <div className="col-md-6 col-11 mb-5 d-md-block d-none">
           <div className="blue-circle align-items-center row mx-md-auto">
-            <Image className="rounded img-fluid" src={Team} width={"100%"}></Image>
+            <Image className="rounded img-fluid" src={Team} width={"100%"} alt="team"></Image>
           </div>
         </div>
         <div className="col-md-4 col-12 align-self-center" id="aboutushero">

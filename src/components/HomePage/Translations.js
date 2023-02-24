@@ -36,7 +36,7 @@ function Translations() {
         <div className= "col-md-5">
           <div className="row text-center">
           <p>
-          <Image className="w-75 offset-md-1" src={ImageClasses}/>
+          <Image className="w-75 offset-md-1" src={ImageClasses} alt="imageClasses"/>
           </p>
           </div>
         </div>

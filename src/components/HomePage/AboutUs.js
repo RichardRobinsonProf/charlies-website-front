@@ -31,7 +31,7 @@ function AboutUs() {
       <div className="row">
         <div className="col-md-6 col-9">
           <div className="row justify-content-end ">
-          <Image className="w-75" src={ImageLograrMas}/>
+          <Image className="w-75" src={ImageLograrMas} alt="imageLogragMas"/>
           </div>
           </div>
           <div className=" col-md-5 mt-md-5 order-first order-md-last">

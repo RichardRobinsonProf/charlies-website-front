@@ -21,7 +21,7 @@ function CompaniesThatTrustUs () {
       
     <div className="row text-center ms-2 me-2 ms-md-5 me-md-5 mb-5 mt-5">
         <h1 className="display-5 text-black">{text.companiesThatTrustUs}</h1>
-        <Image className=" w-100 mx-auto" src={CompaniesThatTrustUsImage}/>
+        <Image className=" w-100 mx-auto" src={CompaniesThatTrustUsImage} alt="imageCompaniesThatTrustUs"/>
       </div>
       	
     )
