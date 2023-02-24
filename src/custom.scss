@@ -5,10 +5,6 @@ $theme-colors: (
         "light": #D3D3D3
 );
 
-//#CD2527
-
-
-
 
 
 /* import bootstrap to set changes */
@@ -127,13 +123,134 @@ h1 {
 .textDecoNone {
     list-style: none;
 }
+#section-hero {
+    background-image: url("./images/RIL Assets-10.png");
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
 
+    .fullscreen {
+    height: 100vh;
 
+  }
 
+  .text-font {
+    font-family: 'Roboto', sans-serif;
 
+  }
 
+  #aboutus {
+    background-image: url("./images/RIL Assets-11.png");
+    background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+  }
+  #classes {
+    background-image: url("./images/RIL Assets-12.png");
+    background-size: cover;
+            background-position: center;
+            min-height: 50vh;  
+  }
 
+  .pointer {
+    cursor: pointer;
+  }
 
+ 
+  .inner {
+    position: absolute;
+  }
+
+  .dropdown-menu.show {
+    background-color: #699DEE;
+  }
+
+  .blue-circle {
+    border-radius: 50%;
+    background-color: #E7F3FE;
+    width: 350px;
+    height: 350px;
+  }
+
+  .light-blue{
+    background-color: #E7F3FE;
+  }
+  
+  .bg-blue {
+    background-color:#699DEE;
+    border: #699DEE;
+    font-family: Roboto;
+  }
+
+  .borderblue {
+    border: #699DEE !important;
+    border-style: solid !important;
+    border-width: 3px !important;
+    cursor: pointer;
+
+  }
+  .borderblue:hover {
+    border: #F1A34F!important;
+    border-style: solid !important;
+    border-width: 3px !important;
+
+  }
+  .borderorange {
+    border: #F1A34F !important;
+    border-style: solid !important;
+    border-width: 3px !important;
+    cursor: pointer;
+  }
+
+  #TranslationPage {
+    background-image: url("./images/RIL Assets-13.png");
+            background-size: cover;
+            background-position: center;
+    min-height: 100vh;
+
+  }
+  .dropdown-item:hover, .dropdown-item:focus {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: #F1A34F!important;
+  }
+  
+  #translations {
+    background-color: #F1A34F;   
+    background-size: cover;
+            background-position: center;
+            min-height: 50vh;          
+  }
+
+  .bg-orange {
+    background-color: #F1A34F;
+  }
+
+  #prices {
+    background-size: cover;
+            background-position: center;
+            min-height: 50vh; 
+  }
+
+  #contactus {
+    background: #333333;
+
+  }
+  #footer {
+    background: #1A1A1A;
+  } 
+
+  .bg-darkgrey {
+    background-color: #1A1A1A;
+  }
+  .bg-grey {
+    background: #333333;
+  }
+
+  .button-fit-content {
+    width: fit-content;
+    height: fit-content;
+  }
 
 
 
