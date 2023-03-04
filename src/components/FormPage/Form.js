@@ -100,7 +100,7 @@ function Form() {
   }
 
   function validatePhoneNumber(value) {
-    if (value.length < 8 || value.length > 15) {
+    if (value.length < 8 || value.length > 20) {
       return false;
     }
     else {
