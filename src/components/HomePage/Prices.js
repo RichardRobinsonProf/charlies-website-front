@@ -6,6 +6,7 @@ import Starter from "../../images/RIL Assets-04.png";
 import SemiPro from "../../images/RIL Assets-05.png";
 import Pro from "../../images/RIL Assets-06.png";
 import BlueButton from "../HomePage/buttons/BlueButton";
+import WOW from 'wowjs'
 
 
 function Prices () {
@@ -19,12 +20,15 @@ function Prices () {
 		} else {
 			setText(chosenLanguage('Spanish'))
 		}
+		new WOW.WOW({
+			live: false
+		}).init();
 	},[ctx.language])
     return (
         <section id="prices">
 			<div className='p-5'> 
 			<div className='row justify-content-center mb-5'>
-			<div className= 'col-8 col-md-3 mt-3'>
+			<div className= 'col-8 col-md-3 mt-3 wow opacity100'>
 					<div className='light-blue text-center py-3 pb-md-5 text-font px-3'>
 					<Image className=" w-50" src={Starter} alt="starter"/>
 					<div>
@@ -40,7 +44,7 @@ function Prices () {
 					</div>
 					
 				</div> 
-				<div className= 'col-8 col-md-3 mt-3 text-font'>
+				<div className= 'col-8 col-md-3 mt-3 text-font wow opacity100Late'>
 					<div className='light-blue text-center py-3 pb-md-5 px-3'>
 					<Image className=" w-50" src={SemiPro} alt="semiPro"/>
 					<div>
@@ -55,7 +59,7 @@ function Prices () {
 					</div>
 					
 				</div> 
-				<div className= 'col-8 col-md-3 mt-3 text-font'>
+				<div className= 'col-8 col-md-3 mt-3 text-font wow opacity100Latest'>
 					<div className='light-blue text-center py-3 px-3 pb-md-5'>
 					<Image className=" w-50" src={Pro} alt="pro"/>
 					<div>

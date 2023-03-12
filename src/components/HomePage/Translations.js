@@ -4,6 +4,7 @@ import ContextChosenLanguage from '../../Context'
 import {chosenLanguage} from '../../utils/language'
 import ImageClasses from "../../images/RIL Assets-07.png";
 import BlueButton from "../HomePage/buttons/BlueButton";
+import WOW from 'wowjs'
 
 
 function Translations() {
@@ -17,20 +18,23 @@ function Translations() {
       } else {
           setText(chosenLanguage('Spanish'))
       }
+      new WOW.WOW({
+        live: false
+      }).init();
   },[ctx.language])
 
   return (
     <section id="translations" className="ps-5 pe-3 pt-2 pt-md-0">
        <div className="row ms-3 me-3 align-items-center">
         <div className= "col-md-5 offset-md-1 mt-5 mt-md-0">
-        <h1 className="display-5 text-black">{text.translationsTitle}</h1>
-          <p>
+        <h1 className="display-5 text-black wow opacity100">{text.translationsTitle}</h1>
+          <p className="wow opacity100">
             {text.translationsParagraphOne}
           </p>
           <BlueButton
 							text= {text.translationButton}
 							link = "/translations"
-              extraClasses= "ms-0"
+              extraClasses= "ms-0 wow opacity100Late"
               />
         </div>
         <div className= "col-md-5">

@@ -1,4 +1,3 @@
-import {GoPrimitiveDot} from 'react-icons/go'
 import PriceTag from './PriceTag';
 import {useHistory} from 'react-router-dom'
 import Context from '../../Context'
@@ -21,8 +20,7 @@ function PriceItem (props) {
                 history.push('/form')
         } else {
             setIsValid(false)
-        }
-         
+        }         
     }
 
 
@@ -59,8 +57,8 @@ function PriceItem (props) {
         <div className="col-md-12 col-8">
             <h4 className=" text-black ms-md-2 ms-md-0 ">{props.title}</h4>
                 <ul className="list-group list-group-flush ">
-                    <li className="mt-0 pt-0 pb-0 ms-2 ms-md-0"><GoPrimitiveDot/>{props.subtitle}</li>
-                    <li className="mt-0 pt-0 pb-0 ms-2 ms-md-0"><GoPrimitiveDot/>{props.subtitleTwo}</li>
+                    <li className="mt-0 pt-0 pb-0 ms-2 ms-md-1">{props.subtitle}</li>
+                    <li className="mt-0 pt-0 pb-0 ms-2 ms-md-1">{props.subtitleTwo}</li>
                 </ul>
          
             </div>    

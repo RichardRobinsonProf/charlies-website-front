@@ -37,16 +37,16 @@ function NavbarComplete () {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="navbarScroll">
         <Nav className="me-auto ">
-            <Link to ="/#aboutushero" className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navAboutus}</Link>
-            <Link to="/#classes"className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navClasses}</Link>
-            <Link to="/translations"className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navTranslations}</Link>
-            <Link to="/prices"className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navPrices}</Link>
-            <Link to="/#reviews"className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navReviews}</Link>
-            <Link to="/#contactus"className="lead text-white ms-3 mb-2 mb-md-0 text-decoration-none">{text.navContact}</Link>
+            <Link to ="/#aboutushero" className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navAboutus}</Link>
+            <Link to="/#classes"className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navClasses}</Link>
+            <Link to="/translations"className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navTranslations}</Link>
+            <Link to="/prices"className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navPrices}</Link>
+            <Link to="/#reviews"className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navReviews}</Link>
+            <Link to="/#contactus"className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navContact}</Link>
         </Nav>
         {!ctx.onPage ? 
-        <NavDropdown className="" title={<span className='lead text-white'>{text.navLanguage}</span>} id="collasible-nav-dropdown">
-        <NavDropdown.Item onClick={clickHandlerEnglish} className="lead text-white">English</NavDropdown.Item>
+        <NavDropdown className="text-white p-2 text-center hover2" title={<span className='lead p-2 text-center '>{text.navLanguage}</span>} id="nav-dropdown">
+        <NavDropdown.Item onClick={clickHandlerEnglish} className="lead text-white width-100">English</NavDropdown.Item>
         <NavDropdown.Item onClick={clickHandlerSpanish} className="lead text-white">Español</NavDropdown.Item>
     </NavDropdown> : null
     }

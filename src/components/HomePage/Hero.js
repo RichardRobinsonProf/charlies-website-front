@@ -87,8 +87,8 @@ function Hero() {
           <br></br>
         </div>
         <div className="col-md-4 offset-md-1 col-12 mt-5 align-self-center">
-          <h1 className="display-5 text-black">{text.heroTitle}</h1>
-          <p className="text-black text-font">{text.heroSubtitle}</p>
+          <h1 className="display-5 text-black wow opacity100">{text.heroTitle}</h1>
+          <p className="text-black text-font wow opacity100">{text.heroSubtitle}</p>
         </div>
         <div className="col-md-7 col-12 align-self-end mb-3 ">
             <div className="row justify-content-center">
@@ -96,18 +96,18 @@ function Hero() {
           </div>
         </div>
         <div className="row">
-        <div className={`col-md-6 col-12 ${emailClasses}`}>
+        <div className={`col-md-6 col-12  ${emailClasses}`}>
           <form onSubmit={submitHandler}>
         <div className="input-group offset-md-2">
             <input 
             type="email" 
-            className="form-control mt-1 border-top-0 col-12 col-md-6 border-end-0 border-start-0 me-3 rounded" 
+            className="form-control mt-1 border-top-0 col-12 col-md-6 border-end-0 border-start-0 me-3 rounded wow opacity100" 
             placeholder={text.placeholderEmail}
             value={emailValue}
             onChange={emailChangeHandler}
             onBlur={emailBlurHandler}
             />
-            <button type="submit" className="bg-blue button-fit-content col-12 col-md-6 rounded  " id="buttonAfter">{text.generalBlueButton}</button>  
+            <button type="submit" className="bg-blue button-fit-content col-12 col-md-6 rounded wow opacity100Late " id="buttonAfter">{text.generalBlueButton}</button>  
             </div>
             <div className="row">
                 <div className="col-md-6 col-12 "></div>
@@ -125,10 +125,10 @@ function Hero() {
       <div className="row mb-5 mt-5 ">
         <div className="col-md-6 col-11 mb-5 d-md-block d-none">
           <div className="blue-circle align-items-center row mx-md-auto">
-            <Image className="rounded img-fluid" src={Team} width={"100%"} alt="team"></Image>
+            <Image className="rounded img-fluid wow opacity100" src={Team} width={"100%"} alt="team"></Image>
           </div>
         </div>
-        <div className="col-md-4 col-12 align-self-center" id="aboutushero">
+        <div className="col-md-4 col-12 align-self-center wow opacity100" id="aboutushero">
           <h1 className="display-5 text-black ms-4" >
             {text.aboutusTitle}
           </h1>

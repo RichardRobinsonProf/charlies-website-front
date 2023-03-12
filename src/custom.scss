@@ -252,7 +252,95 @@ h1 {
     height: fit-content;
   }
 
+   .hover:hover {
+      color: #F1A34F !important;
+      opacity: 1 !important;
+   }
 
+   .hover2:hover {
+     background-color: #F1A34F !important;
+     border-radius: 5px;
+
+   }
+
+   .float-right {
+     float: right !important;
+   }
+
+  .opacity100{
+    opacity: 1;
+    animation: opacity 1.2s;
+  }
+
+  .opacity100Late{
+  opacity: 1;
+  animation: opacitylate 1.2s;
+  }
+
+  .opacity100Latest{
+  opacity: 1;
+  animation: opacitylatest 1.2s;
+  }
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes opacitylate {
+  0% {
+      opacity: 0;
+  }
+  25% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
+@keyframes opacitylatest {
+  0% {
+      opacity: 0;
+  }
+  25% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  75% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+    margin: 0;
+    div.p5 {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}
 
 
 
