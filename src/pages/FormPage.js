@@ -10,7 +10,6 @@ function FormPage() {
       <Form/>
       </div>
       <Footer/>
-  
     </div>
   );
 }

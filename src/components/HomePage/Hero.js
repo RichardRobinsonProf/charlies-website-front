@@ -81,8 +81,8 @@ function Hero() {
 
   return (
     <section id="section-hero">
-      <div className="p-5">
-      <div className="row ms-3 mb-5 mt-5 me-2">
+      <div className="p-md-5 p-3">
+      <div className="row ms-md-3 mb-5 mt-5 me-md-2">
         <div height={100}>
           <br></br>
         </div>
@@ -95,19 +95,19 @@ function Hero() {
           <Image className="d-none d-md-block w-75" src={ImageHero} alt="imageHero"/>
           </div>
         </div>
-        <div className="row">
+        <div className="row m-0 p-0">
         <div className={`col-md-6 col-12  ${emailClasses}`}>
           <form onSubmit={submitHandler}>
         <div className="input-group offset-md-2">
             <input 
             type="email" 
-            className="form-control mt-1 border-top-0 col-12 col-md-6 border-end-0 border-start-0 me-3 rounded wow opacity100" 
+            className="form-control mt-1 border-top-0 col-12 col-md-6 border-end-0 border-start-0 me-md-3 rounded wow opacity100 inputText" 
             placeholder={text.placeholderEmail}
             value={emailValue}
             onChange={emailChangeHandler}
             onBlur={emailBlurHandler}
             />
-            <button type="submit" className="bg-blue button-fit-content col-12 col-md-6 rounded wow opacity100Late " id="buttonAfter">{text.generalBlueButton}</button>  
+            <button type="submit" className="bg-blue button-fit-content col-12 col-md-6 rounded wow opacity100Late inputButton" id="buttonAfter">{text.generalBlueButton}</button>  
             </div>
             <div className="row">
                 <div className="col-md-6 col-12 "></div>
@@ -129,15 +129,15 @@ function Hero() {
           </div>
         </div>
         <div className="col-md-4 col-12 align-self-center wow opacity100" id="aboutushero">
-          <h1 className="display-5 text-black ms-4" >
+          <h1 className="display-5 text-black ms-md-4" >
             {text.aboutusTitle}
           </h1>
-          <p className="text-black ms-4 text-font">{text.aboutusParagraphOne}</p>
-          <p className="text-black ms-4 text-font">{text.aboutusParagraphThree}</p>
+          <p className="text-black ms-md-4 text-font">{text.aboutusParagraphOne}</p>
+          <p className="text-black ms-md-4 text-font">{text.aboutusParagraphThree}</p>
           <span>
             <BlueButton
             text= {text.generalBlueButton}
-            extraClasses = {"ms-4"}
+            extraClasses = {"ms-md-4 inputButton"}
             link = "/prices"
             />
           </span>

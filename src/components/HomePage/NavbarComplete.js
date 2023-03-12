@@ -36,7 +36,7 @@ function NavbarComplete () {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="navbarScroll">
-        <Nav className="me-auto ">
+        <Nav className="me-auto">
             <Link to ="/#aboutushero" className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navAboutus}</Link>
             <Link to="/#classes"className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navClasses}</Link>
             <Link to="/translations"className="lead text-white ms-md-1 mb-2 mb-md-0 text-decoration-none hover2 p-2 text-center">{text.navTranslations}</Link>

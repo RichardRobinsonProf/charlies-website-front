@@ -22,11 +22,11 @@ function ContainerCards() {
     }).init();
   },[ctx.language])
   return (
-    <section id="classes" className="pt-5 ps-5 pe-4  text-font">
-  <div className="row text-md-center ms-3 ms-md-0">
+    <section id="classes" className="pt-5 ps-md-5 pe-md-4 text-font p-3 p-md-5">
+  <div className="row text-md-center">
         <h1 className="display-5 text-black wow opacity100">{text.pricesTitle}</h1>
       </div>
-    <div className="row ms-3 me-3">
+    <div className="row ms-md-3 me-md-3">
         <div className= "col-md-5 offset-md-1 wow opacity100Late">
           <p>
             {text.classesParagraphOne}

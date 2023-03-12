@@ -23,13 +23,13 @@ function Reviews() {
       }).init();
   },[ctx.language])
   return (
-    <section id="reviews" className="text-font">
-      <div className="p-5">
-        <div className="row pt-3 text-center ms-md-0">
+    <section id="reviews" className="text-font p-md-5 p-3 pt-5">
+      <div>
+        <div className="row pt-md-3 text-center ms-md-0">
         <h1 className="display-5 text-black wow opacity100">{text.reviewsTitle}</h1>
       </div>
       <div className='row justify-content-center mb-5'>
-			<div className= 'col-9 col-md-3 mt-3 wow opacity100'>
+			<div className= 'col-12 col-md-3 mt-3 wow opacity100'>
 					<div className='light-blue text-center pb-5 pt-5'>
 					<Image className=" w-50 rounded-circle" src={Woman} alt="woman"/>
 					<div className="px-3">
@@ -41,7 +41,7 @@ function Reviews() {
 					</div>
 					</div>
 				</div> 
-        <div className= 'col-9 col-md-3 mt-3 wow opacity100Late'>
+        <div className= 'col-12 col-md-3 mt-3 wow opacity100Late'>
 					<div className='light-blue text-center pb-5 pt-5 px-2'>
 					<Image className=" w-50 rounded-circle" src={Man} alt="man"/>
 					<div className="px-3">

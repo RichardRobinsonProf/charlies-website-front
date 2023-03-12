@@ -5,7 +5,11 @@ $theme-colors: (
         "light": #D3D3D3
 );
 
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 /* import bootstrap to set changes */
 @import "../~bootstrap/scss/bootstrap";
@@ -53,6 +57,13 @@ $theme-colors: (
   
     
 }
+
+.captcha {
+  margin: 0;
+  padding: 0;
+}
+
+
 .button-form{
     margin-bottom: 30px;
 }
@@ -144,13 +155,13 @@ h1 {
     background-image: url("./images/RIL Assets-11.png");
     background-size: cover;
             background-position: center;
-            min-height: 70vh;
+            min-height: 50vh;
   }
   #classes {
     background-image: url("./images/RIL Assets-12.png");
     background-size: cover;
             background-position: center;
-            min-height: 50vh;  
+            min-height: 40vh;  
   }
 
   .pointer {
@@ -332,13 +343,12 @@ h1 {
 
 
 @media (max-width: 768px) {
-  body {
-    padding: 0;
-    margin: 0;
-    div.p5 {
-      padding: 0 !important;
-      margin: 0 !important;
-    }
+  .inputText {
+    width: 100% !important;
+    
+  }
+  .inputButton {
+    width: 100% !important;
   }
 }
 

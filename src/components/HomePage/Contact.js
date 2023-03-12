@@ -145,7 +145,7 @@ function Contact() {
         positive= {text.buttonClose}
         handlePositive= {handleClose}
         />
-          <div className="align-items-center text-md-center bg-transparent mx-5">     
+          <div className="align-items-center text-md-center bg-transparent mx-md-5 p-3">     
             <form  onSubmit={submitHandler}>
             <h1 className="display-5 text-start text-md-center text-white mb-md-5 mb-2 pt-5">{text.contactTitle}</h1>
               <div className="row">
@@ -253,7 +253,7 @@ function Contact() {
                       )}
                 <div className="row justify-content-end mb-3">
                 <ReCAPTCHA
-                      className= "captcha"
+                      className="captcha"
                       ref={recaptchaRef}
                       sitekey={process.env.REACT_APP_SITE_KEY}
                       theme="dark"

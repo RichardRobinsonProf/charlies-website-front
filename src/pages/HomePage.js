@@ -16,7 +16,7 @@ function HomePage() {
   return (
   <Fragment>
     <div className="text-font">
-    <NavbarComplete/>
+  <NavbarComplete/>
     <Hero/>
     <AboutUs/>
     <Classes/>

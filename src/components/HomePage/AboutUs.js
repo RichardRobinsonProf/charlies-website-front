@@ -25,10 +25,10 @@ function AboutUs() {
     
   }, [ctx.language]);
   return (
-    <section id="aboutus">
-      <div className="p-5 ">
-      <div className="row me-2">
-        <div className="col-md-5 mx-md-auto text-md-center ms-4 mt-2">
+    <section id="aboutus" className="p-md-5 pt-5 p-3">
+      <div className="">
+      <div className="row me-md-2">
+        <div className="col-md-5 mx-md-auto text-md-center mt-2">
         <h1 className="display-5 text-black wow opacity100">{text.classesTitle}</h1>
            <p className="text-black text-font wow opacity100">{text.classesParagraph}</p>
           </div>
@@ -36,12 +36,12 @@ function AboutUs() {
       <div className="row">
         <div className="col-md-6 col-9">
           <div className="row justify-content-end">
-          <Image className="w-75" src={ImageLograrMas} alt="imageLogragMas"/>
+          <Image className="w-75" src={ImageLograrMas} alt="imageLograrMas"/>
           </div>
           </div>
           <div className=" col-md-5 mt-md-5 order-first order-md-last wow opacity100">
-          <ul className="mt-md-5 text-font textDecoNone">
-            <li className="wow opacity100Late"><BsCheckLg
+          <ul className="mt-md-5 text-font textDecoNone p-0">
+            <li className="wow opacity100Late "><BsCheckLg
             color="green"
             size="1.5em"
             className="me-1"

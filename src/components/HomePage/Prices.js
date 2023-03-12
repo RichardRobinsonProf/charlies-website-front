@@ -26,10 +26,10 @@ function Prices () {
 	},[ctx.language])
     return (
         <section id="prices">
-			<div className='p-5'> 
+			<div className='p-md-5 p-3'> 
 			<div className='row justify-content-center mb-5'>
-			<div className= 'col-8 col-md-3 mt-3 wow opacity100'>
-					<div className='light-blue text-center py-3 pb-md-5 text-font px-3'>
+			<div className= 'col-12 col-md-3 mt-3 wow opacity100'>
+					<div className='light-blue text-center p-5 p-md-3 pb-md-5 text-font rounded'>
 					<Image className=" w-50" src={Starter} alt="starter"/>
 					<div>
 						<h1 className="display-5 text-black">Starter</h1>
@@ -39,13 +39,13 @@ function Prices () {
 						<BlueButton
 							text= {text.generalBlueButton}
 							link = "/prices"
-							extraClasses ="p-2 "
+							extraClasses ="p-2 inputButton"
 							/>
 					</div>
 					
 				</div> 
-				<div className= 'col-8 col-md-3 mt-3 text-font wow opacity100Late'>
-					<div className='light-blue text-center py-3 pb-md-5 px-3'>
+				<div className= 'col-12 col-md-3 mt-3 wow opacity100Late'>
+					<div className='light-blue text-center p-5 p-md-3 pb-md-5 text-font rounded'>
 					<Image className=" w-50" src={SemiPro} alt="semiPro"/>
 					<div>
 						<h1 className="display-5 text-black">Semi-pro</h1>
@@ -54,13 +54,13 @@ function Prices () {
 					<BlueButton
 							text= {text.generalBlueButton}
 							link = "/prices"
-							extraClasses ="p-2 "
+							extraClasses ="p-2 inputButton"
 							/>
 					</div>
 					
 				</div> 
-				<div className= 'col-8 col-md-3 mt-3 text-font wow opacity100Latest'>
-					<div className='light-blue text-center py-3 px-3 pb-md-5'>
+				<div className= 'col-12 col-md-3 mt-3 wow opacity100Latest'>
+					<div className='light-blue text-center p-5 p-md-3 pb-md-5 text-font rounded'>
 					<Image className=" w-50" src={Pro} alt="pro"/>
 					<div>
 						<h1 className="display-5 text-black">Pro</h1>
@@ -69,7 +69,7 @@ function Prices () {
 					<BlueButton
 							text= {text.generalBlueButton}
 							link = "/prices"
-							extraClasses ="p-2 "
+							extraClasses ="p-2 inputButton"
 							/>
 					</div>
 					

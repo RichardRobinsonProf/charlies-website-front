@@ -24,8 +24,8 @@ function Translations() {
   },[ctx.language])
 
   return (
-    <section id="translations" className="ps-5 pe-3 pt-2 pt-md-0">
-       <div className="row ms-3 me-3 align-items-center">
+    <section id="translations" className="ps-md-5 pe-md-3 pt-md-2 pt-md-0 p-3 text-center">
+       <div className="row ms-md-3 me-md-3 align-items-center">
         <div className= "col-md-5 offset-md-1 mt-5 mt-md-0">
         <h1 className="display-5 text-black wow opacity100">{text.translationsTitle}</h1>
           <p className="wow opacity100">
@@ -34,7 +34,7 @@ function Translations() {
           <BlueButton
 							text= {text.translationButton}
 							link = "/translations"
-              extraClasses= "ms-0 wow opacity100Late"
+              extraClasses= "ms-0 wow opacity100Late inputButton"
               />
         </div>
         <div className= "col-md-5">
