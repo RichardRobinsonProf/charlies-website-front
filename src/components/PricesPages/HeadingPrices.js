@@ -4,9 +4,9 @@ import ImageClasses from "../../images/RIL Assets-09.png";
 
 function HeadingPrices (props) {
   return (
-    <div className="row">
-      <h4 className=" text-black ms-2 ms-md-0 "><Image src={ImageClasses} alt="imageClasses" className= "w-25"/>{props.title}</h4>     
-            </div>
+    <section className="row">
+      <h4 className=" text-heading-prices mb-3"><Image src={ImageClasses} alt="imageClasses" className= "width15 me-2"/>{props.title}</h4>     
+          </section>
   )
 }
 

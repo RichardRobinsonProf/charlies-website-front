@@ -22,8 +22,8 @@ function Translations (props) {
           }).init();
     },[ctx.language])
     return (
-        <div id="toptranslations">
-            <div className="pt-5 ps-5 pe-5 " id="TranslationPage">
+        <div>
+            <div className="pt-5 mt-4 mt-md-0 ps-md-5 pe-md-5 p-3 " id="TranslationPage">
             <div className="row mt-5 text-font">
                 <div className="col-md-4 col-12 offset-md-1 align-self-center">
                 <h1 className="display-5 text-black wow opacity100">{text.translationsTitle}</h1>
@@ -33,7 +33,6 @@ function Translations (props) {
                 <Image src={ImageTranslation} alt="ImageTranslation" className="img-fluid d-none d-md-block w-50 d-flex mx-auto"/>
                     </div>
             </div>
-         
             <div className="row mt-5">
                 <div className="col-md-5 col-12 offset-md-1">
                 <h1 className="display-5 text-black wow opacity100">{props.translationsPublic}</h1>
@@ -83,15 +82,14 @@ function Translations (props) {
                 <div>        
             </div>  
      <div className = "bg-orange">
-        <div className="p-5 text-md-center text-font">
-        
+        <div className="p-md-5 p-3 text-center text-font">
         <h1 className="display-5 text-black mt-5 wow opacity100">{text.translationOrangeBgTitle}</h1>
         <h1 className="display-5 text-black wow opacity100Late ">{text.translationOrangeBgSubtitle}!</h1>
         <p className='pb-0 mb-0 w-md-50 mx-auto wow opacity100Late'>{text.translationOrangeBgParagraphOne}</p>
         <p className='wow opacity100Late'>{text.translationOrangeBgParagraphTwo}</p>
 
         <Link to="/translations#contactus">
-        <button className="bg-blue mb-5 wow opacity100Latest">
+        <button className="bg-blue mb-5 wow opacity100Latest inputButton">
         {text.translationOrangeBgButton}
         </button>
         </Link>

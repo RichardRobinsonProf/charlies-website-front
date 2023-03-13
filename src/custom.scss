@@ -352,9 +352,24 @@ h1 {
   }
 }
 
+.align {
+  display: flex;
+  h4 {
+    align-self: center;
+  }
+}
+
+.width15 {
+  width: 15%;
+}
+
+.text-heading-prices {
+  color: black;
+  display: flex;
+  align-items: flex-end;
+}
 
 
-// https://www.youtube.com/watch?v=ZzedzTP2evg
 
 
 

@@ -22,7 +22,7 @@ function CompaniesThatTrustUs () {
   },[ctx.language])
     return (
       
-    <section className="row text-center ms-2 me-2 ms-md-5 me-md-5 mb-5 mt-md-5">
+    <section className="row text-center ms-2 me-2 ms-md-5 me-md-5 mb-5 mt-5">
         <h1 className="display-5 text-black wow opacity100">{text.companiesThatTrustUs}</h1>
         <Image className=" w-100 mx-auto wow opacity100" src={CompaniesThatTrustUsImage} alt="imageCompaniesThatTrustUs"/>
       </section>

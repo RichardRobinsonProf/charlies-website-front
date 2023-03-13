@@ -33,13 +33,13 @@ function PriceTag  (props) {
         
   
     return (
-        <div className={`w-100 rounded mt-2 py-1 ${borderStyle}`} onClick={clickHandler}>
-            <div className="row">
-                <div className="col-5 ms-1">
-                    <h4 className= "mt-2 mb-2 ms-3">{props.time}</h4>
+        <div className={`rounded mt-2 py-1 ${borderStyle}`} onClick={clickHandler}>
+            <div className="row m-0">
+                <div className="col-6 ps-2 ps-md-4">
+                    <h4 className= "mt-2 mb-2 ms-0">{props.time}</h4>
                     </div>
-                    <div className="col-6 d-flex align-items-md-center text-end ">
-                    <h4 className= "mt-2 mb-2 ms-2">{props.price}</h4>
+                    <div className="col-6 align-items-md-center p-0">
+                        <h4 className= "mt-2 mb-2 m-0 text-end pe-2 pe-md-4">{props.price}</h4>
                     </div>
             </div>
         </div>

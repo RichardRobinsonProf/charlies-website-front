@@ -3,7 +3,6 @@ import Footer from "../components/HomePage/Footer";
 import NavbarComplete from "../components/HomePage/NavbarComplete";
 import Contact from "../components/HomePage/Contact";
 import Translations from "../components/TranslationsPage/Translations";
-import CompaniesThatTrustUs from "../components/HomePage/CompaniesThatTrustUs";
 import { useContext, useState, useEffect } from "react";
 import ContextChosenLanguage from "../Context";
 import { chosenLanguage } from "../utils/language";
@@ -48,7 +47,6 @@ function TranslationsPage () {
         translationsInterpretationListTwo = {text.translationsInterpretationListTwo}
         translationsInterpretationListThree = {text.translationsInterpretationListThree}
         />
-        <CompaniesThatTrustUs/>
         <Contact/>
         <Footer/>
     </div>

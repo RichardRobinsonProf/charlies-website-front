@@ -19,8 +19,8 @@ function Prices (props) {
 
 
     return (
-       <div className="mt-md-5 text-font p-md-5 pt-5 px-2">
-        <div className="p-md-5 pt-5 px-1">
+       <div className="p-3 mt-md-2 text-font p-md-5 pt-5">
+    <div className="p-md-5 pt-5 ">
       <div className='row justify-content-center mb-3'>
 			<PriceColumn
             group = {false}
@@ -61,10 +61,7 @@ function Prices (props) {
         
             />
 			<PriceColumn
-
             group = {true}
-
-
              title = {text.footerGroupClasses}
              startertitle = {text.starterTitle}
              startersubtitle = {text.starterSubtitle}

@@ -4,8 +4,8 @@ import PriceItem from "./PriceItem"
 function priceColumn (props) {
     return (
     <div className= 'col-12 col-md-6'>
-					<div className='pb-5'>
-					<div className="px-3">
+					<div className='pb-0'>
+					<div className="px-md-3">
                 <HeadingPrices
                  title= {props.title}
                 />

@@ -53,16 +53,16 @@ function PriceItem (props) {
     
     return (
     <Fragment>     
-       <div className="row pb-4 ms-2 me-1">
+       <div className="row pb-4">
         <div className="col-md-12 col-8">
-            <h4 className=" text-black ms-md-2 ms-md-0 ">{props.title}</h4>
+            <h4 className=" text-black ms-md-0 ">{props.title}</h4>
                 <ul className="list-group list-group-flush ">
-                    <li className="mt-0 pt-0 pb-0 ms-2 ms-md-1">{props.subtitle}</li>
-                    <li className="mt-0 pt-0 pb-0 ms-2 ms-md-1">{props.subtitleTwo}</li>
+                    <li className="mt-0 pt-0 pb-0 ms-0 ms-md-1">{props.subtitle}</li>
+                    <li className="mt-0 pt-0 pb-0 ms-0 ms-md-1">{props.subtitleTwo}</li>
                 </ul>
          
             </div>    
-        <div className=" col-12  pt-1">
+        <div className="col-12 pt-1">
             <PriceTag
             group = {props.group}
             title = {props.title}
