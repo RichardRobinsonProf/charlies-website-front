@@ -31,6 +31,7 @@ const PricesPage = () => {
               timezone: data.timezone
 
             });
+            console.log(state)
           })
           .catch((error) => {
             console.log(error);
@@ -38,11 +39,16 @@ const PricesPage = () => {
       };
     
       useEffect(() => {
-        getGeoInfo();
+        if (state.countryName === "")
+        { 
+          getGeoInfo(); 
+        } else {
+          return
+        }
       },);
 
  
-   /*  console.log(state) */
+   console.log(state) 
     return (
         <div>
         <NavbarComplete/>
