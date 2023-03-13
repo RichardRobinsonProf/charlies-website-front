@@ -42,7 +42,7 @@ const PricesPage = () => {
       },);
 
  
-    console.log(state)
+   /*  console.log(state) */
     return (
         <div>
         <NavbarComplete/>
