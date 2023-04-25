@@ -100,7 +100,7 @@ export const English = {
     semiProPricePesosMonthGroup: "ARS $19.200",
     semiProPriceDollarsThreeMonths: "USD $312.2",
     semiProPricePesosThreeMonths: "ARS $99.360",
-    semiProPriceDollarsThreeMonthsGroup: "USD $162.",
+    semiProPriceDollarsThreeMonthsGroup: "USD $162",
     semiProPricePesosThreeMonthsGroup: "ARS $51.840",
     semiProText: "Improve your level of the language by learning new grammar and vocabulary",
     proTitle: "Pro",
