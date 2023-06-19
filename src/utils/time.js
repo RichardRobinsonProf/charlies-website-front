@@ -256,7 +256,7 @@ export function convertToArgentineTime(day, hour, minute, difference) {
   } else {
     hour = hour + 0;
   }
-  console.log(hour, difference)
+ 
 
   if (hour - difference < 0) {
     hour = hour - difference + 24;

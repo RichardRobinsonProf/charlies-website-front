@@ -31,7 +31,7 @@ const PricesPage = () => {
               timezone: data.timezone
 
             });
-            console.log(state)
+           
           })
           .catch((error) => {
             console.log(error);
@@ -48,7 +48,7 @@ const PricesPage = () => {
       },);
 
  
-   console.log(state) 
+  
     return (
         <div>
         <NavbarComplete/>
