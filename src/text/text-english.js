@@ -1,7 +1,7 @@
 export const English = {
     //herosection
     heroTitle : "A professional, personalised and flexible language institute",
-    heroSubtitle : "Would you like to learn a language? Take classes with us and not only will you learn by practising with a native teacher, but you can also create your own personalized course based on your needs.",
+    heroSubtitle : "Would you like to learn a language? Create your own personalized course with us and learn with a native teacher.",
     heroSubtitletwo : "We offer classes in these languages: English, French, German, Portuguese, Italian, Chinese, Spanish for foreigners",
     buttonMoreInfo : "More info",
 
@@ -18,16 +18,16 @@ export const English = {
 
     //aboutus
     aboutusTitle: "Learn a new language from anywhere in the world",
-    aboutusParagraphOne: "Robinson's Institute of Languages was founded in 2011 with the intention of offering language courses for people seeking to learn in a personalised way in the city of Buenos Aires.",
+    aboutusParagraphOne: "Robinson’s Institute of Languages was founded in 2011 with the intention of offering language classes for people looking to learn in a personalized way.",
     aboutusParagraphTwo: "We specialise in language courses for students who want to take an exam, go on a trip, do business or just learn a language in general.",
-    aboutusParagraphThree: "All teachers at the institute are language experts and have teaching certifications as well as teaching experience, and a variety of us are native teachers.",
+    aboutusParagraphThree: "All of the teachers in the institute are experts in the language and have both teaching qualifications and experience giving classes.",
     aboutusParagraphFour: "The translations department opened in 2013 and consists of both Argentine public translators and native English translators to achieve better translations. We work as a team to be able to translate long texts in less time without losing the quality of the translation.",
 
     //classes
     classesTitle: "Achieve more with RIL",
     classesVirtual: "Virtual classes",
     classesGroupAndIndividual: "Individual and group classes",
-    classesParagraphOne: "At Robinson's Institute of Languages we understand the importance of conversation when learning a new language. That is why our way of teaching is based on conversation. All of our teachers have international certifications and teaching experience, the majority are native but we also have some local teachers who have lived abroad for a period of time and can explain certain rules in Spanish should the student require it. We are all experts in assessing the level and needs of each student to plan a personalised course.",
+    classesParagraphOne: "At Robinson’s Institute of Languages we understand the importance of conversation when learning a new language, as it is the foundation of our teaching method. All of our teachers have international certificates and years of experience. We are experts at evaluating each student’s level and needs so that we can plan a personalized course.",
     classesParagraph:"Unlock the power of your personalised learning path to achieve your language goals fast. Discover how easy and fun it can be to learn a new language with Robinson Institute of Language!" ,
     classesParagraphTwo: "We seek to create dynamic and interactive classes. We use different tools, such as the internet, to make classes more fun and dynamic. We have material to help study grammar, listening and reading activities and material for exam preparation.",
     classesParagraphThree: "We offer flexibility regarding the time and place where classes can be taken. You can choose to have individual or group classes.",
@@ -35,7 +35,7 @@ export const English = {
     //translations
     translationsTitle: "Translation services",
     translationButton : "Read more about our translation services",
-    translationsParagraphOne: "We offer professional translation and interpretation services. We have public translators from Argentina and native translators from the United Kingdom and the United States. We work together to achieve a better translation.",
+    translationsParagraphOne: "Our translation and interpretation services are professional. We have certified translators in Argentina and native translators from the United Kingdom and the United States of America.",
     translationOrangeBgTitle: "Do you have any further questions?",
     translationOrangeBgSubtitle: "Contact us!",
     translationOrangeBgParagraphOne: "Our team is ready to find a solution to",
@@ -78,7 +78,7 @@ export const English = {
 
     //prices    
     pricesError: "please select 1 or 3 months",
-    pricesTitle: "See our plans",
+    pricesTitle: "Take a look at our plans",
     starterTitle: "Starter",
     starterSubtitle: "1 hour per week",
     starterSubtitleTwo: "1 class per week",

@@ -1,7 +1,7 @@
 export const Spanish = {
   //herosection
   heroTitle: "Un instituto de idiomas profesional, personalizado y flexible",
-  heroSubtitle:"¿Te gustaría aprender un idioma? Toma clases con nosotros y no solo aprenderás practicando con un profesor nativo, sino que también puedes crear tu propio curso personalizado según tus necesidades.",
+  heroSubtitle:"¿Te gustaría aprender un idioma? Crea tu propio curso personalizado con nosotros y aprende con un profesor nativo.",
   heroSubtitletwo:"Ofrecemos clases en estos idiomas: Inglés, Francés, Alemán, Portugués, Italiano, Chino, Español para extranjeros",
   buttonMoreInfo: "Más info",
 
@@ -17,15 +17,15 @@ export const Spanish = {
 
   //aboutus
   aboutusTitle: "Aprende un nuevo idioma desde cualquier parte del mundo",
-  aboutusParagraphOne:"Robinson's Institute of Languages se fundó en 2011 con la intención de ofrecer clases de idioma para personas que buscan aprender de una manera personalizada en la ciudad de Buenos Aires.",
+  aboutusParagraphOne:"Robinson’s Institute of Languages fue fundado en 2011 con la intención de ofrecer clases de idiomas para personas que buscan aprender de manera personalizada.",
   aboutusParagraphTwo:"Nos especializamos en clases para estudiantes que quieran dar exámenes, ir de viaje, hacer negocios o solo aprender un idioma en general.",
-  aboutusParagraphThree:"Todos los profesores en el instituto son expertos en el idioma y cuentan con certificaciones de enseñanza tanto como experiencia dictando clases. Además contamos con una variedad de profesores nativos.",
+  aboutusParagraphThree:"Todos los profesores del instituto son expertos en el idioma y cuentan con cualificaciones docentes y experiencia impartiendo clases.",
   aboutusParagraphFour: "El departamento de traducciones se abrió en 2013 y consiste de ambos traductores públicos argentinos y traductores nativos del inglés para lograr mejores traducciones. Trabajamos en equipo para poder traducir largos textos en menos tiempo sin perder la calidad de la traducción.",
 
   //  classes
   classesTitle: "Logra más con RIL",
   classesVirtual: "Clases virtuales",
-  classesParagraphOne:"En Robinson's Institute of Languages sabemos la importancia que tiene la conversación a la hora de aprender un idioma nuevo. Es por eso que nuestra forma de enseñar se basa en la conversación. Todos los profesores cuentan con certificaciones internacionales y experiencia en la enseñanza. La mayoría de los profesores son nativos, pero también hay profesores locales que vivieron en el exterior por un tiempo y que puedan explicar las reglas en castellano si es que el estudiante lo requiere. Somos expertos en evaluar el nivel y las necesidades de cada alumno para planificar un curso personalizado.",
+  classesParagraphOne:"En Robinson’s Institute of Languages, comprendemos la importancia de la conversación al aprender un nuevo idioma, ya que es la base de nuestro método de enseñanza. Todos nuestros profesores cuentan con certificados internacionales y años de experiencia. Somos expertos en evaluar el nivel y las necesidades de cada estudiante para poder planificar un curso personalizado.",
 
   classesGroupAndIndividual: "Clases individuales y grupales",
   classesParagraph:"Desbloquea el poder de tu camino personalizado de aprendizaje para lograr tus objetivo de idioma rapido. ¡Descubre cuán fácil y divertido puede ser aprender un nuevo idioma con Robinson Institute of Language!",
@@ -41,7 +41,7 @@ export const Spanish = {
   translationOrangeBgParagraphTwo: "tus necesidades de traducción",
   translationOrangeBgButton: "Contactános",
   translationsParagraphOne:
-    "Nuestro servicio de traducción e interpretación son profesionales. Contamos con traductores públicos de Argentina y traductores nativos del Reino Unido y Estados Unidos. Trabajamos juntos para lograr una mejor traducción.",
+    "Nuestros servicios de traducción e interpretación son profesionales. Contamos con traductores certificados en Argentina y traductores nativos del Reino Unido y Estados Unidos de América.",
 
   //translationPublic
   translationsPublic: "Traducciones Públicas",
