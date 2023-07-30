@@ -48,6 +48,7 @@ function Hero() {
 
     const data = {
       email: emailValue,
+      language: ctx.language && ctx.language
     };
 
    apiConnection.post('/users/send-emailAddress', data)

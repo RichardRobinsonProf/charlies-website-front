@@ -134,6 +134,7 @@ function Form() {
       pricePack: ctx.pricePack,
       price: ctx.price,
       amountMonths: ctx.duration,
+      languageStudent : ctx.language
     };
 
     if(ctx.wantsGroup === true) {

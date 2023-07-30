@@ -16,16 +16,16 @@ function HomePage() {
   return (
   <Fragment>
     <div className="text-font">
-  <NavbarComplete/>
-    <Hero/>
-    <AboutUs/>
-    <Classes/>
-    <Prices/>
-    <Translations/>
-    <Reviews/>
-    <CompaniesThatTrustUs/>
-    <Contact/>
-    <Footer/> 
+      <NavbarComplete/>
+      <Hero/>
+      <AboutUs/>
+      <Classes/>
+      <Prices/>
+      <Translations/>
+      <Reviews/>
+      <CompaniesThatTrustUs/>
+      <Contact/>
+      <Footer/> 
     </div>
     </Fragment>
   );

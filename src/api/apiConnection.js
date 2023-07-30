@@ -1,9 +1,7 @@
 import axios from 'axios'
 
 const apiConnection = axios.create({
-    //baseURL:'http://localhost:8080/api',
-    //
-    baseURL : 'https://charlies-website-back-production-afcf.up.railway.app/',
+    baseURL : 'https://charlies-website-back-production-afcf.up.railway.app/', 
     headers:{
         Accept: 'application/json',
         'Content-Type': 'application/json'
