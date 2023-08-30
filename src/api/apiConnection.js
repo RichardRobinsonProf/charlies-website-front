@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiConnection = axios.create({
-    baseURL : 'charlies-website-back-production-4a36.up.railway.app', 
+    baseURL : 'https://charlies-website-back-production-4a36.up.railway.app', 
     headers:{
         Accept: 'application/json',
         'Content-Type': 'application/json'
