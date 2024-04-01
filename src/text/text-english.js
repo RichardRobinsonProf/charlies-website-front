@@ -123,7 +123,7 @@ export const English = {
     pricesThreeMonths: "3 months",
 
 
-    //reviews
+    //review
     reviewsTitle: "Some of our happy customers",
     companiesThatTrustUs: "Companies that trust us",
 
