@@ -2,11 +2,33 @@ import ContextChosenLanguage from '../../Context'
 import { chosenLanguage } from '../../utils/language'
 import { useContext, useState, useEffect } from 'react'
 import PriceColumn from "./PriceColumn";
+import { useGetPricesQuery } from '../../servicesFirebase/pricesServices';
 
 
 function Prices (props) {
     const ctx = useContext(ContextChosenLanguage)
     const [text, setText] = useState(chosenLanguage(ctx.language))
+    const  {data : pricesData }  = useGetPricesQuery()
+    const [starter, setStarter] = useState({})
+    const [semiPro, setSemiPro] = useState({})
+    const [pro, setPro] = useState({})
+
+    const [starterGroup, setStarterGroup] = useState(false)
+    const [semiProGroup, setSemiProGroup] = useState(false)
+    const [proGroup, setProGroup] = useState(false)
+
+
+
+    useEffect(() => {
+        if (pricesData) {
+            setStarter(pricesData.starter.price)
+            setSemiPro(pricesData.semi_pro.price)
+            setPro(pricesData.pro.price)
+            setStarterGroup(pricesData.starter_group.price)
+            setSemiProGroup(pricesData.semi_pro_group.price)
+            setProGroup(pricesData.pro_group.price)
+
+        }}, [pricesData])
     
     useEffect (() => {
 
@@ -16,6 +38,13 @@ function Prices (props) {
             setText(chosenLanguage('Spanish'))
         }
     },[ctx.language])
+
+    const rp = (price, currency) => {
+        const priceWithPoints = price && price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        const priceToReturn = currency === 'usd' ? "USD $" + priceWithPoints : "ARS $" + priceWithPoints
+        const returnPrice = priceToReturn || ""
+        return returnPrice
+    }
 
 
     return (
@@ -28,8 +57,8 @@ function Prices (props) {
             startertitle = {text.starterTitle}
             startersubtitle = {text.starterSubtitle}
             startersubtitleTwo = {text.starterSubtitleTwo}
-            starterpriceMonth = {props.countryName !== "Argentina" ? text.starterPriceDollarsMonth : text.starterPricePesosMonth}
-            starterpriceThreeMonths = {props.countryName !== "Argentina" ? text.starterPriceDollarsThreeMonths : text.starterPricePesosThreeMonths}
+            starterpriceMonth = {props.countryName !== "Argentina" ? rp(starter?.one_month_usd, "usd") : rp(starter?.one_month, "ars")}
+            starterpriceThreeMonths = {props.countryName !== "Argentina" ? rp(starter?.three_months_usd, "usd") : rp(starter?.three_months, "ars")}
             starterpricesButtonIndividual = {text.pricesButtonIndividual}
             starterpricesButtonGroup = {text.pricesButtonGroup}
             starterpricesRenewMonth = {text.pricesRenewMonth}
@@ -39,8 +68,8 @@ function Prices (props) {
             semiProtitle = {text.semiProTitle}
             semiProsubtitle = {text.semiProSubtitle}
             semiProsubtitleTwo = {text.semiProSubtitleTwo}
-            semiPropriceMonth = {props.countryName !== "Argentina" ? text.semiProPriceDollarsMonth : text.semiProPricePesosMonth}
-            semiPropriceThreeMonths = {props.countryName !== "Argentina" ? text.semiProPriceDollarsThreeMonths : text.semiProPricePesosThreeMonths}
+            semiPropriceMonth = {props.countryName !== "Argentina" ? rp(semiPro?.one_month_usd, "usd") : rp(semiPro?.one_month, "ars")}
+            semiPropriceThreeMonths = {props.countryName !== "Argentina" ? rp(semiPro?.three_months_usd, "usd") : rp(semiPro?.three_months, "ars")}
             semiPropricesButtonIndividual = {text.pricesButtonIndividual}
             semiPropricesButtonGroup = {text.pricesButtonGroup}
             semiPropricesRenewMonth = {text.pricesRenewMonth}
@@ -50,8 +79,8 @@ function Prices (props) {
             protitle = {text.proTitle}
             prosubtitle = {text.proSubtitle}
             prosubtitleTwo = {text.proSubtitleTwo}
-            propriceMonth = {props.countryName !== "Argentina" ? text.proPriceDollarsMonth : text.proPricePesosMonth}
-            propriceThreeMonths = {props.countryName !== "Argentina" ? text.proPriceDollarsThreeMonths : text.proPricePesosThreeMonths}
+            propriceMonth = {props.countryName !== "Argentina" ? rp(pro?.one_month_usd, "usd") : rp(pro?.one_month, "ars")}
+            propriceThreeMonths = {props.countryName !== "Argentina" ? rp(pro?.three_months_usd, "usd") : rp(pro?.three_months, "ars")}
             propricesButtonIndividual = {text.pricesButtonIndividual}
             propricesButtonGroup = {text.pricesButtonGroup}
             propricesRenewMonth = {text.pricesRenewMonth}
@@ -66,8 +95,8 @@ function Prices (props) {
              startertitle = {text.starterTitle}
              startersubtitle = {text.starterSubtitle}
              startersubtitleTwo = {text.starterSubtitleTwo}
-             starterpriceMonth = {props.countryName !== "Argentina" ? text.starterPriceDollarsMonthGroup : text.starterPricePesosMonthGroup}
-             starterpriceThreeMonths = {props.countryName !== "Argentina" ? text.starterPriceDollarsThreeMonthsGroup : text.starterPricePesosThreeMonthsGroup}
+             starterpriceMonth = {props.countryName !== "Argentina" ? rp(starterGroup?.one_month_usd, "usd") : rp(starterGroup?.one_month, "ars")}
+             starterpriceThreeMonths = {props.countryName !== "Argentina" ? rp(starterGroup?.three_months_usd, "usd") : rp(starterGroup?.three_months, "ars")}
              starterpricesButtonIndividual = {text.pricesButtonIndividual}
              starterpricesButtonGroup = {text.pricesButtonGroup}
              starterpricesRenewMonth = {text.pricesRenewMonth}
@@ -77,8 +106,8 @@ function Prices (props) {
              semiProtitle = {text.semiProTitle}
              semiProsubtitle = {text.semiProSubtitle}
              semiProsubtitleTwo = {text.semiProSubtitleTwo}
-             semiPropriceMonth = {props.countryName !== "Argentina" ? text.semiProPriceDollarsMonthGroup : text.semiProPricePesosMonthGroup}
-             semiPropriceThreeMonths = {props.countryName !== "Argentina" ? text.semiProPriceDollarsThreeMonthsGroup : text.semiProPricePesosThreeMonthsGroup}
+             semiPropriceMonth = {props.countryName !== "Argentina" ? rp(semiProGroup?.one_month_usd, "usd") : rp(semiProGroup?.one_month, "ars")}
+             semiPropriceThreeMonths = {props.countryName !== "Argentina" ? rp(semiProGroup?.three_months_usd, "usd") : rp(semiProGroup?.three_months, "ars")}
              semiPropricesButtonIndividual = {text.pricesButtonIndividual}
              semiPropricesButtonGroup = {text.pricesButtonGroup}
              semiPropricesRenewMonth = {text.pricesRenewMonth}
@@ -88,8 +117,8 @@ function Prices (props) {
              protitle = {text.proTitle}
              prosubtitle = {text.proSubtitle}
              prosubtitleTwo = {text.proSubtitleTwo}
-             propriceMonth = {props.countryName !== "Argentina" ? text.proPriceDollarsMonthGroup : text.proPricePesosMonthGroup}
-             propriceThreeMonths = {props.countryName !== "Argentina" ? text.proPriceDollarsThreeMonthsGroup : text.proPricePesosThreeMonthsGroup}
+             propriceMonth = {props.countryName !== "Argentina" ? rp(proGroup?.one_month_usd, "usd") : rp(proGroup?.one_month, "ars")}
+             propriceThreeMonths = {props.countryName !== "Argentina" ? rp(proGroup?.three_months_usd, "usd") : rp(proGroup?.three_months, "ars")}
              propricesButtonIndividual = {text.pricesButtonIndividual}
              propricesButtonGroup = {text.pricesButtonGroup}
              propricesRenewMonth = {text.pricesRenewMonth}

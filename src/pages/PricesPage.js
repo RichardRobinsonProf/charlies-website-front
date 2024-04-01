@@ -5,6 +5,7 @@ import Footer from "../components/HomePage/Footer";
 import NavbarComplete from "../components/HomePage/NavbarComplete";
 
 
+
 const PricesPage = () => {
 
 
