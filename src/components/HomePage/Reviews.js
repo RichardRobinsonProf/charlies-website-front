@@ -23,7 +23,7 @@ function Reviews() {
       }).init();
   },[ctx.language])
   return (
-    <section id="reviews" className="text-font p-md-5 p-3 pt-5">
+    <section id="reviews" className="text-font p-md-5 p-3">
       <div>
         <div className="row pt-md-3 text-center ms-md-0">
         <h1 className="display-5 text-black wow opacity100">{text.reviewsTitle}</h1>

@@ -1,27 +1,13 @@
 import { Image } from "react-bootstrap";
-import { useContext, useEffect, useState } from "react";
-import ContextChosenLanguage from '../../Context'
-import {chosenLanguage} from '../../utils/language'
 import ImageClasses from "../../images/RIL Assets-07.png";
 import BlueButton from "../HomePage/buttons/BlueButton";
-import WOW from 'wowjs'
+import useWow from "../../hooks/useWow";
+import useTranslation from "../../hooks/useTranslation";
 
 
 function Translations() {
-  const ctx = useContext(ContextChosenLanguage)
-  const [text, setText] = useState(chosenLanguage(ctx.language))
-  
-  useEffect (() => {
-  
-      if (ctx.language === 'English') {
-          setText(chosenLanguage('English'))
-      } else {
-          setText(chosenLanguage('Spanish'))
-      }
-      new WOW.WOW({
-        live: false
-      }).init();
-  },[ctx.language])
+  useWow()
+  const {text, t} = useTranslation()
 
   return (
     <section id="translations" className="ps-md-5 pe-md-3 pt-md-2 pt-md-0 p-3 text-center">
@@ -29,10 +15,10 @@ function Translations() {
         <div className= "col-md-5 offset-md-1 mt-5 mt-md-0">
         <h1 className="display-5 text-black wow opacity100">{text.translationsTitle}</h1>
           <p className="wow opacity100">
-            {text.translationsParagraphOne}
+            {t("translationsParagraphOne")}
           </p>
           <BlueButton
-							text= {text.translationButton}
+							text= {t("translationButton")}
 							link = "/translations"
               extraClasses= "ms-0 wow opacity100Late inputButton"
               />

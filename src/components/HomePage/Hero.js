@@ -1,36 +1,26 @@
 import ImageHero from "../../images/RIL Assets-01.png";
 import Team from "../../images/Team.jpg";
 import Image from "react-bootstrap/Image";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import ContextChosenLanguage from "../../Context";
-import { chosenLanguage } from "../../utils/language";
 import BlueButton from "./buttons/BlueButton";
 import useInput from "../../hooks/use-input";
 import apiConnection from "../../api/apiConnection";
 import "../FormPage/FormLayout.css";
 import {useHistory} from 'react-router-dom'
+import useTranslation from "../../hooks/useTranslation";
 
 
 
 
 function Hero() {
   const ctx = useContext(ContextChosenLanguage);
-  const [text, setText] = useState(chosenLanguage(ctx.language));
 
   const [alertVisible, setAlertVisible] = useState(false);
   const history = useHistory()
-  
 
   const isEmail = (value) => value.includes("@");
-
-  useEffect(() => {
-    if (ctx.language === "English") {
-      setText(chosenLanguage("English"));
-    } else {
-      setText(chosenLanguage("Spanish"));
-    }
-
-  }, [ctx.language]);
+  const {text, t} = useTranslation()
 
   function submitHandler (e) {
     e.preventDefault();
@@ -52,9 +42,6 @@ function Hero() {
     };
 
    apiConnection.post('/users/send-emailAddress', data)
-    .then(response => {
-      console.log(response)
-    })
     .catch(error => {
         console.log(error)
     })
@@ -63,9 +50,8 @@ function Hero() {
     ctx.setEmail(emailValue)
     resetemail()
     history.push('/prices')
+    }
   }
-  }
-
 
   const {
     value: emailValue,
@@ -88,9 +74,12 @@ function Hero() {
           <br></br>
         </div>
         <div className="col-md-4 offset-md-1 col-12 mt-5 align-self-center">
-          <h1 className="display-5 text-black wow opacity100">{text.heroTitle}</h1>
-          <p className="text-black text-font wow opacity100">{text.heroSubtitle}</p>
-        </div>
+        <div className="row justify-content-center mb-5">
+          <Image className=" d-md-none w-75" src={ImageHero} alt="imageHero"/>
+          </div>
+          <h1 className="display-5 text-black wow opacity100">{t("heroTitle")}</h1>
+          <p className="text-black text-font wow opacity100">{t("heroSubtitle")}</p>
+       </div>
         <div className="col-md-7 col-12 align-self-end mb-3 ">
             <div className="row justify-content-center">
           <Image className="d-none d-md-block w-75" src={ImageHero} alt="imageHero"/>
@@ -131,11 +120,13 @@ function Hero() {
         </div>
         <div className="col-md-4 col-12 align-self-center wow opacity100" id="aboutushero">
           <h1 className="display-5 text-black ms-md-4" >
-            {text.aboutusTitle}
+            {t("aboutusTitle")}
           </h1>
-          <p className="text-black ms-md-4 text-font">{text.aboutusParagraphOne}</p>
-          <p className="text-black ms-md-4 text-font">{text.aboutusParagraphThree}</p>
-          <span>
+          <p className="text-black ms-md-4 text-font">{t("aboutusParagraphOne")}</p>
+          <p className="text-black ms-md-4 text-font">{t("aboutusParagraphThree")}</p>
+          <span
+            className="d-none d-md-block"
+          >
             <BlueButton
             text= {text.generalBlueButton}
             extraClasses = {"ms-md-4 inputButton"}

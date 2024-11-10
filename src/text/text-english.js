@@ -5,6 +5,9 @@ export const English = {
     heroSubtitletwo : "We offer classes in these languages: English, French, German, Portuguese, Italian, Chinese, Spanish for foreigners",
     buttonMoreInfo : "More info",
 
+    heroTitleMobile: "Professional and flexible language institute",
+    heroSubtitleMobile: "Learn a language with a personalized course and native teacher.",
+    heroSubtitletwoMobile: "Languages: English, French, German, Portuguese, Italian, Chinese, and Spanish.",
 
     //navbar
     navAboutus: "About us",
@@ -23,6 +26,13 @@ export const English = {
     aboutusParagraphThree: "All of the teachers in the institute are experts in the language and have both teaching qualifications and experience giving classes.",
     aboutusParagraphFour: "The translations department opened in 2013 and consists of both Argentine public translators and native English translators to achieve better translations. We work as a team to be able to translate long texts in less time without losing the quality of the translation.",
 
+    //aboutusMobile
+    aboutusTitleMobile: "Learn a new language from anywhere",
+    aboutusParagraphOneMobile: "Desde 2011, el Instituto Robinson ofrece clases personalizadas.",
+    aboutusParagraphThreeMobile: "Profesores expertos, con experiencia y certificación.",
+
+    
+
     //classes
     classesTitle: "Achieve more with RIL",
     classesVirtual: "Virtual classes",
@@ -31,6 +41,15 @@ export const English = {
     classesParagraph:"Unlock the power of your personalised learning path to achieve your language goals fast. Discover how easy and fun it can be to learn a new language with Robinson Institute of Language!" ,
     classesParagraphTwo: "We seek to create dynamic and interactive classes. We use different tools, such as the internet, to make classes more fun and dynamic. We have material to help study grammar, listening and reading activities and material for exam preparation.",
     classesParagraphThree: "We offer flexibility regarding the time and place where classes can be taken. You can choose to have individual or group classes.",
+
+    //classesMobile
+    classesTitleMobile: "Achieve more with RIL",
+    classesVirtualMobile: "Virtual classes",
+    classesGroupAndIndividualMobile: "Individual and group",
+    classesParagraphOneMobile: "Conversation is key at Robinson. Our certified teachers tailor courses to each student's level and goals.",
+    classesParagraphMobile: "Reach your goals with a personalized learning path. Learning at Robinson is easy and fun!",
+    classesParagraphTwoMobile: "Dynamic and interactive classes with online tools, grammar, listening, reading, and exam preparation.",
+    classesParagraphThreeMobile: "Flexible options: individual or group, choose your time and place.",
 
     //translations
     translationsTitle: "Translation services",
@@ -41,6 +60,12 @@ export const English = {
     translationOrangeBgParagraphOne: "Our team is ready to find a solution to",
     translationOrangeBgParagraphTwo: "your translation needs",
     translationOrangeBgButton: "Contact us",
+
+    //translationMobile
+    translationButtonMobile: "Learn more",
+    translationsParagraphOneMobile: "Professional translation and interpretation with certified translators in Argentina and native speakers from the UK and USA.",
+
+
     //translationPublic
     translationsPublic: "Public translations",
     translationsPublicBold: "For documents such as:",

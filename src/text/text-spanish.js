@@ -5,6 +5,12 @@ export const Spanish = {
   heroSubtitletwo:"Ofrecemos clases en estos idiomas: Inglés, Francés, Alemán, Portugués, Italiano, Chino, Español para extranjeros",
   buttonMoreInfo: "Más info",
 
+  //herosectionMobile
+  heroTitleMobile: "Instituto de idiomas profesional y flexible",
+  heroSubtitleMobile: "Aprendé un idioma con un curso personalizado y profesor nativo.",
+  heroSubtitletwoMobile: "Idiomas: Inglés, Francés, Alemán, Portugués, Italiano, Chino y Español.",
+  buttonMoreInfoMobile: "Más info",
+
   //navbar
   navAboutus: "Acerca de nosotros",
   navClasses: "Clases",
@@ -22,15 +28,34 @@ export const Spanish = {
   aboutusParagraphThree:"Todos los profesores del instituto son expertos en el idioma y cuentan con cualificaciones docentes y experiencia impartiendo clases.",
   aboutusParagraphFour: "El departamento de traducciones se abrió en 2013 y consiste de ambos traductores públicos argentinos y traductores nativos del inglés para lograr mejores traducciones. Trabajamos en equipo para poder traducir largos textos en menos tiempo sin perder la calidad de la traducción.",
 
-  //  classes
+  //aboutusMobile
+  aboutusTitleMobile: "Aprendé un nuevo idioma desde cualquier lugar",
+  aboutusParagraphOneMobile: "Since 2011, Robinson Institute has offered personalized classes.",
+  aboutusParagraphThreeMobile: "Expert teachers with experience and certification.",
+
+
+  // classes
   classesTitle: "Logra más con RIL",
   classesVirtual: "Clases virtuales",
   classesParagraphOne:"En Robinson’s Institute of Languages, comprendemos la importancia de la conversación al aprender un nuevo idioma, ya que es la base de nuestro método de enseñanza. Todos nuestros profesores cuentan con certificados internacionales y años de experiencia. Somos expertos en evaluar el nivel y las necesidades de cada estudiante para poder planificar un curso personalizado.",
-
   classesGroupAndIndividual: "Clases individuales y grupales",
   classesParagraph:"Desbloquea el poder de tu camino personalizado de aprendizaje para lograr tus objetivo de idioma rapido. ¡Descubre cuán fácil y divertido puede ser aprender un nuevo idioma con Robinson Institute of Language!",
   classesParagraphTwo: "Buscamos crear clases dinámicas e interactivas. Usamos diferentes herramientas, como el internet, para hacer de las clases más divertidas y completas. Contamos con material gramatical, actividades de escuchar y leer y para preparación de exámenes.",
   classesParagraphThree:"Ofrecemos flexibilidad en cuanto al horario y lugar donde se toman las clases. Se puede tomar clases individuales o en grupo.",
+
+  // classesMobile
+  classesTitleMobile: "Lográ más con RIL",
+  classesVirtualMobile: "Clases virtuales",
+  classesGroupAndIndividualMobile: "Individual y grupal",
+  classesParagraphOneMobile: "La conversación es clave en Robinson. Nuestros profesores certificados adaptan los cursos al nivel y objetivos de cada estudiante.",
+  classesParagraphMobile: "Alcanzá tus metas con un aprendizaje personalizado. ¡Aprender en Robinson es fácil y divertido!",
+  classesParagraphTwoMobile: "Clases dinámicas e interactivas con herramientas en línea, gramática, comprensión auditiva, lectura y preparación para exámenes.",
+  classesParagraphThreeMobile: "Opciones flexibles: individual o grupal, elegí tu horario y lugar.",
+
+  //translationMobile
+  translationButtonMobile: "Ver más",
+  translationsParagraphOneMobile: "Traducción e interpretación profesional con traductores certificados en Argentina y nativos del Reino Unido y EE.UU.",
+
 
   //translations
   translationsTitle: "Servicios de traducciones",

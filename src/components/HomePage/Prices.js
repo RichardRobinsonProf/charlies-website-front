@@ -26,7 +26,7 @@ function Prices () {
 	},[ctx.language])
     return (
         <section id="prices">
-			<div className='p-md-5 p-3'> 
+			<div className='p-md-5 p-3 pt-0'> 
 			<div className='row justify-content-center mb-5'>
 			<div className= 'col-12 col-md-3 mt-3 wow opacity100'>
 					<div className='light-blue text-center p-5 p-md-3 pb-md-5 text-font rounded'>
