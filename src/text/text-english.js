@@ -80,6 +80,20 @@ export const English = {
     translationsPublicListEight: "Invention patents, intellectual property, copyright",
     translationsPublicListNine: "Financial statements",   
 
+    //translationPublicMobile
+    translationsPublicMobile: "Public Translations",
+    translationsPublicBoldMobile: "For documents like:",
+    translationsPublicListOneMobile: "Birth, marriage, and divorce certificates",
+    translationsPublicListTwoMobile: "Passports and IDs",
+    translationsPublicListThreeMobile: "Wills",
+    translationsPublicListFourMobile: "Educational documents (diplomas, CVs)",
+    translationsPublicListFiveMobile: "Contracts",
+    translationsPublicListSixMobile: "Corporate documents (bylaws, minutes)",
+    translationsPublicListSevenMobile: "Technical/scientific papers",
+    translationsPublicListEightMobile: "Patents, IP, copyright",
+    translationsPublicListNineMobile: "Financial statements",
+
+
     //translationPrivate
     translationsPrivate: "Private translations",
     translationsPrivateBold: "For documents in the areas of:",

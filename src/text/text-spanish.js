@@ -82,6 +82,20 @@ export const Spanish = {
   translationsPublicListEight:"Patentes de invención, propiedad intelectual, derechos de autor",
   translationsPublicListNine: "Estados contables",
 
+  //translationPublicMobile
+  translationsPublicMobile: "Traducciones Públicas",
+  translationsPublicBoldMobile: "Para documentos como:",
+  translationsPublicListOneMobile: "Certificados de nacimiento, matrimonio y divorcio",
+  translationsPublicListTwoMobile: "Pasaportes e identificación personal",
+  translationsPublicListThreeMobile: "Testamentos",
+  translationsPublicListFourMobile: "Documentos educativos (diplomas, CVs)",
+  translationsPublicListFiveMobile: "Contratos",
+  translationsPublicListSixMobile: "Documentos corporativos (estatutos, actas)",
+  translationsPublicListSevenMobile: "Documentos técnicos/científicos",
+  translationsPublicListEightMobile: "Patentes, propiedad intelectual, derechos de autor",
+  translationsPublicListNineMobile: "Estados financieros",
+
+
   //translationPrivate
   translationsPrivate: "Traducciones Privadas",
   translationsPrivateBold: "Por documentos en las áreas de:",

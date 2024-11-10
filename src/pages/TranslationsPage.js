@@ -1,56 +1,49 @@
-
 import Footer from "../components/HomePage/Footer";
 import NavbarComplete from "../components/HomePage/NavbarComplete";
 import Contact from "../components/HomePage/Contact";
 import Translations from "../components/TranslationsPage/Translations";
-import { useContext, useState, useEffect } from "react";
-import ContextChosenLanguage from "../Context";
-import { chosenLanguage } from "../utils/language";
+import useTranslation from "../hooks/useTranslation";
 
+function TranslationsPage() {
+  const {text, t} = useTranslation();
 
-function TranslationsPage () {
-    const ctx = useContext(ContextChosenLanguage);
-    const [text, setText] = useState(chosenLanguage(ctx.language));
-    
-    useEffect(() => {
-    
-      if (ctx.language === "English") {
-        setText(chosenLanguage("English"));
-      } else {
-        setText(chosenLanguage("Spanish"));
-      }
-    }, [ctx.language]);
-    return( 
+  return (
     <div>
-        <NavbarComplete/> 
-        <Translations
-        translationsParagraphOne = {text.translationsParagraphOne}
-        translationsPublic = {text.translationsPublic}
-        translationsPublicListOne = {text.translationsPublicListOne}
-        translationsPublicListTwo = {text.translationsPublicListTwo}
-        translationsPublicListThree = {text.translationsPublicListThree}
-        translationsPublicListFour = {text.translationsPublicListFour}
-        translationsPublicListFive = {text.translationsPublicListFive}
-        translationsPublicListSix = {text.translationsPublicListSix}
-        translationsPublicListSeven = {text.translationsPublicListSeven}
-        translationsPublicListEight = {text.translationsPublicListEight}
-        translationsPublicListNine = {text.translationsPublicListNine}
-        translationsPrivate = {text.translationsPrivate}
-        translationsPrivateListOne = {text.translationsPrivateListOne}
-        translationsPrivateListTwo = {text.translationsPrivateListTwo}
-        translationsPrivateListThree = {text.translationsPrivateListThree}
-        translationsPrivateListFour = {text.translationsPrivateListFour}
-        translationsPrivateListFive = {text.translationsPrivateListFive}
-        translationsPrivateListSix = {text.translationsPrivateListSix}
-        translationsInterpretation = {text.translationsInterpretation}
-        translationsInterpretationListOne = {text.translationsInterpretationListOne}
-        translationsInterpretationListTwo = {text.translationsInterpretationListTwo}
-        translationsInterpretationListThree = {text.translationsInterpretationListThree}
-        />
-        <Contact/>
-        <Footer/>
+      <NavbarComplete />
+      <Translations
+        translationsParagraphOne={t("translationsParagraphOne")}
+        translationsPublic={text.translationsPublic}
+        translationsPublicListOne={t("translationsPublicListOne")}
+        translationsPublicListTwo={t("translationsPublicListTwo")}
+        translationsPublicListThree={t("translationsPublicListThree")}
+        translationsPublicListFour={t("translationsPublicListFour")}
+        translationsPublicListFive={t("translationsPublicListFive")}
+        translationsPublicListSix={t("translationsPublicListSix")}
+        translationsPublicListSeven={t("translationsPublicListSeven")}
+        translationsPublicListEight={t("translationsPublicListEight")}
+        translationsPublicListNine={t("translationsPublicListNine")}
+        translationsPrivate={text.translationsPrivate}
+        translationsPrivateListOne={text.translationsPrivateListOne}
+        translationsPrivateListTwo={text.translationsPrivateListTwo}
+        translationsPrivateListThree={text.translationsPrivateListThree}
+        translationsPrivateListFour={text.translationsPrivateListFour}
+        translationsPrivateListFive={text.translationsPrivateListFive}
+        translationsPrivateListSix={text.translationsPrivateListSix}
+        translationsInterpretation={text.translationsInterpretation}
+        translationsInterpretationListOne={
+          text.translationsInterpretationListOne
+        }
+        translationsInterpretationListTwo={
+          text.translationsInterpretationListTwo
+        }
+        translationsInterpretationListThree={
+          text.translationsInterpretationListThree
+        }
+      />
+      <Contact />
+      <Footer />
     </div>
-    )
+  );
 }
 
 export default TranslationsPage;
