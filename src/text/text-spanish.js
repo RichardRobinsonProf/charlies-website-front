@@ -30,8 +30,9 @@ export const Spanish = {
 
   //aboutusMobile
   aboutusTitleMobile: "Aprendé un nuevo idioma desde cualquier lugar",
-  aboutusParagraphOneMobile: "Since 2011, Robinson Institute has offered personalized classes.",
-  aboutusParagraphThreeMobile: "Expert teachers with experience and certification.",
+  aboutusParagraphOneMobile: "Desde 2011, el Instituto Robinson ofrece clases personalizadas.",
+  aboutusParagraphThreeMobile: "Profesores expertos, con experiencia y certificación.",
+  
 
 
   // classes
